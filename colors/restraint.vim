@@ -124,7 +124,7 @@ let s:xGrey = {
   call s:hy('FoldColumn'   , 'none' , 'none' , s:bold    , s:bg   , 'bold'         )
   call s:hy('ModeMsg'      , 'none' , 'none' , s:bold    , s:bg   , 'bold'         )
   call s:hy('Cursor'       , 'none' , 'none' , s:color15 , s:bg   , 'bold'         )
-  call s:hy('Search'       , 'none' , 'none' , 'none'    , 'none' , 'bold,inverse' )
+  call s:hy('Search'       , 'none' , 'none' , 'none'    , 'none' , 'inverse' )
   call s:hy('QuickFixLine' , 'none' , 'none' , 'none'    , 'none' , 'bold,inverse' )
   call s:hy('EndOfBuffer'  , 'none' , 'none' , 'none'    , 'none' , 'none'         )
 
