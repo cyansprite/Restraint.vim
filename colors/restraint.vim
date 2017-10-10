@@ -207,7 +207,7 @@ if &bg=='light'
   call s:hy('LineNr'       , '8   ' , '253 ' , s:color8       , s:xGrey['253'] , 'none'           )
   call s:hy('SignColumn'   , '8   ' , '253 ' , s:color8       , s:xGrey['253'] , 'none'           )
   call s:hy('Pmenu'        , '8   ' , '253 ' , s:color8       , s:xGrey['253'] , 'none'           )
-  call s:hy('CursorLine'   , 'none' , '251 ' , 'none'         , s:xGrey['251'] , 'none'           )
+  call s:hy('CursorLine'   , 'none' , '254 ' , 'none'         , s:xGrey['251'] , 'none'           )
   call s:hy('CursorLineNr' , 'none' , '251 ' , s:bold         , s:xGrey['251'] , 'bold'           )
   call s:hy('PmenuSbar'    , 'none' , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
   call s:hy('ColorColumn'  , 'none' , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
@@ -216,7 +216,7 @@ if &bg=='light'
   call s:hy('PmenuSel'     , 'none' , '247 ' , s:bold         , s:xGrey['247'] , 'bold'           )
   call s:hy('IncSearch'    , 'none' , '247 ' , s:bold         , s:xGrey['247'] , 'bold,underline' )
   call s:hy('WildMenu'     , 'none' , '245 ' , s:bold         , s:xGrey['245'] , 'bold'           )
-  call s:hy('MatchParen'   , 'none' , '245 ' , s:bold         , s:xGrey['245'] , 'bold' )
+  call s:hy('MatchParen'   , 'none' , '250 ' , s:bold         , s:xGrey['245'] , 'bold' )
 
   call s:hy('User6'        , 'none' , '255'  , 'none'         , s:xGrey['255'] , 'none'           )
   call s:hy('User3'        , 'none' , '251'  , 'none'         , s:xGrey['251'] , 'bold'           )
@@ -226,7 +226,7 @@ if &bg=='light'
   call s:hy('User4'        , 'none' , '249'  , 'none'         , s:xGrey['249'] , 'none'           )
 
   call s:hy('NormalNC'     , 'none' , '251'  , 'none'         , s:bgnc         , 'none'           )
-  call s:hy('holdSearch'   , 'none' , '247'  , 'none'         , s:xGrey['247'] , 'none'           )
+  call s:hy('holdSearch'   , 'none' , '250'  , 'none'         , s:xGrey['250'] , 'none'           )
 else
   call s:hy('StatusLine'   , 'none' , '233 ' , 'fg'           , s:xGrey['233'] , 'none'           )
   call s:hy('LineNr'       , '8   ' , '234 ' , s:color8       , s:xGrey['234'] , 'none'           )
@@ -251,7 +251,7 @@ else
   call s:hy('User4'        , 'none' , '236'  , 'none'         , s:xGrey['236'] , 'none'           )
 
   call s:hy('NormalNC'     , 'none' , '235'  , 'none'         , s:bgnc         , 'none'           )
-  call s:hy('holdSearch'   , 'none' , '240'  , 'none'         , s:xGrey['240'] , 'none'           )
+  call s:hy('holdSearch'   , 'none' , '239'  , 'none'         , s:xGrey['239'] , 'none'           )
 endif
 
 
