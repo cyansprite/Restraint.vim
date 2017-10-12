@@ -225,6 +225,8 @@ if &bg=='light'
 
     call s:hy('NormalNC'     , 'none'  , '251'  , 'none'         , s:bgnc         , 'none'           )
     call s:hy('holdSearch'   , 'none'  , '250'  , 'none'         , s:xGrey['250'] , 'none'           )
+    call s:hy('holdSearchC'  , 'none'  , '252'  , 'none'         , s:xGrey['239'] , 'bold'           )
+    call s:hy('Conceal'      , 'none'  , '255'  , 'none'         , s:xGrey['233'] , 'bold'           )
     call s:hy('DiffText'     , '15'    , '12'   , s:color15      , s:color12      , 'none'           )
 else
     call s:hy('StatusLine'   , 'none'  , '233 ' , 'fg'           , s:xGrey['233'] , 'none'           )
