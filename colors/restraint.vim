@@ -250,7 +250,9 @@ else
     call s:hy('User4'        , 'none'  , '236'  , 'none'         , s:xGrey['236'] , 'none'           )
 
     call s:hy('NormalNC'     , 'none'  , '235'  , 'none'         , s:bgnc         , 'none'           )
-    call s:hy('holdSearch'   , 'none'  , '239'  , 'none'         , s:xGrey['239'] , 'none'           )
+    call s:hy('holdSearch'   , 'none'  , '237'  , 'none'         , s:xGrey['237'] , 'none'           )
+    call s:hy('holdSearchC'  , 'none'  , '239'  , 'none'         , s:xGrey['239'] , 'bold'           )
+    call s:hy('Conceal'      , 'none'  , '233'  , 'none'         , s:xGrey['233'] , 'bold'           )
     call s:hy('DiffText'     , '15'    , '14'   , s:color15      , s:color14      , 'none'           )
 endif
 
