@@ -35,6 +35,7 @@ if &bg              == 'light'
     let s:underline = '#505000'
     let s:italic    = '#aa4444'
     let s:bold      = '#5f557c'
+    let s:comment   = '#875f00'
 
     " Term colors go here.
     let s:color0    = '#000000'
@@ -63,6 +64,7 @@ else
     let s:bold      = '#cfc5fc'
     let s:italic    = '#f0c0c0'
     let s:underline = '#f0ffca'
+    let s:comment   = '#5f5f00'
 
     " Term colors go here.
     let s:color0    = '#000000'
@@ -86,7 +88,7 @@ else
     let s:color6    = '#90dbdb'
     let s:color14   = '#6acfcf'
 
-    let s:color7    = '#909090'
+    let s:color7    = '#9595ac'
     let s:color15   = '#dbdbdb'
 endif
 
@@ -191,16 +193,16 @@ let s:xGrey = {
 " Grey:   7{{{1
     call s:hy('Ignore'   , '7' , 'none' , s:color7 , 'bg' , 'italic' )
     call s:hy('PreProc'  , '7' , 'none' , s:color7 , 'bg' , 'none'   )
-    call s:hy('Class'    , '7' , 'none' , s:color7 , 'bg' , 'none'   )
 
 " Black:  0{{{1
 " TODO discover why gui hates italics.
-    call s:hy('VertSplit'    , '0' , 'none' , s:color0 , 'bg'           , 'none')
-    call s:hy('Comment'      , '8' , 'none' , s:color8 , 'bg'           , 'none')
+    call s:hy('VertSplit'    , '0' , 'none' , s:color0 , 'bg'     , 'none')
+    call s:hy('Class'        , '8' , 'none' , s:color8 , 'bg'     , 'none')
     call s:hy('StatuslineNc' , '8' , '7'    , s:color8 , s:color7 , 'none')
 
 " Accent: *{{{1
 if &bg=='light'
+    call s:hy('Comment'      , '58'   , 'none'  , s:comment       , 'bg'           , 'none'           )
     call s:hy('StatusLine'   , 'none'  , '255 ' , 'fg'           , s:xGrey['255'] , 'none'           )
     call s:hy('LineNr'       , '8   '  , '253 ' , s:color8       , s:xGrey['253'] , 'none'           )
     call s:hy('SignColumn'   , '8   '  , '253 ' , s:color8       , s:xGrey['253'] , 'none'           )
@@ -229,6 +231,7 @@ if &bg=='light'
     call s:hy('Conceal'      , 'none'  , '255'  , 'none'         , s:xGrey['233'] , 'bold'           )
     call s:hy('DiffText'     , '15'    , '12'   , s:color15      , s:color12      , 'none'           )
 else
+    call s:hy('Comment'      , '94'    , 'none' , s:comment      , 'bg'           , 'none'           )
     call s:hy('StatusLine'   , 'none'  , '233 ' , 'fg'           , s:xGrey['233'] , 'none'           )
     call s:hy('LineNr'       , '8   '  , '234 ' , s:color8       , s:xGrey['234'] , 'none'           )
     call s:hy('SignColumn'   , '8   '  , '234 ' , s:color8       , s:xGrey['234'] , 'none'           )
