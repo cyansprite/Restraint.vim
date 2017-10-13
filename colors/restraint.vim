@@ -135,7 +135,6 @@ let s:xGrey = {
     call s:hy('Boolean'    , '1'  , 'none' , s:color1  , 'bg'     , 'none')
 
     call s:hy('Keyword'    , '9'  , 'none' , s:color9  , 'bg'     , 'none')
-    call s:hy('Character'  , '9'  , 'none' , s:color9  , 'bg'     , 'none')
 
     call s:hy('Error'      , '1'  , '9'    , s:color1  , s:color9 , 'none')
     call s:hy('ErrorMsg'   , '15' , '9'    , s:color15 , s:color9 , 'bold')
@@ -185,8 +184,9 @@ let s:xGrey = {
 " Cyan:   6{{{1
     call s:hy('Member'     , '6'    , 'none' , s:color6  , 'bg'      , 'none')
     call s:hy('Function'   , '6'    , 'none' , s:color6  , 'bg'      , 'none')
+    call s:hy('Character'  , '6'    , 'none' , s:color6  , 'bg'      , 'none')
 
-    call s:hy('Operator'   , '14'   , 'none' , s:color14 , 'bg'      , 'none'   )
+    call s:hy('Operator'   , '14'   , 'none' , s:color14 , 'bg'      , 'none')
 
     call s:hy('PMenuThumb' , 'none' , '6'    , 'none'    , s:color6  , 'none')
 
