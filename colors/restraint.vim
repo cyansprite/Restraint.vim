@@ -212,7 +212,7 @@ if &bg=='light'
     call s:hy('PmenuSbar'    , 'none'  , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
     call s:hy('ColorColumn'  , 'none'  , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
     call s:hy('DiffChange'   , 'none ' , '253'  , s:xGrey['245'] , 'none'         , 'bold'           )
-    call s:hy('Visual'       , 'none'  , '247 ' , 'none'         , s:xGrey['247'] , 'bold'           )
+    call s:hy('Visual'       , 'none'  , '123 ' , 'none'         , s:xGrey['247'] , 'bold'           )
     call s:hy('PmenuSel'     , 'none'  , '247 ' , s:bold         , s:xGrey['247'] , 'bold'           )
     call s:hy('IncSearch'    , 'none'  , '247 ' , s:bold         , s:xGrey['247'] , 'bold,underline' )
     call s:hy('WildMenu'     , 'none'  , '245 ' , s:bold         , s:xGrey['245'] , 'bold'           )
@@ -256,7 +256,7 @@ else
 
     call s:hy('NormalNC'     , 'none'  , '235'  , 'none'         , s:bgnc         , 'none'           )
     call s:hy('holdSearch'   , 'none'  , '237'  , 'none'         , s:xGrey['237'] , 'none'           )
-    call s:hy('holdSearchC'  , 'none'  , '239'  , 'none'         , s:xGrey['239'] , 'bold'           )
+    call s:hy('holdSearchC'  , 'none'  , '234'  , 'none'         , s:xGrey['233'] , 'bold,inverse'   )
     call s:hy('Conceal'      , 'none'  , '235'  , 'none'         , s:xGrey['235'] , 'bold'           )
     call s:hy('DiffText'     , '15'    , '14'   , s:color15      , s:color14      , 'none'           )
 endif
