@@ -30,12 +30,12 @@ if &bg              == 'light'
     let s:fg        = '#2f2f2f'
     let s:bg        = '#dfdfdf'
     let s:bgnc      = '#dadada'
+    let s:comment   = '#5f5f00'
 
     " Rxvt spoiled me.
     let s:underline = '#505000'
     let s:italic    = '#aa4444'
     let s:bold      = '#5f557c'
-    let s:comment   = '#875f00'
 
     " Term colors go here.
     let s:color0    = '#000000'
@@ -64,7 +64,7 @@ else
     let s:bold      = '#cfc5fc'
     let s:italic    = '#f0c0c0'
     let s:underline = '#f0ffca'
-    let s:comment   = '#5f5f00'
+    let s:comment   = '#875f00'
 
     " Term colors go here.
     let s:color0    = '#000000'
@@ -257,7 +257,7 @@ else
     call s:hy('NormalNC'     , 'none'  , '235'  , 'none'         , s:bgnc         , 'none'           )
     call s:hy('holdSearch'   , 'none'  , '237'  , 'none'         , s:xGrey['237'] , 'none'           )
     call s:hy('holdSearchC'  , 'none'  , '239'  , 'none'         , s:xGrey['239'] , 'bold'           )
-    call s:hy('Conceal'      , 'none'  , '233'  , 'none'         , s:xGrey['233'] , 'bold'           )
+    call s:hy('Conceal'      , 'none'  , '235'  , 'none'         , s:xGrey['235'] , 'bold'           )
     call s:hy('DiffText'     , '15'    , '14'   , s:color15      , s:color14      , 'none'           )
 endif
 
@@ -269,3 +269,19 @@ endif
     hi link diffAdded       DiffAdd
     hi link diffRemoved     DiffDelete
 " }}}
+" Plugin: & {{{1
+    call s:hy('logicalbuffer'   , 'none' , 'none' , s:bold    , s:bg           , 'bold,inverse' )
+    call s:hy('logicalmodified' , 'none' , 'none' , s:color2  , s:xGrey['236'] , 'bold'         )
+    call s:hy('logicalreadonly' , 'none' , 'none' , s:color1  , s:xGrey['236'] , 'bold'         )
+    call s:hy('logical0'        , '6'    , 'none' , s:color14 , 'bg'           , 'bold'         )
+    call s:hy('logical1'        , '5'    , 'none' , s:color13 , 'bg'           , 'bold'         )
+    call s:hy('logical2'        , '4'    , 'none' , s:color12 , 'bg'           , 'bold'         )
+    call s:hy('logical3'        , '3'    , 'none' , s:color11 , 'bg'           , 'bold'         )
+    call s:hy('logical4'        , '2'    , 'none' , s:color10 , 'bg'           , 'bold'         )
+    call s:hy('logical5'        , '1'    , 'none' , s:color9  , 'bg'           , 'bold'         )
+    call s:hy('logical6'        , '1'    , 'none' , s:color1  , 'bg'           , 'none'         )
+    call s:hy('logical7'        , '2'    , 'none' , s:color2  , 'bg'           , 'none'         )
+    call s:hy('logical8'        , '3'    , 'none' , s:color3  , 'bg'           , 'none'         )
+    call s:hy('logical9'        , '4'    , 'none' , s:color4  , 'bg'           , 'none'         )
+    call s:hy('logical10'       , '5'    , 'none' , s:color5  , 'bg'           , 'none'         )
+    call s:hy('logical11'       , '6'    , 'none' , s:color6  , 'bg'           , 'none'         )
