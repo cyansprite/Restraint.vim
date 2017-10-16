@@ -215,7 +215,7 @@ if &bg=='light'
     call s:hy('Visual'       , 'none'  , '123 ' , 'none'         , s:xGrey['247'] , 'bold'           )
     call s:hy('PmenuSel'     , 'none'  , '247 ' , s:bold         , s:xGrey['247'] , 'bold'           )
     call s:hy('IncSearch'    , 'none'  , '247 ' , s:bold         , s:xGrey['247'] , 'bold,underline' )
-    call s:hy('WildMenu'     , 'none'  , '245 ' , s:bold         , s:xGrey['245'] , 'bold'           )
+    call s:hy('WildMenu'     , 'none'  , '253 ' , s:bold         , s:xGrey['253'] , 'bold'           )
     call s:hy('MatchParen'   , 'none'  , '250 ' , s:bold         , s:xGrey['245'] , 'bold'           )
 
     call s:hy('User6'        , 'none'  , '255'  , 'none'         , s:xGrey['255'] , 'none'           )
