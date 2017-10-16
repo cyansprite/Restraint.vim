@@ -157,7 +157,7 @@ let s:xGrey = {
     call s:hy('Directory'    , '11' , 'none' , s:color11 , 'bg'      , 'none'         )
     call s:hy('Todo'         , '11' , 'none' , s:color11 , 'bg'      , 'bold'         )
 
-    call s:hy('WarningMsg'   , '3'  , '15'   , s:color3  , s:color15 , 'bold,inverse' )
+    call s:hy('WarningMsg'   , '3'  , '15'   , s:color11  , s:color15 , 'bold,inverse' )
 
 " Blue:   4{{{1
     call s:hy('NonText'     , '4'  , 'none' , s:color4  , 'bg'      , 'none')
