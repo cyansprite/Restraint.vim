@@ -27,19 +27,16 @@ endfunc
 
 " GuiDef: o{{{1
 if &bg              == 'light'
-    " Foreground and Background.
     let s:fg        = '#2f2f2f'
     let s:bg        = '#dfdfdf'
     let s:bgnc      = '#dadada'
     let s:comment   = '#5f5f00'
     let s:visual    = '#d7d7ff'
 
-    " Rxvt spoiled me.
     let s:underline = '#505000'
     let s:italic    = '#aa4444'
     let s:bold      = '#5f557c'
 
-    " Term colors go here.
     let s:color0    = '#000000'
     let s:color1    = '#840000'
     let s:color2    = '#008400'
@@ -55,42 +52,32 @@ if &bg              == 'light'
     let s:color12   = '#005bb7'
     let s:color13   = '#b700b7'
     let s:color14   = '#008463'
-    let s:color15   = '#e5e5e5'
+    let s:color15   = '#acaccc'
 else
-    " Foreground and Background.
     let s:fg        = '#9595ac'
     let s:bg        = '#1a1a1a'
     let s:bgnc      = '#2a2a2a'
 
-    " Rxvt spoiled me.
     let s:bold      = '#cfc5fc'
     let s:italic    = '#f0c0c0'
     let s:underline = '#f0ffca'
     let s:comment   = '#875f00'
     let s:visual    = '#5f5faf'
 
-    " Term colors go here.
     let s:color0    = '#23232f'
     let s:color8    = '#6f6f6f'
-
     let s:color1    = '#db9090'
     let s:color9    = '#c24343'
-
     let s:color2    = '#b6db90'
     let s:color10   = '#82c243'
-
     let s:color3    = '#dbcf90'
     let s:color11   = '#db9970'
-
     let s:color4    = '#9090db'
     let s:color12   = '#90b6db'
-
     let s:color5    = '#b690db'
     let s:color13   = '#db90b6'
-
     let s:color6    = '#90dbdb'
     let s:color14   = '#6acfcf'
-
     let s:color7    = '#9595ac'
     let s:color15   = '#dbdbdb'
 endif
@@ -208,22 +195,22 @@ if &bg=='light'
     call s:hy('Comment'      , '58'    , 'none'  , s:comment      , 'bg'           , 'none'          )
     call s:hy('Visual'       , 'none'  , '189'   , s:visual       , s:xGrey['247'] , 'bold'          )
 
-    call s:hy('StatusLine'   , 'none'  , '255 ' , 'fg'           , s:xGrey['255'] , 'none'           )
+    call s:hy('StatusLine'   , '8'     , '252 ' , 'fg'           , s:xGrey['255'] , 'none'           )
     call s:hy('LineNr'       , '8   '  , 'none' , s:color8       , 'none'         , 'none'           )
     call s:hy('SignColumn'   , '8   '  , 'none' , s:color8       , 'none'         , 'none'           )
-    call s:hy('Pmenu'        , '8   '  , '254 ' , s:color8       , s:xGrey['254'] , 'none'           )
+    call s:hy('Pmenu'        , '8   '  , '252 ' , s:color8       , s:xGrey['254'] , 'none'           )
     call s:hy('CursorLine'   , 'none'  , '254 ' , 'none'         , s:xGrey['251'] , 'none'           )
     call s:hy('CursorLineNr' , 'none'  , '254 ' , s:bold         , s:xGrey['251'] , 'bold'           )
     call s:hy('PmenuSbar'    , 'none'  , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
     call s:hy('ColorColumn'  , 'none'  , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
     call s:hy('DiffChange'   , 'none ' , '253'  , s:xGrey['245'] , 'none'         , 'bold'           )
-    call s:hy('PmenuSel'     , 'none'  , '247 ' , s:bold         , s:xGrey['247'] , 'bold'           )
     call s:hy('IncSearch'    , 'none'  , '247 ' , s:bold         , s:xGrey['247'] , 'bold,underline' )
-    call s:hy('WildMenu'     , 'none'  , '253 ' , s:bold         , s:xGrey['253'] , 'bold'           )
+    call s:hy('PmenuSel'     , 'none'  , '255 ' , s:bold         , s:xGrey['255'] , 'bold,inverse'   )
+    call s:hy('WildMenu'     , 'none'  , '255 ' , s:bold         , s:xGrey['255'] , 'bold,inverse'   )
     call s:hy('MatchParen'   , 'none'  , '250 ' , s:bold         , s:xGrey['245'] , 'bold'           )
 
     call s:hy('User6'        , 'none'  , '255'  , 'none'         , s:xGrey['255'] , 'none'           )
-    call s:hy('User3'        , 'none'  , '253'  , 'none'         , s:xGrey['251'] , 'bold'           )
+    call s:hy('User3'        , 'none'  , '254'  , 'none'         , s:xGrey['254'] , 'bold'           )
     call s:hy('User1'        , '2   '  , '253'  , s:color2       , s:xGrey['251'] , 'bold'           )
     call s:hy('User2'        , '1   '  , '253'  , s:color1       , s:xGrey['251'] , 'bold'           )
     call s:hy('User5'        , '7   '  , '253'  , s:color7       , s:xGrey['251'] , 'bold'           )
@@ -231,7 +218,8 @@ if &bg=='light'
 
     call s:hy('NormalNC'     , 'none'  , '254'  , 'none'         , s:bgnc         , 'none'           )
     call s:hy('holdSearch'   , 'none'  , '250'  , 'none'         , s:xGrey['250'] , 'none'           )
-    call s:hy('holdSearchC'  , 'none'  , '232'  , 'none'         , s:xGrey['232'] , 'bold'           )
+    call s:hy('holdSearchC'  , 'none'  , 'none' , 'none'         , s:xGrey['252'] , 'bold'   )
+    call s:hy('holdScope'    , '8'     , '252'  , 'none'         , s:xGrey['252'] , 'bold'   )
     call s:hy('Conceal'      , 'none'  , '254'  , 'none'         , s:xGrey['254'] , 'bold'           )
     call s:hy('DiffText'     , '15'    , '12'   , s:color15      , s:color12      , 'none'           )
 else
@@ -246,9 +234,9 @@ else
     call s:hy('PmenuSbar'    , 'none'  , '236'  , 'none'         , s:xGrey['236'] , 'none'           )
     call s:hy('ColorColumn'  , 'none'  , '236'  , 'none'         , s:xGrey['236'] , 'none'           )
     call s:hy('DiffChange'   , 'none ' , '236'  , s:xGrey['236'] , 'none'         , 'bold'           )
-    call s:hy('PmenuSel'     , 'none'  , '237'  , s:bold         , s:xGrey['237'] , 'bold'           )
+    call s:hy('PmenuSel'     , 'none'  , '238 ' , s:bold         , s:xGrey['238'] , 'bold,inverse'   )
+    call s:hy('WildMenu'     , 'none'  , '238 ' , s:bold         , s:xGrey['238'] , 'bold,inverse'   )
     call s:hy('IncSearch'    , 'none'  , '237'  , s:bold         , s:xGrey['237'] , 'bold,underline' )
-    call s:hy('WildMenu'     , 'none'  , '238'  , s:bold         , s:xGrey['238'] , 'bold'           )
     call s:hy('MatchParen'   , 'none'  , '238'  , s:bold         , s:xGrey['238'] , 'bold'           )
 
     call s:hy('User6'        , 'none'  , '234'  , 'none'         , s:xGrey['234'] , 'none'           )
