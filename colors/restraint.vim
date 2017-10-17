@@ -4,6 +4,7 @@
 " Description:  Theme based on term colors and espurr.
 " Requirements: Term Colors for terminal or GUI color support.
 " Note:         Xresources included for my dark(play) and light(work) theme.
+
 " Setup   +{{{1
 hi clear
 if exists("syntax_on")
@@ -18,7 +19,7 @@ let s:debug     = 0
 func! s:hy(name,cf,cb,gf,gb,t)
     if s:debug
         echom 'hi '.a:name.' ctermfg='.a:cf.' ctermbg='.a:cb.' cterm='.a:t.
-                    \    ' guifg='  .a:gf.' guibg='  .a:gb.' gui='   a:t
+                      \    ' guifg='  .a:gf.' guibg='  .a:gb.' gui='   a:t
     endif
     exec 'hi '.a:name.' ctermfg='.a:cf.' ctermbg='.a:cb.' cterm='.a:t.
                  \    ' guifg='  .a:gf.' guibg='  .a:gb.' gui='   a:t
@@ -31,6 +32,7 @@ if &bg              == 'light'
     let s:bg        = '#dfdfdf'
     let s:bgnc      = '#dadada'
     let s:comment   = '#5f5f00'
+    let s:visual    = '#d7d7ff'
 
     " Rxvt spoiled me.
     let s:underline = '#505000'
@@ -65,9 +67,10 @@ else
     let s:italic    = '#f0c0c0'
     let s:underline = '#f0ffca'
     let s:comment   = '#875f00'
+    let s:visual    = '#5f5faf'
 
     " Term colors go here.
-    let s:color0    = '#000000'
+    let s:color0    = '#23232f'
     let s:color8    = '#6f6f6f'
 
     let s:color1    = '#db9090'
@@ -188,7 +191,6 @@ let s:xGrey = {
 
     call s:hy('Operator'   , '14'   , 'none' , s:color14 , 'bg'      , 'none')
 
-    call s:hy('PMenuThumb' , 'none' , '6'    , 'none'    , s:color6  , 'none')
 
 " Grey:   7{{{1
     call s:hy('Ignore'   , '7' , 'none' , s:color7 , 'bg' , 'italic' )
@@ -196,63 +198,65 @@ let s:xGrey = {
 
 " Black:  0{{{1
 " TODO discover why gui hates italics.
-    call s:hy('VertSplit'    , '0' , 'none' , s:color0 , 'bg'     , 'none')
-    call s:hy('Class'        , '8' , 'none' , s:color8 , 'bg'     , 'none')
-    call s:hy('StatuslineNc' , '8' , '7'    , s:color8 , s:color7 , 'none')
+    call s:hy('VertSplit'    , '0'    , 'none' , s:color0 , 'bg'           , 'none')
+    call s:hy('Class'        , '8'    , 'none' , s:color8 , 'bg'           , 'none')
+    call s:hy('StatuslineNc' , '8'    , '254'  , s:color8 , s:xGrey['254'] , 'none')
+    call s:hy('PMenuThumb'   , 'none' , '8'    , 'none'   , s:color8       , 'none')
 
 " Accent: *{{{1
 if &bg=='light'
-    call s:hy('Comment'      , '58'   , 'none'  , s:comment       , 'bg'           , 'none'           )
+    call s:hy('Comment'      , '58'    , 'none'  , s:comment      , 'bg'           , 'none'          )
+    call s:hy('Visual'       , 'none'  , '189'   , s:visual       , s:xGrey['247'] , 'bold'          )
+
     call s:hy('StatusLine'   , 'none'  , '255 ' , 'fg'           , s:xGrey['255'] , 'none'           )
-    call s:hy('LineNr'       , '8   '  , '253 ' , s:color8       , s:xGrey['253'] , 'none'           )
-    call s:hy('SignColumn'   , '8   '  , '253 ' , s:color8       , s:xGrey['253'] , 'none'           )
-    call s:hy('Pmenu'        , '8   '  , '253 ' , s:color8       , s:xGrey['253'] , 'none'           )
+    call s:hy('LineNr'       , '8   '  , 'none' , s:color8       , 'none'         , 'none'           )
+    call s:hy('SignColumn'   , '8   '  , 'none' , s:color8       , 'none'         , 'none'           )
+    call s:hy('Pmenu'        , '8   '  , '254 ' , s:color8       , s:xGrey['254'] , 'none'           )
     call s:hy('CursorLine'   , 'none'  , '254 ' , 'none'         , s:xGrey['251'] , 'none'           )
-    call s:hy('CursorLineNr' , 'none'  , '251 ' , s:bold         , s:xGrey['251'] , 'bold'           )
+    call s:hy('CursorLineNr' , 'none'  , '254 ' , s:bold         , s:xGrey['251'] , 'bold'           )
     call s:hy('PmenuSbar'    , 'none'  , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
     call s:hy('ColorColumn'  , 'none'  , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
     call s:hy('DiffChange'   , 'none ' , '253'  , s:xGrey['245'] , 'none'         , 'bold'           )
-    call s:hy('Visual'       , 'none'  , '123 ' , 'none'         , s:xGrey['247'] , 'bold'           )
     call s:hy('PmenuSel'     , 'none'  , '247 ' , s:bold         , s:xGrey['247'] , 'bold'           )
     call s:hy('IncSearch'    , 'none'  , '247 ' , s:bold         , s:xGrey['247'] , 'bold,underline' )
     call s:hy('WildMenu'     , 'none'  , '253 ' , s:bold         , s:xGrey['253'] , 'bold'           )
     call s:hy('MatchParen'   , 'none'  , '250 ' , s:bold         , s:xGrey['245'] , 'bold'           )
 
     call s:hy('User6'        , 'none'  , '255'  , 'none'         , s:xGrey['255'] , 'none'           )
-    call s:hy('User3'        , 'none'  , '251'  , 'none'         , s:xGrey['251'] , 'bold'           )
-    call s:hy('User1'        , '2   '  , '251'  , s:color2       , s:xGrey['251'] , 'bold'           )
-    call s:hy('User2'        , '1   '  , '251'  , s:color1       , s:xGrey['251'] , 'bold'           )
-    call s:hy('User5'        , '7   '  , '251'  , s:color7       , s:xGrey['251'] , 'bold'           )
-    call s:hy('User4'        , 'none'  , '249'  , 'none'         , s:xGrey['249'] , 'none'           )
+    call s:hy('User3'        , 'none'  , '253'  , 'none'         , s:xGrey['251'] , 'bold'           )
+    call s:hy('User1'        , '2   '  , '253'  , s:color2       , s:xGrey['251'] , 'bold'           )
+    call s:hy('User2'        , '1   '  , '253'  , s:color1       , s:xGrey['251'] , 'bold'           )
+    call s:hy('User5'        , '7   '  , '253'  , s:color7       , s:xGrey['251'] , 'bold'           )
+    call s:hy('User4'        , 'none'  , 'none'  , 'none'        , s:bold         , 'bold,inverse'   )
 
-    call s:hy('NormalNC'     , 'none'  , '251'  , 'none'         , s:bgnc         , 'none'           )
+    call s:hy('NormalNC'     , 'none'  , '254'  , 'none'         , s:bgnc         , 'none'           )
     call s:hy('holdSearch'   , 'none'  , '250'  , 'none'         , s:xGrey['250'] , 'none'           )
-    call s:hy('holdSearchC'  , 'none'  , '252'  , 'none'         , s:xGrey['239'] , 'bold'           )
-    call s:hy('Conceal'      , 'none'  , '255'  , 'none'         , s:xGrey['233'] , 'bold'           )
+    call s:hy('holdSearchC'  , 'none'  , '232'  , 'none'         , s:xGrey['232'] , 'bold'           )
+    call s:hy('Conceal'      , 'none'  , '254'  , 'none'         , s:xGrey['254'] , 'bold'           )
     call s:hy('DiffText'     , '15'    , '12'   , s:color15      , s:color12      , 'none'           )
 else
     call s:hy('Comment'      , '94'    , 'none' , s:comment      , 'bg'           , 'none'           )
-    call s:hy('StatusLine'   , 'none'  , '233 ' , 'fg'           , s:xGrey['233'] , 'none'           )
-    call s:hy('LineNr'       , '8   '  , '234 ' , s:color8       , s:xGrey['234'] , 'none'           )
-    call s:hy('SignColumn'   , '8   '  , '234 ' , s:color8       , s:xGrey['234'] , 'none'           )
-    call s:hy('Pmenu'        , '8   '  , '234 ' , s:color8       , s:xGrey['234'] , 'none'           )
-    call s:hy('CursorLine'   , 'none'  , '235 ' , 'none'         , s:xGrey['235'] , 'none'           )
-    call s:hy('CursorLineNr' , 'none'  , '235 ' , s:bold         , s:xGrey['235'] , 'bold'           )
-    call s:hy('PmenuSbar'    , 'none'  , '236 ' , 'none'         , s:xGrey['236'] , 'none'           )
-    call s:hy('ColorColumn'  , 'none'  , '236 ' , 'none'         , s:xGrey['236'] , 'none'           )
+    call s:hy('Visual'       , 'none'  , '0'    , 'none'         , s:visual       , 'bold'           )
+    call s:hy('StatusLine'   , 'none'  , '233'  , 'fg'           , s:xGrey['233'] , 'none'           )
+    call s:hy('LineNr'       , '8   '  , '234'  , s:color8       , s:xGrey['234'] , 'none'           )
+    call s:hy('SignColumn'   , '8   '  , '234'  , s:color8       , s:xGrey['234'] , 'none'           )
+    call s:hy('Pmenu'        , '8   '  , '234'  , s:color8       , s:xGrey['234'] , 'none'           )
+    call s:hy('CursorLine'   , 'none'  , '235'  , 'none'         , s:xGrey['235'] , 'none'           )
+    call s:hy('CursorLineNr' , 'none'  , '235'  , s:bold         , s:xGrey['235'] , 'bold'           )
+    call s:hy('PmenuSbar'    , 'none'  , '236'  , 'none'         , s:xGrey['236'] , 'none'           )
+    call s:hy('ColorColumn'  , 'none'  , '236'  , 'none'         , s:xGrey['236'] , 'none'           )
     call s:hy('DiffChange'   , 'none ' , '236'  , s:xGrey['236'] , 'none'         , 'bold'           )
-    call s:hy('Visual'       , 'none'  , '237 ' , 'none'         , s:xGrey['237'] , 'bold'           )
-    call s:hy('PmenuSel'     , 'none'  , '237 ' , s:bold         , s:xGrey['237'] , 'bold'           )
-    call s:hy('IncSearch'    , 'none'  , '237 ' , s:bold         , s:xGrey['237'] , 'bold,underline' )
-    call s:hy('WildMenu'     , 'none'  , '238 ' , s:bold         , s:xGrey['238'] , 'bold'           )
-    call s:hy('MatchParen'   , 'none'  , '238 ' , s:bold         , s:xGrey['238'] , 'bold'           )
+    call s:hy('PmenuSel'     , 'none'  , '237'  , s:bold         , s:xGrey['237'] , 'bold'           )
+    call s:hy('IncSearch'    , 'none'  , '237'  , s:bold         , s:xGrey['237'] , 'bold,underline' )
+    call s:hy('WildMenu'     , 'none'  , '238'  , s:bold         , s:xGrey['238'] , 'bold'           )
+    call s:hy('MatchParen'   , 'none'  , '238'  , s:bold         , s:xGrey['238'] , 'bold'           )
 
     call s:hy('User6'        , 'none'  , '234'  , 'none'         , s:xGrey['234'] , 'none'           )
     call s:hy('User3'        , 'none'  , '235'  , 'none'         , s:xGrey['235'] , 'bold'           )
     call s:hy('User1'        , '2   '  , '235'  , s:color2       , s:xGrey['235'] , 'bold'           )
     call s:hy('User2'        , '1   '  , '235'  , s:color1       , s:xGrey['235'] , 'bold'           )
     call s:hy('User5'        , '7   '  , '235'  , s:color7       , s:xGrey['235'] , 'bold'           )
-    call s:hy('User4'        , 'none'  , '236'  , 'none'         , s:xGrey['236'] , 'none'           )
+    call s:hy('User4'        , 'none'  , 'none'  , 'none'        , s:bold         , 'bold,inverse'   )
 
     call s:hy('NormalNC'     , 'none'  , '235'  , 'none'         , s:bgnc         , 'none'           )
     call s:hy('holdSearch'   , 'none'  , '237'  , 'none'         , s:xGrey['237'] , 'none'           )
