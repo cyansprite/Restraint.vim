@@ -116,7 +116,7 @@ let s:xGrey = {
     call s:hy('FoldColumn'   , 'none' , 'none' , s:bold    , s:bg   , 'bold'         )
     call s:hy('ModeMsg'      , 'none' , 'none' , s:bold    , s:bg   , 'bold'         )
     call s:hy('Cursor'       , 'none' , 'none' , s:color15 , s:bg   , 'bold'         )
-    call s:hy('Search'       , 'none' , 'none' , 'none'    , 'none' , 'inverse' )
+    call s:hy('Search'       , '15'   , '238'  , 'none'    , 'none' , 'bold' )
     call s:hy('QuickFixLine' , 'none' , 'none' , 'none'    , 'none' , 'bold,inverse' )
     call s:hy('EndOfBuffer'  , 'none' , 'none' , 'none'    , 'none' , 'none'         )
 
@@ -176,7 +176,7 @@ let s:xGrey = {
     call s:hy('Function'   , '6'    , 'none' , s:color6  , 'bg'      , 'none')
     call s:hy('Character'  , '6'    , 'none' , s:color6  , 'bg'      , 'none')
 
-    call s:hy('Operator'   , '14'   , 'none' , s:color14 , 'bg'      , 'none')
+    call s:hy('Operator'   , '14'   , 'none' , s:color14 , 'bg'      , 'bold')
 
 
 " Grey:   7{{{1
@@ -192,14 +192,14 @@ let s:xGrey = {
 
 " Accent: *{{{1
 if &bg=='light'
-    call s:hy('Comment'      , '58'    , 'none'  , s:comment      , 'bg'           , 'none'          )
-    call s:hy('Visual'       , 'none'  , '189'   , s:visual       , s:xGrey['247'] , 'bold'          )
+    call s:hy('Comment'      , '58'    , 'none'  , s:comment     , 'bg'           , 'none'          )
+    call s:hy('Visual'       , 'none'  , '195'   , s:visual       , s:xGrey['247'] , 'bold'          )
 
     call s:hy('StatusLine'   , '8'     , '252 ' , 'fg'           , s:xGrey['255'] , 'none'           )
     call s:hy('LineNr'       , '8   '  , 'none' , s:color8       , 'none'         , 'none'           )
     call s:hy('SignColumn'   , '8   '  , 'none' , s:color8       , 'none'         , 'none'           )
     call s:hy('Pmenu'        , '8   '  , '252 ' , s:color8       , s:xGrey['254'] , 'none'           )
-    call s:hy('CursorLine'   , 'none'  , '254 ' , 'none'         , s:xGrey['251'] , 'none'           )
+    call s:hy('CursorLine'   , 'none'  , '253 ' , 'none'         , s:xGrey['251'] , 'none'           )
     call s:hy('CursorLineNr' , 'none'  , '254 ' , s:bold         , s:xGrey['251'] , 'bold'           )
     call s:hy('PmenuSbar'    , 'none'  , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
     call s:hy('ColorColumn'  , 'none'  , '249 ' , 'none'         , s:xGrey['249'] , 'none'           )
@@ -217,10 +217,11 @@ if &bg=='light'
     call s:hy('User4'        , 'none'  , 'none'  , 'none'        , s:bold         , 'bold,inverse'   )
 
     call s:hy('NormalNC'     , 'none'  , '254'  , 'none'         , s:bgnc         , 'none'           )
-    call s:hy('holdSearch'   , 'none'  , '250'  , 'none'         , s:xGrey['250'] , 'none'           )
-    call s:hy('holdSearchC'  , 'none'  , 'none' , 'none'         , s:xGrey['252'] , 'bold'   )
-    call s:hy('holdScope'    , '8'     , '252'  , 'none'         , s:xGrey['252'] , 'bold'   )
-    call s:hy('Conceal'      , 'none'  , '254'  , 'none'         , s:xGrey['254'] , 'bold'           )
+    call s:hy('holdSearch'   , 'none'  , '252'  , 'none'         , s:xGrey['252'] , 'none'           )
+    call s:hy('holdSearchC'  , 'none'  , '15'  , 'none'         , s:xGrey['252'] , 'none'           )
+    call s:hy('SearchC'      , '15'    , '238'  , 'none'    , 'none' , 'bold,inverse' )
+    call s:hy('holdScope'    , '8'     , '189'  , 'none'         , s:xGrey['252'] , 'none'           )
+    call s:hy('Conceal'      , 'none'  , '254'  , 'none'         , s:xGrey['254'] , 'none'           )
     call s:hy('DiffText'     , '15'    , '12'   , s:color15      , s:color12      , 'none'           )
 else
     call s:hy('Comment'      , '94'    , 'none' , s:comment      , 'bg'           , 'none'           )
@@ -247,8 +248,9 @@ else
     call s:hy('User4'        , 'none'  , 'none'  , 'none'        , s:bold         , 'bold,inverse'   )
 
     call s:hy('NormalNC'     , 'none'  , '235'  , 'none'         , s:bgnc         , 'none'           )
-    call s:hy('holdSearch'   , 'none'  , '237'  , 'none'         , s:xGrey['237'] , 'none'           )
+    call s:hy('holdSearch'   , 'none'  , '7'  , 'none'         , s:color7 , 'none'           )
     call s:hy('holdSearchC'  , 'none'  , '234'  , 'none'         , s:xGrey['233'] , 'bold,inverse'   )
+    call s:hy('SearchC'      , 'none'  , '234'  , 'none'         , s:xGrey['233'] , 'bold,inverse'   )
     call s:hy('Conceal'      , 'none'  , '235'  , 'none'         , s:xGrey['235'] , 'bold'           )
     call s:hy('DiffText'     , '15'    , '14'   , s:color15      , s:color14      , 'none'           )
 endif
