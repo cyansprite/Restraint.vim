@@ -5,21 +5,21 @@ URxvt*foreground:        #2f2f2f
 URxvt*underlineColor:    #22aaaa
 URxvt*colorUL:           #505000
 URxvt*colorIT:           #aa4444
-URxvt*colorBD:           #5f557c
+URxvt*colorBD:           #9595ac
 
-*color0:  #000000
+*color0:  #20202f
 *color1:  #840000
 *color2:  #008400
 *color3:  #846e00
 *color4:  #000084
 *color5:  #420084
 *color6:  #008484
-*color7:  #9595ac
-*color8:  #848484
+*color7:  #65659c
+*color8:  #778877
 *color9:  #b70000
 *color10: #428400
 *color11: #b76a00
 *color12: #005bb7
 *color13: #b700b7
 *color14: #008463
-*color15: #e5e5e5
+*color15: #afafcc
