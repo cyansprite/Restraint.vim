@@ -205,9 +205,9 @@ let s:xGrey = {
 " Accent: *{{{1
     call s:hy('Visual'       , 7      , 'none'  , 'none'       , 'none'       , 'inverse,bold'            )
 
-    call s:hy('LineNr'       , 7       , 'none'  , s:color8     , s:xGrey[253] , 'inverse'                )
+    call s:hy('LineNr'       , 7       , 'none'  , s:color8     , s:xGrey[253] , 'none'                )
     call s:hy('ModeMsg'      , 7       , 'none'  , s:color8     , s:xGrey[253] , 'inverse'                )
-    call s:hy('Folded'       , 15       , 0       , s:bold       , s:bg         , 'bold,inverse'           )
+    call s:hy('Folded'       , 8       , 'none'  , s:bold       , s:bg         , 'bold'                   )
     call s:hy('ColorColumn'  , 'none'  , 'none'  , s:color8     , s:xGrey[253] , 'none'                   )
     call s:hy('SignColumn'   , 'none'  , 'none'  , s:color8     , 'none'       , 'none'                   )
 
