@@ -204,16 +204,21 @@ let s:xGrey = {
     call s:hy('Visual'       , 7      , 'none'  , 'none'       , 'none'       , 'inverse,bold'            )
 
     call s:hy('LineNr'       , 7       , 'none'  , s:color8     , s:xGrey[253] , 'none'                )
-    call s:hy('ModeMsg'      , 7       , 'none'  , s:color8     , s:xGrey[253] , 'none'                )
-    call s:hy('Folded'       , 8       , 'none'  , s:bold       , s:bg         , 'bold'                   )
+    call s:hy('ModeMsg'      , 15      , 'none'  , s:color8     , s:xGrey[253] , 'bold'                )
+    call s:hy('Folded'       , 8       , 'none'  , s:bold       , s:bg         , 'bold,inverse'                   )
     call s:hy('ColorColumn'  , 'none'  , 'none'  , s:color8     , s:xGrey[253] , 'none'                   )
     call s:hy('SignColumn'   , 'none'  , 'none'  , s:color8     , 'none'       , 'none'                   )
 
     call s:hy('CursorLineNr' , 15      , 'none'  , s:color8     , s:xGrey[253] , 'bold,inverse'           )
-    call s:hy('StatusLine'   , 15      , 'none'  , s:color8     , s:xGrey[253] , 'underline,bold'           )
+    call s:hy('StatusLine'   , 15      , 'none'  , s:color8     , s:xGrey[253] , 'underline,bold,inverse'           )
     call s:hy('StatuslineNc' , 8       , 'none'  , s:color8     , s:xGrey[254] , 'none'                   )
 
-    call s:hy('Pmenu'        , '0'  , '7'  , s:bold       , s:bg         , 'inverse'                )
+    if &bg=='dark'
+        call s:hy('Pmenu'        , '0'  , '7'  , s:bold       , s:bg         , 'inverse'                )
+    else
+        call s:hy('Pmenu'        , '7'  , '15'  , s:bold       , s:bg         , 'inverse'                )
+    endif
+
     call s:hy('PmenuSbar'    , 'none'  , 0       , 'none'       , s:xGrey[249] , 'none'                   )
     call s:hy('PMenuThumb'   , 'none'  , 15      , s:bold       , s:xGrey[255] , 'bold'         )
     call s:hy('PmenuSel'     , 15      , 'none', s:bold       , s:xGrey[255] , 'bold,inverse')
@@ -258,3 +263,8 @@ let s:xGrey = {
 
 hi GrepperCurrent ctermfg=10 cterm=inverse,bold
 hi GrepperMatch   ctermfg=11 cterm=inverse,bold
+
+" try | call matchdelete(1065) | catch *
+" endtry
+
+" call matchadd('Error', "\\s\\+$", 100, 1065)
