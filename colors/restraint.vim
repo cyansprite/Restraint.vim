@@ -239,9 +239,9 @@ let s:xGrey = {
     hi link vimParenSep     Operator
 " }}}
 " Plugin: & {{{1
-    call s:hy('logicalbuffer'         , 'none' , 'none' , s:bold    , s:bg         , 'bold,inverse' )
-    call s:hy('logicalmodified'       , 'none' , 'none' , s:color2  , s:xGrey[236] , 'bold'         )
-    call s:hy('logicalreadonly'       , 'none' , 'none' , s:color1  , s:xGrey[236] , 'bold'         )
+    call s:hy('logicalbuffer'         , 15 , 'none' , s:bold    , s:bg         , 'bold,inverse' )
+    call s:hy('logicalmodified'       , 2, 'none' , s:color2  , s:xGrey[236] , 'bold'         )
+    call s:hy('logicalreadonly'       , 1, 'none' , s:color1  , s:xGrey[236] , 'bold'         )
     call s:hy('logical0'              , 6      , 'none' , s:color14 , s:xGrey[236] , 'bold'         )
     call s:hy('logical1'              , 5      , 'none' , s:color13 , s:xGrey[236] , 'bold'         )
     call s:hy('logical2'              , 4      , 'none' , s:color12 , s:xGrey[236] , 'bold'         )
