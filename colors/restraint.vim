@@ -130,6 +130,7 @@ let s:xGrey = {
 " Red:    1{{{1
     call s:hy('Constant'    , 1   , 'none' , s:color5     , 'bg'      , 'none'         )
     call s:hy('Boolean'     , 1   , 'none' , s:color1     , 'bg'      , 'none'         )
+    call s:hy('Number'    , 1  , 'none' , s:color5  , 'bg' , 'none'         )
 
     call s:hy('Keyword'     , 9   , 'none' , s:color9     , 'bg'      , 'none'         )
 
@@ -140,18 +141,17 @@ let s:xGrey = {
     call s:hy('DiffRemoved' , 9   , 'none' , s:color9     , 'none'    , 'bold'         )
 
 " Green:  2{{{1
-    call s:hy('Structure'    , 2      , 'none' , s:color2     , 'bg'      , 'none'         )
+    call s:hy('Structure'    , 10      , 'none' , s:color2     , 'bg'      , 'none'         )
     call s:hy('StorageClass' , 2      , 'none' , s:color11    , 'bg'      , 'none'         )
-    call s:hy('Operator'  , 2 , 'none' , s:color14 , 'bg' , 'none' )
-
-    call s:hy('Type'         , 10     , 'none' , s:color10    , 'bg'      , 'none'         )
 
     call s:hy('DiffAdd'      , 10     , 'none' , s:xGrey[231] , s:color10 , 'inverse,bold' )
     call s:hy('diffAdded'    , 10     , 'none' , s:xGrey[231] , s:color10 , 'bold'         )
+    call s:hy('Operator'   , 10 , 'none' , s:color14 , 'bg' , 'bold' )
 
 " Yellow: 3{{{1
     call s:hy('PreCondit'  , 3  , 'none' , s:color3  , 'bg'         , 'none'         )
     call s:hy('TypeDef'    , 3  , 'none' , s:color3  , 'bg'         , 'none'         )
+    call s:hy('Label'      , 3 , 'none' , s:color12 , 'bg'         , 'none'         )
 
     call s:hy('Directory'  , 11 , 'none' , s:color11 , 'bg'         , 'none'         )
     call s:hy('Statement'  , 11 , 'none' , s:color5  , 'bg'         , 'none'         )
@@ -168,40 +168,39 @@ let s:xGrey = {
         call s:hy('Comment'    , 4  , 'none' , s:comment , 'bg'         , 'italic'       )
     endif
 
-    call s:hy('Label'       , 12 , 'none' , s:color12 , 'bg'         , 'none'         )
-    call s:hy('Identifier'  , 12 , 'none' , s:color12 , 'bg'         , 'none'         )
+    call s:hy('Identifier' , 12 , 'none' , s:color12 , 'bg'         , 'none'         )
     call s:hy('MoreMsg'     , 12  , 'none'    , s:color3  , s:xGrey[231] , 'bold,inverse' )
 
 " Purple: 5{{{1
     call s:hy('Delimeter' , 5  , 'none' , s:color5  , 'bg' , 'none'         )
-    call s:hy('Number'    , 5  , 'none' , s:color5  , 'bg' , 'none'         )
-    call s:hy('Special'   , 5  , 'none' , s:color4  , 'bg'         , 'none'         )
+    call s:hy('Special'   , 5  , 'none' , s:color5  , 'bg'         , 'none'         )
+    call s:hy('String'     , 5      , 'none' , s:color1 , 'bg'     , 'none' )
 
+    call s:hy('Class'      , 13      , 'none' , s:color13 , 'bg'     , 'none' )
     call s:hy('Float'     , 13 , 'none' , s:color13 , 'bg' , 'none'         )
     call s:hy('Title'     , 13 , 'none' , s:color13 , 'bg' , 'bold'         )
 
     call s:hy('Question'  , 13 , 'none' , s:color13 , 'bg' , 'bold,inverse' )
 
 " Cyan:   6{{{1
-    call s:hy('Member'    , 6  , 'none' , s:color6  , 'bg' , 'none' )
     call s:hy('Function'  , 6  , 'none' , s:color6  , 'bg' , 'none' )
     call s:hy('Character' , 6  , 'none' , s:color6  , 'bg' , 'none' )
-    call s:hy('SpecialKey'  , 14  , 'none' , s:color4  , 'bg'         , 'none'         )
+    call s:hy('SpecialKey', 14  , 'none' , s:color4  , 'bg'         , 'none'         )
+    call s:hy('Member'    , 14  , 'none' , s:color14  , 'bg' , 'none' )
     call s:hy('Repeat'    , 14 , 'none' , s:color13 , 'bg' , 'none' )
 
 " Grey:   7{{{1
+    call s:hy('Type'         , 15     , 'none' , s:color15    , 'bg'      , 'none'         )
+
     call s:hy('Ignore'     , 7 , 'none' , s:color7 , 'bg' , 'italic' )
-    call s:hy('Conditonal' , 7 , 'none' , s:color5 , 'bg' , 'none'   )
+    call s:hy('Conditonal' , 7 , 'none' , s:color7 , 'bg' , 'none'   )
     call s:hy('PreProc'    , 7 , 'none' , s:color7 , 'bg' , 'none'   )
     call s:hy('VertSplit'  , 15, 'none' , s:color0 , 'bg' , 'bold'   )
 
 " Black:  0{{{1
-" TODO discover why gui hates italics.
-    call s:hy('String'     , 8      , 'none' , s:color1 , 'bg'     , 'none' )
-    call s:hy('Class'      , 8      , 'none' , s:color8 , 'bg'     , 'none' )
 
 " Accent: *{{{1
-    call s:hy('Visual'       , 7      , 'none'  , 'none'       , 'none'       , 'inverse,bold'            )
+    call s:hy('Visual'       , '0'  , '7'  , 'none'       , 'none'       , 'none'            )
 
     call s:hy('LineNr'       , 7       , 'none'  , s:color8     , s:xGrey[253] , 'none'                )
     call s:hy('ModeMsg'      , 15      , 'none'  , s:color8     , s:xGrey[253] , 'bold'                )
@@ -209,23 +208,23 @@ let s:xGrey = {
     call s:hy('ColorColumn'  , 'none'  , 'none'  , s:color8     , s:xGrey[253] , 'none'                   )
     call s:hy('SignColumn'   , 'none'  , 'none'  , s:color8     , 'none'       , 'none'                   )
 
-    call s:hy('CursorLineNr' , 15      , 'none'  , s:color8     , s:xGrey[253] , 'bold,inverse'           )
-    call s:hy('StatusLine'   , 15      , 'none'  , s:color8     , s:xGrey[253] , 'underline,bold,inverse'           )
+    call s:hy('CursorLineNr' , 'none'  , 'none'  , s:color8     , s:xGrey[253] , 'bold,inverse'           )
+    call s:hy('StatusLine'   , 'none'  , 'none'  , s:color8     , s:xGrey[253] , 'bold'           )
     call s:hy('StatuslineNc' , 8       , 'none'  , s:color8     , s:xGrey[254] , 'none'                   )
 
     if &bg=='dark'
-        call s:hy('Pmenu'        , '0'  , '7'  , s:bold       , s:bg         , 'inverse'                )
+        call s:hy('Pmenu'        , '5'  , '0'  , s:bold       , s:bg         , 'inverse'                )
     else
         call s:hy('Pmenu'        , '7'  , '15'  , s:bold       , s:bg         , 'inverse'                )
     endif
 
-    call s:hy('PmenuSbar'    , 'none'  , 0       , 'none'       , s:xGrey[249] , 'none'                   )
-    call s:hy('PMenuThumb'   , 'none'  , 15      , s:bold       , s:xGrey[255] , 'bold'         )
-    call s:hy('PmenuSel'     , 15      , 'none', s:bold       , s:xGrey[255] , 'bold,inverse')
+    call s:hy('PmenuSbar'    , '5'  , 'none'       , 'none'       , s:xGrey[249] , 'inverse'                   )
+    call s:hy('PMenuThumb'   , 'none'  , 'none'      , s:bold       , s:xGrey[255] , 'bold,inverse'         )
+    call s:hy('PmenuSel'     , 'none'  , '15', s:bold     , s:xGrey[255] , 'bold,inverse')
 
     call s:hy('Search'      , '8', 'none', 'none'       , 'none'       , 'inverse'                   )
     call s:hy('Substitute'   , '9', 'none', 'none'       , 'none'       , 'inverse'                   )
-    call s:hy('SearchC'      , 7, 'none', 'none'       , 'none'       , 'inverse,bold'                   )
+    call s:hy('SearchC'      , 'none', 'none', 'none'       , 'none'       , 'inverse,bold'                   )
 
     call s:hy('DiffChange'   , 'none ' , 'none'  , s:xGrey[245] , 'none'       , 'none'                   )
     call s:hy('IncSearch'    , 'none'  , 'none ' , s:bold       , s:xGrey[236] , 'bold,underline,inverse' )
@@ -237,6 +236,7 @@ let s:xGrey = {
     hi link vimIsCommand    Constant
     hi link vimHighlight    Member
     hi link vimParenSep     Operator
+    hi link csClass         Structure
 " }}}
 " Plugin: & {{{1
     call s:hy('logicalbuffer'         , 15 , 'none' , s:bold    , s:bg         , 'bold,inverse' )
