@@ -104,11 +104,11 @@ let s:xGrey = {
 
     call s:hy ( 'Keyword'     , 9 , 'none' , s:color9     , 'bg'      , 'none'         )
 
-    call s:hy ( 'Error'       , 9 , 'none' , s:color9     , 'none'    , 'bold,inverse' )
+    call s:hy ( 'Error'       , 9 , 1      , s:color9     , 'none'    , 'none' )
     call s:hy ( 'ErrorMsg'    , 9 , 1      , s:color9     , 'none'    , 'none'         )
-    call s:hy ( 'Whitespace'  , 7 , 8      , s:color9     , 'none'    , 'bold'         )
-    call s:hy ( 'DiffDelete'  , 9 , 'none' , s:xGrey[231] , s:color10 , 'inverse,bold' )
-    call s:hy ( 'DiffRemoved' , 9 , 'none' , s:color9     , 'none'    , 'bold'         )
+    call s:hy ( 'Whitespace'  , 7 , 8      , s:color9     , 'none'    , 'none'         )
+    call s:hy ( 'DiffDelete'  , 9 , 1      , s:xGrey[231] , s:color10 , 'none' )
+    call s:hy ( 'DiffRemoved' , 9 , 1      , s:color9     , 'none'    , 'none'         )
 
     call s:hy ( 'ModeMsg'     , 9 , 1      , s:bold       , 'none'    , 'none'         )
 
@@ -116,9 +116,9 @@ let s:xGrey = {
     call s:hy ( 'Structure'    , 10 , 'none' , s:color2     , 'bg'      , 'none'         )
     call s:hy ( 'StorageClass' , 2  , 'none' , s:color11    , 'bg'      , 'none'         )
 
-    call s:hy ( 'DiffAdd'      , 10 , 'none' , s:xGrey[231] , s:color10 , 'inverse,bold' )
-    call s:hy ( 'diffAdded'    , 10 , 'none' , s:xGrey[231] , s:color10 , 'bold'         )
-    call s:hy ( 'Operator'     , 10 , 'none' , s:color14    , 'bg'      , 'bold'         )
+    call s:hy ( 'DiffAdd'      , 10 , 2      , s:xGrey[231] , s:color10 , 'none' )
+    call s:hy ( 'diffAdded'    , 10 , 2      , s:xGrey[231] , s:color10 , 'none'         )
+    call s:hy ( 'Operator'     , 10 , 'none' , s:color14    , 'bg'      , 'none'         )
     call s:hy ( 'Visual'       , 10 , 2      , s:xGrey[255] , s:color7  , 'none'         )
 
 
@@ -185,9 +185,9 @@ let s:xGrey = {
     call s:hy ( 'Folded'       , 8       , 0       , s:bold       , s:bg         , 'none'                   )
 
 " Accent: *{{{1
-    call s:hy ( 'DiffChange'   , 'none ' , 'none'  , s:xGrey[245] , 'none'       , 'none'                   )
-    call s:hy ( 'WildMenu'     , 'none'  , 'none ' , s:bold       , s:xGrey[255] , 'bold,inverse'           )
-    call s:hy ( 'DiffText'     , 12      , 'none'  , s:xGrey[231] , s:color10    , 'inverse,bold'           )
+    call s:hy ( 'DiffChange' , 'none ' , 'none'  , s:xGrey[245] , 'none'       , 'none' )
+    call s:hy ( 'WildMenu'   , 'none'  , 'none ' , s:bold       , s:xGrey[255] , 'none' )
+    call s:hy ( 'DiffText'   , 12      , 4       , s:xGrey[231] , s:color10    , 'none' )
 
 " Relink  >{{{1
     hi link vimCommentTitle Title
