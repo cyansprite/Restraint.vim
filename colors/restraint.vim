@@ -59,7 +59,7 @@ let s:xGrey = {
     call s:hy ( 'Normal'       , 'none' , 'none', 'none' )
     call s:hy ( 'UnderLine'    , 'none' , 'none', 'none' )
     call s:hy ( 'FoldColumn'   , 8      , 0     , 'none' )
-    call s:hy ( 'QuickFixLine' , 'none' , 'none', 'none' )
+    call s:hy ( 'QuickFixLine' , 'none' , 'none', 'underline,bold' )
     call s:hy ( 'CursorLine'   , 'none' , 'none', 'none' )
     call s:hy ( 'CursorColumn' , 'none' , 'none', 'none' )
     call s:hy ( 'EndOfBuffer'  , 0      , 0     , 'none' )
@@ -77,7 +77,7 @@ let s:xGrey = {
 
     call s:hy ( 'Error'       , 9 , 1 , 'none' )
     call s:hy ( 'ErrorMsg'    , 9 , 1 , 'none' )
-    call s:hy ( 'Whitespace'  , 7 , 8 , 'none' )
+    call s:hy ( 'Whitespace'  , 1 , 9 , 'none' )
     call s:hy ( 'DiffDelete'  , 9 , 1 , 'none' )
     call s:hy ( 'DiffRemoved' , 9 , 1 , 'none' )
 
@@ -169,7 +169,7 @@ let s:xGrey = {
 
 " }}}
 " Plugin: & {{{1
-    call s:hy('logicalbuffer'         , 15 , 'none' , 'none')
+    call s:hy('logicalbuffer'         , 0  , 15     , 'none')
     call s:hy('logicalmodified'       , 2  , 'none' , 'none')
     call s:hy('logicalreadonly'       , 1  , 'none' , 'none')
     call s:hy('logical0'              , 6  , 'none' , 'none')
@@ -193,8 +193,8 @@ let s:xGrey = {
     call s:hy('GitGutterDelete'       , 9   , 1 , 'none')
     call s:hy('GitGutterChangeDelete' , 11  , 3 , 'none')
 
-hi GrepperCurrent ctermfg=10 cterm=inverse,bold
-hi GrepperMatch   ctermfg=11 cterm=inverse,bold
+hi GrepperCurrent ctermfg=10 ctermbg=2 cterm=none
+hi GrepperMatch   ctermfg=11 ctermbg=3 cterm=none
 
 " try | call matchdelete(1065) | catch *
 " endtry
