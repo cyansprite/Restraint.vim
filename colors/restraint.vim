@@ -58,11 +58,10 @@ let s:xGrey = {
 " Nons:   -{{{1
     call s:hy ( 'Normal'       , 'none' , 'none', 'none' )
     call s:hy ( 'UnderLine'    , 'none' , 'none', 'none' )
-    call s:hy ( 'FoldColumn'   , 8      , 0     , 'none' )
-    call s:hy ( 'QuickFixLine' , 'none' , 'none', 'underline,bold' )
+    call s:hy ( 'QuickFixLine' , 'none' , 'none', 'underline' )
     call s:hy ( 'CursorLine'   , 'none' , 'none', 'none' )
     call s:hy ( 'CursorColumn' , 'none' , 'none', 'none' )
-    call s:hy ( 'EndOfBuffer'  , 0      , 0     , 'none' )
+    call s:hy ( 'EndOfBuffer'  , 0      , 'none', 'none' )
     call s:hy ( 'Cursor'       , 'none' , 'none', 'none' )
     call s:hy ( 'ColorColumn'  , 'none' , 'none', 'none' )
     call s:hy ( 'SignColumn'   , 8      , 0     , 'none' )
@@ -74,6 +73,7 @@ let s:xGrey = {
     call s:hy ( 'Number'      , 1 , 'none', 'none')
 
     call s:hy ( 'Keyword'     , 9 , 'none', 'none')
+    call s:hy ( 'Float'       , 9 , 'none', 'none')
 
     call s:hy ( 'Error'       , 9 , 1 , 'none' )
     call s:hy ( 'ErrorMsg'    , 9 , 1 , 'none' )
@@ -81,11 +81,12 @@ let s:xGrey = {
     call s:hy ( 'DiffDelete'  , 9 , 1 , 'none' )
     call s:hy ( 'DiffRemoved' , 9 , 1 , 'none' )
 
-    call s:hy ( 'ModeMsg'     , 13 , 5 , 'none' )
+    call s:hy ( 'ModeMsg'     , 13 , 'none' , 'none' )
 
 " Green:  2{{{1
-    call s:hy ( 'Structure'    , 10 , 'none', 'none' )
     call s:hy ( 'StorageClass' , 2  , 'none', 'none' )
+
+    call s:hy ( 'Statement'    , 10 , 'none', 'none' )
 
     call s:hy ( 'DiffAdd'      , 10 , 2     , 'none' )
     call s:hy ( 'diffAdded'    , 10 , 2     , 'none' )
@@ -99,7 +100,7 @@ let s:xGrey = {
     call s:hy ( 'Label'      , 3  , 'none', 'none' )
 
     call s:hy ( 'Directory'  , 11 , 'none', 'none' )
-    call s:hy ( 'Statement'  , 11 , 'none', 'none' )
+    call s:hy ( 'Structure'  , 11 , 'none', 'none' )
     call s:hy ( 'Todo'       , 11 , 'none', 'none' )
 
     call s:hy ( 'WarningMsg' , 11 , 3     , 'none' )
@@ -125,9 +126,9 @@ let s:xGrey = {
     call s:hy ( 'Float'        , 13 , 'none', 'none' )
     call s:hy ( 'Title'        , 13 , 'none', 'none' )
 
-    call s:hy ( 'Question'     , 14 , 6     , 'none' )
-    call s:hy ( 'LineNr'       , 14 , 6     , 'none' )
-    call s:hy ( 'CursorLineNr' , 6  , 14    , 'none' )
+    call s:hy ( 'Question'     , 0 , 0     , 'none' )
+    call s:hy ( 'LineNr'       , 1 , 'none', 'none' )
+    call s:hy ( 'CursorLineNr' , 9 , 1     , 'none' )
 
 " Cyan:   6{{{1
     call s:hy ( 'Function'   , 6      , 'none', 'none' )
@@ -136,10 +137,10 @@ let s:xGrey = {
     call s:hy ( 'Member'     , 14     , 'none', 'none' )
     call s:hy ( 'Repeat'     , 14     , 'none', 'none' )
 
-    call s:hy ( 'Pmenu'      , 9      , 1 , 'none' )
-    call s:hy ( 'PmenuSbar'  , 'none' , 1 , 'none' )
-    call s:hy ( 'PMenuThumb' , 'none' , 9 , 'none' )
-    call s:hy ( 'PmenuSel'   , 1      , 9 , 'none' )
+    call s:hy ( 'Pmenu'      , 14      , 6 , 'none' )
+    call s:hy ( 'PmenuSbar'  , 'none' , 6 , 'none' )
+    call s:hy ( 'PMenuThumb' , 'none' , 14 , 'none' )
+    call s:hy ( 'PmenuSel'   , 6      , 14 , 'none' )
 
 
 " Grey:   7{{{1
@@ -153,7 +154,8 @@ let s:xGrey = {
     call s:hy ( 'MatchParen' , 'none' , 8 , 'none' )
 
 " Black:  0{{{1
-    call s:hy ( 'Folded'       , 0       , 8   , 'none')
+    call s:hy ( 'Folded'       , 7 , 0   , 'none')
+    call s:hy ( 'FoldColumn'   , 7 , 0   , 'none')
 
 " Accent: *{{{1
     call s:hy ( 'DiffChange' , 'none ' , 'none' , 'none')
