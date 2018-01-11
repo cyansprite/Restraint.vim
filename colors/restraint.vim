@@ -21,51 +21,46 @@ let s:debug = 0
 " Function to make life easier.
 " TODO: GUI
 func! s:hy(name, f, b, t)
-    exec 'hi '.a:name.' ctermfg='.a:f.' ctermbg='.a:b.' cterm='.a:t
+    exec 'hi '.a:name.' ctermfg='.a:f.' ctermbg='.a:b.' cterm='.a:t.
+        \ ' guifg='.s:colors[a:f].' guibg='.s:colors[a:b].' gui='.a:t
 endfunc
 
-" GuiDef: o FIXME{{{1
-let s:gui= {}
-" If you don't like grey, change these.
-let s:xGrey = {
-    \231: '#ffffff',
-    \232: '#080808',
-    \233: '#121212',
-    \234: '#1c1c1c',
-    \235: '#262626',
-    \236: '#303030',
-    \237: '#3a3a3a',
-    \238: '#444444',
-    \239: '#4e4e4e',
-    \240: '#585858',
-    \241: '#606060',
-    \242: '#666666',
-    \243: '#767676',
-    \244: '#808080',
-    \245: '#8a8a8a',
-    \246: '#949494',
-    \247: '#9e9e9e',
-    \248: '#a8a8a8',
-    \249: '#b2b2b2',
-    \250: '#bcbcbc',
-    \251: '#c6c6c6',
-    \252: '#d0d0d0',
-    \253: '#dadada',
-    \254: '#e4e4e4',
-    \255: '#eeeeee'
-\}
+func! s:guiOnly(name, f, b, t)
+    exec 'hi '.a:name.' guifg='.a:f.' guibg='.a:b.' gui='.a:t.
+        \' ctermfg=none ctermbg=none cterm=none'
+endfunc
+
+" GuiDef: o {{{1
+let s:colors = [
+   \ '#000000',
+   \ '#9d6968',
+   \ '#728d58',
+   \ '#a87660',
+   \ '#40769b',
+   \ '#75507b',
+   \ '#386d6d',
+   \ '#8585ac',
+   \ '#777777',
+   \ '#db9090',
+   \ '#b6db90',
+   \ '#dbc080',
+   \ '#90b6db',
+   \ '#ad7fa8',
+   \ '#90dbdb',
+   \ '#deffff',
+\]
 
 " Nons:   -{{{1
-    call s:hy ( 'Normal'       , 'none' , 'none', 'none' )
-    call s:hy ( 'UnderLine'    , 'none' , 'none', 'none' )
-    call s:hy ( 'QuickFixLine' , 'none' , 'none', 'underline' )
-    call s:hy ( 'CursorLine'   , 'none' , 'none', 'none' )
-    call s:hy ( 'CursorColumn' , 'none' , 'none', 'none' )
-    call s:hy ( 'EndOfBuffer'  , 0      , 'none', 'none' )
-    call s:hy ( 'Cursor'       , 'none' , 'none', 'none' )
-    call s:hy ( 'ColorColumn'  , 'none' , 'none', 'none' )
-    call s:hy ( 'SignColumn'   , 8      , 0     , 'none' )
-    call s:hy ( 'StatuslineNc' , 'none' , 'none', 'none' )
+    call s:hy ( 'QuickFixLine' , 'none' , 'none', 'inverse' )
+
+    call s:guiOnly ( 'Normal'       , '#ffffff', 'none', 'none' )
+    call s:guiOnly ( 'UnderLine'    , 'none' , 'none', 'none' )
+    call s:guiOnly ( 'CursorLine'   , 'none' , 'none', 'none' )
+    call s:guiOnly ( 'CursorColumn' , 'none' , 'none', 'none' )
+    call s:guiOnly ( 'EndOfBuffer'  , 'none' , 'none', 'none' )
+    call s:guiOnly ( 'Cursor'       , 'none' , 'none', 'none' )
+    call s:guiOnly ( 'ColorColumn'  , 'none' , 'none', 'none' )
+    call s:guiOnly ( 'StatuslineNc' , 'none' , 'none', 'none' )
 
 " Red:    1{{{1
     call s:hy ( 'Constant'    , 1      , 'none' , 'none' )
@@ -153,8 +148,9 @@ let s:xGrey = {
     call s:hy ( 'MatchParen' , 'none' , 8 , 'none' )
 
 " Black:  0{{{1
-    call s:hy ( 'FoldColumn'   , 7 , 0   , 'none')
+    call s:hy ( 'FoldColumn'   , 8 , 0   , 'none')
     call s:hy ( 'Folded'       , 8       , 0   , 'none')
+    call s:hy ( 'SignColumn'   , 8      , 0     , 'none' )
 
 " Accent: *{{{1
     call s:hy ( 'DiffChange' , 'none ' , 'none' , 'none')
