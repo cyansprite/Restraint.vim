@@ -68,20 +68,19 @@ let s:xGrey = {
     call s:hy ( 'StatuslineNc' , 'none' , 'none', 'none' )
 
 " Red:    1{{{1
-    call s:hy ( 'Constant'    , 1 , 'none', 'none')
-    call s:hy ( 'Boolean'     , 1 , 'none', 'none')
-    call s:hy ( 'Number'      , 1 , 'none', 'none')
+    call s:hy ( 'Constant'    , 1      , 'none' , 'none' )
+    call s:hy ( 'Boolean'     , 1      , 'none' , 'none' )
+    call s:hy ( 'Number'      , 1      , 'none' , 'none' )
 
     call s:hy ( 'Keyword'     , 9 , 'none', 'none')
     call s:hy ( 'Float'       , 9 , 'none', 'none')
 
-    call s:hy ( 'Error'       , 9 , 1 , 'none' )
-    call s:hy ( 'ErrorMsg'    , 9 , 1 , 'none' )
-    call s:hy ( 'Whitespace'  , 1 , 9 , 'none' )
-    call s:hy ( 'DiffDelete'  , 9 , 1 , 'none' )
-    call s:hy ( 'DiffRemoved' , 9 , 1 , 'none' )
+    call s:hy ( 'Error'       , 9      , 1      , 'none' )
+    call s:hy ( 'ErrorMsg'    , 9      , 1      , 'none' )
+    call s:hy ( 'Whitespace'  , 1      , 9      , 'none' )
+    call s:hy ( 'DiffDelete'  , 9      , 1      , 'none' )
+    call s:hy ( 'DiffRemoved' , 9      , 1      , 'none' )
 
-    call s:hy ( 'ModeMsg'     , 13 , 'none' , 'none' )
 
 " Green:  2{{{1
     call s:hy ( 'StorageClass' , 2  , 'none', 'none' )
@@ -91,7 +90,7 @@ let s:xGrey = {
     call s:hy ( 'DiffAdd'      , 10 , 2     , 'none' )
     call s:hy ( 'diffAdded'    , 10 , 2     , 'none' )
     call s:hy ( 'Operator'     , 10 , 'none', 'none' )
-    call s:hy ( 'Visual'       , 10 , 2     , 'none' )
+    call s:hy ( 'Visual'       , 2  , 10    , 'none' )
 
 
 " Yellow: 3{{{1
@@ -100,8 +99,8 @@ let s:xGrey = {
     call s:hy ( 'Label'      , 3  , 'none', 'none' )
 
     call s:hy ( 'Directory'  , 11 , 'none', 'none' )
-    call s:hy ( 'Structure'  , 11 , 'none', 'none' )
-    call s:hy ( 'Todo'       , 11 , 'none', 'none' )
+    call s:hy ( 'Statement'  , 11 , 'none', 'none' )
+    call s:hy ( 'Todo'       , 11 , 4     , 'bold' )
 
     call s:hy ( 'WarningMsg' , 11 , 3     , 'none' )
     call s:hy ( 'Search'     , 11 , 3     , 'none' )
@@ -124,15 +123,16 @@ let s:xGrey = {
 
     call s:hy ( 'Class'        , 13 , 'none', 'none' )
     call s:hy ( 'Float'        , 13 , 'none', 'none' )
-    call s:hy ( 'Title'        , 13 , 'none', 'none' )
+    call s:hy ( 'Title'        , 13 , 'none', 'bold' )
+    call s:hy ( 'ModeMsg'     , 13 , 'none' , 'bold' )
 
     call s:hy ( 'Question'     , 0 , 0     , 'none' )
     call s:hy ( 'LineNr'       , 1 , 'none', 'none' )
     call s:hy ( 'CursorLineNr' , 9 , 1     , 'none' )
 
 " Cyan:   6{{{1
-    call s:hy ( 'Function'   , 6      , 'none', 'none' )
-    call s:hy ( 'Character'  , 6      , 'none', 'none' )
+    call s:hy ( 'Function'   , 14     , 'none', 'none' )
+    call s:hy ( 'Character'  , 14     , 'none', 'none' )
     call s:hy ( 'SpecialKey' , 14     , 'none', 'none' )
     call s:hy ( 'Member'     , 14     , 'none', 'none' )
     call s:hy ( 'Repeat'     , 14     , 'none', 'none' )
@@ -142,20 +142,19 @@ let s:xGrey = {
     call s:hy ( 'PMenuThumb' , 'none' , 14 , 'none' )
     call s:hy ( 'PmenuSel'   , 6      , 14 , 'none' )
 
-
 " Grey:   7{{{1
     call s:hy ( 'Type'       , 15 , 'none', 'none' )
 
     call s:hy ( 'Ignore'     , 7  , 'none', 'none' )
     call s:hy ( 'Conditonal' , 7  , 'none', 'none' )
     call s:hy ( 'PreProc'    , 7  , 'none', 'none' )
-    call s:hy ( 'VertSplit'  , 10 , 2     , 'none' )
+    call s:hy ( 'VertSplit'  , 0  , 8     , 'none' )
 
     call s:hy ( 'MatchParen' , 'none' , 8 , 'none' )
 
 " Black:  0{{{1
-    call s:hy ( 'Folded'       , 7 , 0   , 'none')
     call s:hy ( 'FoldColumn'   , 7 , 0   , 'none')
+    call s:hy ( 'Folded'       , 8       , 0   , 'none')
 
 " Accent: *{{{1
     call s:hy ( 'DiffChange' , 'none ' , 'none' , 'none')
@@ -195,7 +194,7 @@ let s:xGrey = {
     call s:hy('GitGutterDelete'       , 9   , 1 , 'none')
     call s:hy('GitGutterChangeDelete' , 11  , 3 , 'none')
 
-hi GrepperCurrent ctermfg=10 ctermbg=2 cterm=none
+hi GrepperCurrent ctermfg=12 ctermbg=4 cterm=none
 hi GrepperMatch   ctermfg=11 ctermbg=3 cterm=none
 
 " try | call matchdelete(1065) | catch *
