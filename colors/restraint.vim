@@ -122,7 +122,7 @@ let s:colors = [
 
     call s:hy ('Question'     ,0  ,0      ,'none' )
     call s:hy ('LineNr'       ,1  ,'none' ,'none' )
-    call s:hy ('CursorLineNr' ,9  ,1      ,'none' )
+    call s:hy ('CursorLineNr' ,15 ,1      ,'bold' )
 
 " Cyan:   6{{{1
     call s:hy ('Function'   ,14     ,'none' ,'none' )
