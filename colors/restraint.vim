@@ -29,25 +29,29 @@ endfunc
 " GuiDef: o {{{1
 let s:colors = [
    \ '#000000',
-   \ '#9d6968',
-   \ '#728d58',
-   \ '#a87660',
-   \ '#40769b',
-   \ '#75507b',
-   \ '#386d6d',
-   \ '#8585ac',
-   \ '#777777',
-   \ '#db9090',
-   \ '#b6db90',
-   \ '#dbc080',
-   \ '#90b6db',
-   \ '#ad7fa8',
-   \ '#90dbdb',
-   \ '#deffff',
+   \
+   \ '#a26c6c',
+   \ '#6ca26c',
+   \ '#a2a26c',
+   \ '#6c6ca2',
+   \ '#a26ca2',
+   \ '#6ca2a2',
+   \
+   \ '#c9c9c9',
+   \ '#6c6c6c',
+   \
+   \ '#c9abab',
+   \ '#abc9ab',
+   \ '#c9c9ab',
+   \ '#ababc9',
+   \ '#c9abc9',
+   \ '#abc9c9',
+   \
+   \ '#ffffff',
 \]
 
 " Nons:   -{{{1
-    call s:guiOnly ('Normal'       ,'#ffffff' ,'none' ,'none'    )
+    call s:guiOnly ('Normal'       ,'8'       ,'none' ,'none'    )
     call s:guiOnly ('UnderLine'    ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('CursorLine'   ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('CursorColumn' ,'none'    ,'none' ,'none'    )
@@ -109,6 +113,7 @@ let s:colors = [
     call s:hy ('MoreMsg'     ,12 ,4      ,'none' )
     call s:hy ('StatusLine'  ,4  ,'none' ,'none' )
     call s:hy ('WildMenu'    ,12 ,4      ,'none' )
+    call s:hy ('DiffText'   ,12 ,4 ,'none' )
 
 " Purple: 5{{{1
     call s:hy ('Delimeter'    ,5  ,'none' ,'none' )
@@ -146,11 +151,9 @@ let s:colors = [
     call s:hy ('MatchParen' ,'none' ,8      ,'none' )
 
 " Black:  0{{{1
-    call s:hy ('FoldColumn' ,8  ,0 ,'none' )
-    call s:hy ('Folded'     ,8  ,0 ,'none' )
+    call s:hy ('FoldColumn' ,0  ,8 ,'none' )
+    call s:hy ('Folded'     ,0  ,8 ,'none' )
     call s:hy ('SignColumn' ,8  ,0 ,'none' )
-
-    call s:hy ('DiffText'   ,12 ,4 ,'none' )
 
 " Relink  >{{{1
     hi link vimCommentTitle Title
