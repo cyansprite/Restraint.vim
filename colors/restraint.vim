@@ -31,11 +31,11 @@ let s:colors = [
    \ '#000000',
    \
    \ '#a26c6c',
-   \ '#6ca26c',
-   \ '#a2a26c',
-   \ '#6c6ca2',
-   \ '#a26ca2',
-   \ '#6ca2a2',
+   \ '#82826c',
+   \ '#a2826c',
+   \ '#6c82a2',
+   \ '#826ca2',
+   \ '#6c8282',
    \
    \ '#c9c9c9',
    \ '#6c6c6c',
@@ -60,7 +60,7 @@ let s:colors = [
     call s:guiOnly ('StatuslineNc' ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('DiffChange'   ,'none '   ,'none' ,'none'    )
 
-    call s:hy      ('QuickFixLine' ,'none'    ,'none' ,'inverse' )
+    call s:guiOnly ('QuickFixLine' ,'none'    ,'none' ,'inverse' )
     call s:hy      ('EndOfBuffer'  ,'0'       ,'0'    ,'none'    )
 
 " Red:    1{{{1
@@ -87,7 +87,7 @@ let s:colors = [
     call s:hy ('diffAdded'    ,10 ,2      ,'none' )
     call s:hy ('VertSplit'    ,10 ,2      ,'none' )
     call s:hy ('Operator'     ,10 ,'none' ,'none' )
-    call s:hy ('Visual'       ,2  ,10     ,'none' )
+    call s:hy ('Visual'       ,10 ,2      ,'none' )
 
 
 " Yellow: 3{{{1
@@ -97,11 +97,11 @@ let s:colors = [
 
     call s:hy ('Directory'  ,11 ,'none' ,'none' )
     call s:hy ('Statement'  ,11 ,'none' ,'none' )
-    call s:hy ('Todo'       ,11 ,4      ,'bold' )
+    call s:hy ('Todo'       ,11 ,4      ,'none' )
 
     call s:hy ('WarningMsg' ,11 ,3      ,'none' )
     call s:hy ('Search'     ,11 ,3      ,'none' )
-    call s:hy ('SearchC'    ,3  ,11     ,'none' )
+    call s:hy ('SearchC'    ,0  ,11     ,'none' )
     call s:hy ('IncSearch'  ,3  ,11     ,'none' )
 
 
@@ -122,12 +122,12 @@ let s:colors = [
 
     call s:hy ('Class'        ,13 ,'none' ,'none' )
     call s:hy ('Float'        ,13 ,'none' ,'none' )
-    call s:hy ('Title'        ,13 ,'none' ,'bold' )
-    call s:hy ('ModeMsg'      ,13 ,'none' ,'bold' )
+    call s:hy ('Title'        ,13 ,'none' ,'none' )
+    call s:hy ('ModeMsg'      ,13 ,'none' ,'none' )
 
-    call s:hy ('Question'     ,0  ,0      ,'none' )
+    call s:hy ('Question'     ,15  ,7     ,'none' )
     call s:hy ('LineNr'       ,1  ,'none' ,'none' )
-    call s:hy ('CursorLineNr' ,15 ,1      ,'bold' )
+    call s:hy ('CursorLineNr' ,15 ,1      ,'none' )
 
 " Cyan:   6{{{1
     call s:hy ('Function'   ,14     ,'none' ,'none' )
