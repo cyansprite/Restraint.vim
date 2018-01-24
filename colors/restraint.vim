@@ -125,7 +125,7 @@ let s:colors = [
     call s:hy ('Title'        ,13 ,'none' ,'none' )
     call s:hy ('ModeMsg'      ,13 ,'none' ,'none' )
 
-    call s:hy ('Question'     ,15  ,7     ,'none' )
+    call s:hy ('Question'     ,13  ,5     ,'none' )
     call s:hy ('LineNr'       ,1  ,'none' ,'none' )
     call s:hy ('CursorLineNr' ,15 ,1      ,'none' )
 
@@ -164,9 +164,7 @@ let s:colors = [
 
 " }}}
 " Plugin: & {{{1
-    call s:hy ('logicalbuffer'   ,0 ,15     ,'none' )
-    call s:hy ('logicalmodified' ,2 ,'none' ,'none' )
-    call s:hy ('logicalreadonly' ,1 ,'none' ,'none' )
+    call s:hy ('logicalbuffer'   ,10 ,2     ,'none' )
     call s:hy ('logical0'        ,6 ,'none' ,'none' )
     call s:hy ('logical1'        ,5 ,'none' ,'none' )
     call s:hy ('logical2'        ,4 ,'none' ,'none' )
