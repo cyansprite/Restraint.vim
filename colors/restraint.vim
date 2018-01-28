@@ -28,30 +28,30 @@ endfunc
 
 " GuiDef: o {{{1
 let s:colors = [
-   \ '#000000',
+   \ "#1c2626",
+   \ "#274444",
+   \ "#395e5f",
+   \ "#556c6d",
+   \ "#62797a",
+   \ "#528c8e",
+   \ "#83f3f6",
+   \ "#c0feff",
    \
-   \ '#a26c6c',
-   \ '#6c826c',
-   \ '#a2826c',
-   \ '#6c82a2',
-   \ '#826ca2',
-   \ '#6c8282',
-   \
-   \ '#c9c9c9',
-   \ '#6c6c6c',
-   \
-   \ '#c9abab',
-   \ '#abc9ab',
-   \ '#c9c9ab',
-   \ '#ababc9',
-   \ '#c9abc9',
-   \ '#abc9c9',
-   \
-   \ '#ffffff',
+   \ "#2a2734",
+   \ "#403846",
+   \ "#646177",
+   \ "#6c6783",
+   \ "#7e75a9",
+   \ "#9b87fd",
+   \ "#c4b8fe",
+   \ "#eecbff",
 \]
 
+let s:dimpop = "#8c856e"
+let s:pop = '#ffcc99'
+
 " Nons:   -{{{1
-    call s:guiOnly ('Normal'       ,'8'       ,'none' ,'none'    )
+    call s:guiOnly ('Normal'       ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('UnderLine'    ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('CursorLine'   ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('CursorColumn' ,'none'    ,'none' ,'none'    )
@@ -60,100 +60,104 @@ let s:colors = [
     call s:guiOnly ('StatuslineNc' ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('DiffChange'   ,'none '   ,'none' ,'none'    )
 
-    call s:guiOnly ('QuickFixLine' ,'none'    ,'none' ,'inverse' )
+    call s:guiOnly ('QuickFixLine' ,'none'    ,'1'    ,'none'    )
     call s:hy      ('EndOfBuffer'  ,'0'       ,'0'    ,'none'    )
 
-" Red:    1{{{1
-    call s:hy ('Constant'    ,1 ,'none' ,'none' )
-    call s:hy ('Boolean'     ,1 ,'none' ,'none' )
-    call s:hy ('Number'      ,1 ,'none' ,'none' )
+"1       9{{{1
+    call s:hy ( 'Comment'      , 9  , 0 , 'none' )
+    call s:hy ( 'Todo'         , 11 , 9 , 'none' )
+    call s:hy ( 'LineNr'       , 1  , 0 , 'none' )
 
-    call s:hy ('Keyword'     ,9 ,'none' ,'none' )
-    call s:hy ('Float'       ,9 ,'none' ,'none' )
+    call s:hy ( 'Whitespace'   , 6  , 1 , 'none' )
+    call s:hy ( 'DiffAdd'      , 6  , 1 , 'none' )
+    call s:hy ( 'diffAdded'    , 6  , 1 , 'none' )
 
-    call s:hy ('Error'       ,9 ,1      ,'none' )
-    call s:hy ('ErrorMsg'    ,9 ,1      ,'none' )
-    call s:hy ('Whitespace'  ,1 ,9      ,'none' )
-    call s:hy ('DiffDelete'  ,9 ,1      ,'none' )
-    call s:hy ('DiffRemoved' ,9 ,1      ,'none' )
-
-
-" Green:  2{{{1
-    call s:hy ('StorageClass' ,2  ,'none' ,'none' )
-
-    call s:hy ('Statement'    ,10 ,'none' ,'none' )
-
-    call s:hy ('DiffAdd'      ,10 ,2      ,'none' )
-    call s:hy ('diffAdded'    ,10 ,2      ,'none' )
-    call s:hy ('VertSplit'    ,10 ,2      ,'none' )
-    call s:hy ('Operator'     ,10 ,'none' ,'none' )
-    call s:hy ('Visual'       ,10 ,2      ,'none' )
+    call s:hy ( 'CursorLineNr' , 14 , 9 , 'none' )
+    call s:hy ( 'Error'        , 14 , 9 , 'none' )
+    call s:hy ( 'ErrorMsg'     , 14 , 9 , 'none' )
+    call s:hy ( 'DiffDelete'   , 14 , 9 , 'none' )
+    call s:hy ( 'DiffRemoved'  , 14 , 9 , 'none' )
 
 
-" Yellow: 3{{{1
-    call s:hy ('PreCondit'  ,3  ,'none' ,'none' )
-    call s:hy ('TypeDef'    ,3  ,'none' ,'none' )
-    call s:hy ('Label'      ,3  ,'none' ,'none' )
+" 2      10{{{1
+    call s:hy      ( 'PreCondit'  , 2        , 'none' , 'none' )
+    call s:hy      ( 'TypeDef'    , 2        , 'none' , 'none' )
 
-    call s:hy ('Directory'  ,11 ,'none' ,'none' )
-    call s:hy ('Statement'  ,11 ,'none' ,'none' )
-    call s:hy ('Todo'       ,11 ,4      ,'none' )
+    call s:hy      ( 'Constant'   , 10       , 'none' , 'none' )
+    call s:hy      ( 'Boolean'    , 10       , 'none' , 'none' )
+    call s:hy      ( 'Keyword'    , 10       , 'none' , 'none' )
 
-    call s:hy ('WarningMsg' ,11 ,3      ,'none' )
-    call s:hy ('Search'     ,11 ,3      ,'none' )
-    call s:hy ('SearchC'    ,0  ,11     ,'none' )
-    call s:hy ('IncSearch'  ,3  ,11     ,'none' )
+    call s:hy      ( 'VertSplit'  , 6        , 'none' , 'none' )
+    call s:guiOnly ( 'Operator'   , s:dimpop , 'none' , 'none' )
+    call s:guiOnly ( 'BraceChars' , s:dimpop , 'none' , 'none' )
+    call s:guiOnly ( 'ParenChars' , s:dimpop , 'none' , 'none' )
+    call s:hy      ( 'Visual'     , 7        , 4      , 'none' )
+
+" 3      11{{{1
+    call s:hy      ( 'Number'     , 11          , 'none'      , 'none'      )
+    call s:hy      ( 'Directory'  , 11          , 'none'      , 'none'      )
+
+    call s:guiOnly ( 'WarningMsg' , 'none'      , s:colors[8] , 'none'      )
+    call s:guiOnly ( 'Search'     , s:pop       , s:dimpop    , 'none'      )
+    call s:guiOnly ( 'SearchC'    , s:colors[6] , s:colors[2] , 'none'      )
+    call s:guiOnly ( 'IncSearch'  , 'none'      , s:colors[1] , 'underline' )
+
+" 4      12{{{1
+    call s:hy ( 'NonText'     , 4      , 'none' , 'none' )
+    call s:hy ( 'SpecialChar' , 4      , 'none' , 'none' )
+    call s:hy ( 'Special'     , 4      , 'none' , 'none' )
+    call s:hy ( 'Label'       , 4      , 'none' , 'none' )
+
+    call s:hy ( 'StatusLine'  , 4      , 1      , 'none' )
+    call s:hy ( 'Folded'      , 4      , 1      , 'none' )
+    call s:hy ( 'FoldColumn'  , 4      , 1      , 'none' )
+    call s:hy ( 'SignColumn'  , 6      , 0      , 'none' )
 
 
-" Blue:   4{{{1
-    call s:hy ('NonText'     ,4  ,'none' ,'none' )
-    call s:hy ('SpecialChar' ,4  ,'none' ,'none' )
-    call s:hy ('Comment'     ,4  ,'none' ,'none' )
-    call s:hy ('Identifier'  ,12 ,'none' ,'none' )
-    call s:hy ('MoreMsg'     ,12 ,4      ,'none' )
-    call s:hy ('StatusLine'  ,4  ,'none' ,'none' )
-    call s:hy ('WildMenu'    ,12 ,4      ,'none' )
-    call s:hy ('DiffText'   ,12 ,4 ,'none' )
+    call s:hy ( 'Identifier'  , 12     , 'none' , 'none' )
+    call s:hy ( 'Pmenu'       , 12     , 9      , 'none' )
+    call s:hy ( 'PmenuSbar'   , 'none' , 12     , 'none' )
 
-" Purple: 5{{{1
-    call s:hy ('Delimeter'    ,5  ,'none' ,'none' )
-    call s:hy ('Special'      ,5  ,'none' ,'none' )
-    call s:hy ('String'       ,5  ,'none' ,'none' )
+    call s:guiOnly ( 'DiffText'    , s:pop    , s:dimpop     , 'none' )
 
-    call s:hy ('Class'        ,13 ,'none' ,'none' )
-    call s:hy ('Float'        ,13 ,'none' ,'none' )
-    call s:hy ('Title'        ,13 ,'none' ,'none' )
-    call s:hy ('ModeMsg'      ,13 ,'none' ,'none' )
+" 5      13{{{1
+    call s:hy ( 'Delimeter'    , 5  , 'none' , 'none' )
+    call s:hy ( 'String'       , 5  , 'none' , 'none' )
+    call s:hy ( 'Member'       , 5  , 'none' , 'none' )
 
-    call s:hy ('Question'     ,13  ,5     ,'none' )
-    call s:hy ('LineNr'       ,1  ,'none' ,'none' )
-    call s:hy ('CursorLineNr' ,15 ,1      ,'none' )
+    call s:hy ( 'StorageClass' , 13 , 'none' , 'none' )
+    call s:hy ( 'Statement'    , 13 , 'none' , 'none' )
 
-" Cyan:   6{{{1
-    call s:hy ('Function'   ,14     ,'none' ,'none' )
-    call s:hy ('Character'  ,14     ,'none' ,'none' )
-    call s:hy ('SpecialKey' ,14     ,'none' ,'none' )
-    call s:hy ('Member'     ,14     ,'none' ,'none' )
-    call s:hy ('Repeat'     ,14     ,'none' ,'none' )
+    call s:hy ( 'Class'        , 13 , 'none' , 'none' )
+    call s:hy ( 'Float'        , 13 , 'none' , 'none' )
 
-    call s:hy ('Pmenu'      ,14     ,6      ,'none' )
-    call s:hy ('PmenuSbar'  ,'none' ,6      ,'none' )
-    call s:hy ('PMenuThumb' ,'none' ,14     ,'none' )
-    call s:hy ('PmenuSel'   ,6      ,14     ,'none' )
 
-" Grey:   7{{{1
-    call s:hy ('Type'       ,15     ,'none' ,'none' )
+" 6      14{{{1
+    call s:hy ( 'Character'  , 6      , 'none' , 'none' )
+    call s:hy ( 'Function'   , 6      , 'none' , 'none' )
 
-    call s:hy ('Ignore'     ,7      ,'none' ,'none' )
-    call s:hy ('Conditonal' ,7      ,'none' ,'none' )
-    call s:hy ('PreProc'    ,7      ,'none' ,'none' )
 
-    call s:hy ('MatchParen' ,'none' ,8      ,'none' )
+    call s:hy ( 'SpecialKey' , 14     , 'none' , 'none' )
+    call s:hy ( 'Repeat'     , 14     , 'none' , 'none' )
+    call s:hy ( 'Title'      , 14     , 'none' , 'none' )
+    call s:hy ( 'ModeMsg'    , 14     , 'none' , 'none' )
 
-" Black:  0{{{1
-    call s:hy ('FoldColumn' ,0  ,8 ,'none' )
-    call s:hy ('Folded'     ,0  ,8 ,'none' )
-    call s:hy ('SignColumn' ,8  ,0 ,'none' )
+    call s:hy ( 'PmenuSel'   , 14     , 10     , 'none' )
+    call s:hy ( 'PMenuThumb' , 'none' , 14     , 'none' )
+    call s:hy ( 'WildMenu'   , 6      , 2      , 'none' )
+
+" 7      15{{{1
+    call s:hy      ( 'Type'       , 15    , 'none' , 'none' )
+
+    call s:hy      ( 'Ignore'     , 7     , 'none' , 'none' )
+    call s:hy      ( 'Conditonal' , 7     , 'none' , 'none' )
+    call s:hy      ( 'PreProc'    , 7     , 'none' , 'none' )
+
+    call s:guiOnly ( 'MatchParen' , s:pop , 'none' , 'none' )
+
+" 0       8{{{1
+    call s:hy ( 'Question' , 0 , 7  , 'none' )
+    call s:hy ( 'MoreMsg'  , 8 , 15 , 'none' )
 
 " Relink  >{{{1
     hi link vimCommentTitle Title
@@ -161,30 +165,13 @@ let s:colors = [
     hi link vimHighlight    Member
     hi link vimParenSep     Operator
     hi link csClass         Structure
+    hi link GitGutterDelete DiffDelete
+    hi link GitGutterAdd    DiffAdd
+    hi link GitGutterChange DiffText
+    call s:guiOnly ( 'GitGutterChangeDelete' , s:pop , s:colors[10] , 'none' )
 
 " }}}
 " Plugin: & {{{1
-    call s:hy ('logicalbuffer'   ,10 ,2     ,'none' )
-    call s:hy ('logical0'        ,6 ,'none' ,'none' )
-    call s:hy ('logical1'        ,5 ,'none' ,'none' )
-    call s:hy ('logical2'        ,4 ,'none' ,'none' )
-    call s:hy ('logical3'        ,3 ,'none' ,'none' )
-    call s:hy ('logical4'        ,2 ,'none' ,'none' )
-    call s:hy ('logical5'        ,1 ,'none' ,'none' )
-    call s:hy ('logical6'        ,1 ,'none' ,'none' )
-    call s:hy ('logical7'        ,2 ,'none' ,'none' )
-    call s:hy ('logical8'        ,3 ,'none' ,'none' )
-    call s:hy ('logical9'        ,4 ,'none' ,'none' )
-    call s:hy ('logical10'       ,5 ,'none' ,'none' )
-    call s:hy ('logical11'       ,6 ,'none' ,'none' )
-    for i in range(0,15)
-        exec printf("let g:terminal_colors%d=%d", i, i)
-    endfor
 
-    call s:hy ('GitGutterAdd'          ,10 ,2 ,'none' )
-    call s:hy ('GitGutterChange'       ,12 ,4 ,'none' )
-    call s:hy ('GitGutterDelete'       ,9  ,1 ,'none' )
-    call s:hy ('GitGutterChangeDelete' ,11 ,3 ,'none' )
-
-hi GrepperCurrent ctermfg=12 ctermbg=4 cterm=none
-hi GrepperMatch   ctermfg=11 ctermbg=3 cterm=none
+hi GrepperCurrent cterm=none
+hi GrepperMatch   cterm=none
