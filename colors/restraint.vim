@@ -226,5 +226,12 @@ endif
 " }}}
 " Plugin: & {{{1
 
+call s:hy      ( 'LogicalBuffer'       , 0    , 15, 'none' )
+for x in range(2, 7)
+    exec 'call s:hy ( "Logical".'.string(x-2).'  ,'.string(x).'  , 0 , "none" )'
+endfor
+for x in range(9, 15)
+    exec 'call s:hy ( "Logical".'.string(x-3).'  ,'.string(x).'  , 0 , "none" )'
+endfor
 hi GrepperCurrent cterm=none
 hi GrepperMatch   cterm=none
