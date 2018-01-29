@@ -27,33 +27,86 @@ func! s:guiOnly(name, f, b, t)
 endfunc
 
 " GuiDef: o {{{1
-let s:colors = [
-   \ "#1c2626",
-   \ "#274444",
-   \ "#395e5f",
-   \ "#556c6d",
-   \ "#62797a",
-   \ "#528c8e",
-   \ "#83f3f6",
-   \ "#c0feff",
-   \
-   \ "#2a2734",
-   \ "#403846",
-   \ "#646177",
-   \ "#6c6783",
-   \ "#7e75a9",
-   \ "#9b87fd",
-   \ "#c4b8fe",
-   \ "#eecbff",
-\]
+" Diff theme for work and play
+if hostname() == 'QSR0505'
+    let s:colors = [
+                \ 0x26261c,
+                \ 0x444427,
+                \ 0x5e5f39,
+                \ 0x6c6d55,
+                \ 0x797a62,
+                \ 0x8c8e52,
+                \ 0xf3f683,
+                \ 0xfeffc0,
+                \
+                \ 0x27342a,
+                \ 0x384640,
+                \ 0x617764,
+                \ 0x67836c,
+                \ 0x75a97e,
+                \ 0x87fd9b,
+                \ 0xb8fec4,
+                \ 0xcbffcb,
+    \]
 
-let s:dimpop = "#8c856e"
-let s:pop = '#ffcc99'
+    let s:dimpop = 0x8c6e85
+    let s:pop    = 0xff99cc
+else
+    let s:colors = [
+                \ 0x1c2626,
+                \ 0x274444,
+                \ 0x395e5f,
+                \ 0x556c6d,
+                \ 0x62797a,
+                \ 0x528c8e,
+                \ 0x83f3f6,
+                \ 0xc0feff,
+                \
+                \ 0x2a2734,
+                \ 0x403846,
+                \ 0x646177,
+                \ 0x6c6783,
+                \ 0x7e75a9,
+                \ 0x9b87fd,
+                \ 0xc4b8fe,
+                \ 0xeecbff,
+    \]
+
+    let s:dimpop = 0x8c856e
+    let s:pop = 0xffcc99
+endif
+
+
+func! ColoInvert(hex)
+    let h = 0xFFFFFF - a:hex
+    let zeros = 6 - len(printf('%x', h))
+    let s = printf('%x', h)
+    if zeros > 0
+        let s = repeat('0',zeros)
+    endif
+    return printf('#%s%x', repeat('0',zeros), h)
+endfunc
+
+" Inversion, best idea I've ever had :)
+if &bg=='light'
+    for i in range(0, len(s:colors) - 1)
+        let s:colors[i] = ColoInvert(s:colors[i])
+    endfor
+
+    let s:dimpop = ColoInvert(s:dimpop)
+    let s:pop = ColoInvert(s:pop)
+else
+    for i in range(0, len(s:colors) - 1)
+        exec printf('let s:colors[%d] = "#%x"',i,(s:colors[i]))
+    endfor
+    exec printf('let s:dimpop = "#%x"',(s:dimpop))
+    exec printf('let s:pop = "#%x"',(s:pop))
+endif
 
 " Nons:   -{{{1
-    call s:guiOnly ('Normal'       ,'none'    ,'none' ,'none'    )
+    call s:guiOnly ('Normal'       ,s:colors[15] ,s:colors[0],'none'    )
     call s:guiOnly ('UnderLine'    ,'none'    ,'none' ,'none'    )
-    call s:guiOnly ('CursorLine'   ,'none'    ,'none' ,'none'    )
+    call s:guiOnly ('CursorLine'   ,'none'    ,s:colors[8],'none'    )
     call s:guiOnly ('CursorColumn' ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('Cursor'       ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('ColorColumn'  ,'none'    ,'none' ,'none'    )
