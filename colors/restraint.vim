@@ -72,8 +72,16 @@ else
                 \ 0xeecbff,
     \]
 
-    let s:dimpop = 0x8c856e
-    let s:pop = 0xffcc99
+    let s:dimpop = 0x836c67
+    let s:pop = 0xfec4b8
+    let s:fg = 0xaaaaaa
+    let s:bg = 0x0f1f1f
+    let s:red = 0x8e5252
+    let s:green = 0x528e52
+    let s:blue = 0x525f8e
+    let s:brred = 0xffc0c0
+    let s:brgreen = 0xc0ffc0
+    let s:brblue = 0xc0cfff
 endif
 
 
@@ -101,35 +109,49 @@ else
     endfor
     exec printf('let s:dimpop = "#%x"',(s:dimpop))
     exec printf('let s:pop = "#%x"',(s:pop))
+
+    exec printf('let s:red = "#%x"',(s:red))
+    exec printf('let s:brred = "#%x"',(s:brred))
+
+    exec printf('let s:green = "#%x"',(s:green))
+    exec printf('let s:brgreen = "#%x"',(s:brgreen))
+
+    exec printf('let s:blue = "#%x"',(s:blue))
+    exec printf('let s:brblue = "#%x"',(s:brblue))
+
+    exec printf('let s:fg = "#%x"',(s:fg))
+    exec printf('let s:bg = "#%x"',(s:bg))
 endif
 
 " Nons:   -{{{1
-    call s:guiOnly ('Normal'       ,s:colors[15] ,s:colors[0],'none'    )
+    call s:guiOnly ('Normal'       , s:fg     ,s:bg   ,'none'    )
     call s:guiOnly ('UnderLine'    ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('CursorLine'   ,'none'    ,s:colors[8],'none'    )
     call s:guiOnly ('CursorColumn' ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('Cursor'       ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('ColorColumn'  ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('StatuslineNc' ,'none'    ,'none' ,'none'    )
-    call s:guiOnly ('DiffChange'   ,'none '   ,'none' ,'none'    )
 
     call s:guiOnly ('QuickFixLine' ,'none'    ,'1'    ,'none'    )
     call s:hy      ('EndOfBuffer'  ,'0'       ,'0'    ,'none'    )
 
+    call s:guiOnly ( 'DiffChange'   ,'none '   ,'none' ,'none'    )
+    call s:guiOnly ( 'DiffAdd'      , s:brgreen , s:green , 'none' )
+    call s:guiOnly ( 'DiffDelete'   , s:brred   , s:red , 'none' )
+    call s:guiOnly ( 'DiffRemoved'  , s:brred   , s:red , 'none' )
+    call s:guiOnly ( 'ErrorMsg'     , s:brred   , s:red , 'none' )
+    call s:guiOnly ( 'DiffText'     , s:brblue  , s:blue , 'none' )
+
 "1       9{{{1
     call s:hy ( 'Comment'      , 9  , 0 , 'none' )
     call s:hy ( 'Todo'         , 11 , 9 , 'none' )
-    call s:hy ( 'LineNr'       , 1  , 0 , 'none' )
+    call s:hy ( 'LineNr'       , 1  , 8 , 'none' )
 
     call s:hy ( 'Whitespace'   , 6  , 1 , 'none' )
-    call s:hy ( 'DiffAdd'      , 6  , 1 , 'none' )
-    call s:hy ( 'diffAdded'    , 6  , 1 , 'none' )
 
     call s:hy ( 'CursorLineNr' , 14 , 9 , 'none' )
     call s:hy ( 'Error'        , 14 , 9 , 'none' )
-    call s:hy ( 'ErrorMsg'     , 14 , 9 , 'none' )
-    call s:hy ( 'DiffDelete'   , 14 , 9 , 'none' )
-    call s:hy ( 'DiffRemoved'  , 14 , 9 , 'none' )
+
 
 
 " 2      10{{{1
@@ -150,6 +172,7 @@ endif
     call s:hy      ( 'Number'     , 11          , 'none'      , 'none'      )
     call s:hy      ( 'Directory'  , 11          , 'none'      , 'none'      )
 
+    " FIXME
     call s:guiOnly ( 'WarningMsg' , 'none'      , s:colors[8] , 'none'      )
     call s:guiOnly ( 'Search'     , s:pop       , s:dimpop    , 'none'      )
     call s:guiOnly ( 'SearchC'    , s:colors[6] , s:colors[2] , 'none'      )
@@ -171,7 +194,6 @@ endif
     call s:hy ( 'Pmenu'       , 12     , 9      , 'none' )
     call s:hy ( 'PmenuSbar'   , 'none' , 12     , 'none' )
 
-    call s:guiOnly ( 'DiffText'    , s:pop    , s:dimpop     , 'none' )
 
 " 5      13{{{1
     call s:hy ( 'Delimeter'    , 5  , 'none' , 'none' )
@@ -193,7 +215,7 @@ endif
     call s:hy ( 'SpecialKey' , 14     , 'none' , 'none' )
     call s:hy ( 'Repeat'     , 14     , 'none' , 'none' )
     call s:hy ( 'Title'      , 14     , 'none' , 'none' )
-    call s:hy ( 'ModeMsg'    , 14     , 'none' , 'none' )
+    call s:hy ( 'ModeMsg'    , 14     , 8 , 'none' )
 
     call s:hy ( 'PmenuSel'   , 14     , 10     , 'none' )
     call s:hy ( 'PMenuThumb' , 'none' , 14     , 'none' )
