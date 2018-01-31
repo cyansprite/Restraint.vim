@@ -30,27 +30,29 @@ endfunc
 " Diff theme for work and play
 if hostname() == 'QSR0505'
     let s:colors = [
-                \ 0x26261c,
-                \ 0x444427,
-                \ 0x5e5f39,
-                \ 0x6c6d55,
-                \ 0x797a62,
-                \ 0x8c8e52,
-                \ 0xf3f683,
-                \ 0xfeffc0,
+                \ 0x1c1c26,
+                \ 0x272744,
+                \ 0x39395f,
+                \ 0x55556d,
+                \ 0x62627a,
+                \ 0x52528e,
+                \ 0x8383f6,
+                \ 0xc0c0ff,
                 \
-                \ 0x27342a,
-                \ 0x384640,
-                \ 0x617764,
-                \ 0x67836c,
-                \ 0x75a97e,
-                \ 0x87fd9b,
-                \ 0xb8fec4,
-                \ 0xcbffcb,
+                \ 0x342734,
+                \ 0x463846,
+                \ 0x776177,
+                \ 0x836783,
+                \ 0xa975a9,
+                \ 0xfd87fd,
+                \ 0xfeb8fe,
+                \ 0xffcbff,
     \]
 
-    let s:dimpop = 0x8c6e85
-    let s:pop    = 0xff99cc
+    let s:dimpop = 0x85856e
+    let s:pop    = 0xfcfc99
+    let s:fg = 0xaaaaaa
+    let s:bg = 0x1c1c26
 else
     let s:colors = [
                 \ 0x1c2626,
@@ -76,13 +78,14 @@ else
     let s:pop = 0xfec4b8
     let s:fg = 0xaaaaaa
     let s:bg = 0x0f1f1f
-    let s:red = 0x8e5252
-    let s:green = 0x528e52
-    let s:blue = 0x525f8e
-    let s:brred = 0xffc0c0
-    let s:brgreen = 0xc0ffc0
-    let s:brblue = 0xc0cfff
 endif
+
+let s:red = 0x8e5252
+let s:green = 0x528e52
+let s:blue = 0x525f8e
+let s:brred = 0xffc0c0
+let s:brgreen = 0xc0ffc0
+let s:brblue = 0xc0cfff
 
 
 func! ColoInvert(hex)
@@ -103,6 +106,8 @@ if &bg=='light'
 
     let s:dimpop = ColoInvert(s:dimpop)
     let s:pop = ColoInvert(s:pop)
+    let s:fg = ColoInvert(s:fg)
+    let s:bg = ColoInvert(s:bg)
 else
     for i in range(0, len(s:colors) - 1)
         exec printf('let s:colors[%d] = "#%x"',i,(s:colors[i]))
@@ -145,7 +150,7 @@ endif
 "1       9{{{1
     call s:hy ( 'Comment'      , 9  , 0 , 'none' )
     call s:hy ( 'Todo'         , 11 , 9 , 'none' )
-    call s:hy ( 'LineNr'       , 1  , 8 , 'none' )
+    call s:hy ( 'LineNr'       , 9  , 0 , 'none' )
 
     call s:hy ( 'Whitespace'   , 6  , 1 , 'none' )
 
