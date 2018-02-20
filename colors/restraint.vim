@@ -27,58 +27,30 @@ func! s:guiOnly(name, f, b, t)
 endfunc
 
 " GuiDef: o {{{1
-" Diff theme for work and play
-if hostname() == 'QSR0505'
-    let s:colors = [
-                \ 0x1c1c26,
-                \ 0x272744,
-                \ 0x39395f,
-                \ 0x55556d,
-                \ 0x62627a,
-                \ 0x52528e,
-                \ 0x8383f6,
-                \ 0xc0c0ff,
-                \
-                \ 0x342734,
-                \ 0x463846,
-                \ 0x776177,
-                \ 0x836783,
-                \ 0xa975a9,
-                \ 0xfd87fd,
-                \ 0xfeb8fe,
-                \ 0xffcbff,
-    \]
+let s:colors = [
+            \ 0x000000,
+            \ 0x173434,
+            \ 0x294e4f,
+            \ 0x455c5d,
+            \ 0x52696a,
+            \ 0x427c7e,
+            \ 0x73f3f6,
+            \ 0xc0feff,
+            \
+            \ 0x1a1724,
+            \ 0x302836,
+            \ 0x545167,
+            \ 0x5c5773,
+            \ 0x6e65a9,
+            \ 0x8b77fd,
+            \ 0xc4b8fe,
+            \ 0xeecbff,
+\]
 
-    let s:dimpop = 0x85856e
-    let s:pop    = 0xfcfc99
-    let s:fg = 0xaaaaaa
-    let s:bg = 0x1c1c26
-else
-    let s:colors = [
-                \ 0x1c2626,
-                \ 0x274444,
-                \ 0x395e5f,
-                \ 0x556c6d,
-                \ 0x62797a,
-                \ 0x528c8e,
-                \ 0x83f3f6,
-                \ 0xc0feff,
-                \
-                \ 0x2a2734,
-                \ 0x403846,
-                \ 0x646177,
-                \ 0x6c6783,
-                \ 0x7e75a9,
-                \ 0x9b87fd,
-                \ 0xc4b8fe,
-                \ 0xeecbff,
-    \]
-
-    let s:dimpop = 0x836c67
-    let s:pop = 0xfec4b8
-    let s:fg = 0xaaaaaa
-    let s:bg = 0x0f1f1f
-endif
+let s:dimpop = 0xaaaa00
+let s:pop = 0xffff00
+let s:fg = 0xaaaaaa
+let s:bg = s:colors[0]
 
 let s:red = 0x8e5252
 let s:green = 0x528e52
@@ -141,11 +113,11 @@ endif
     call s:hy      ('EndOfBuffer'  ,'0'       ,'0'    ,'none'    )
 
     call s:guiOnly ( 'DiffChange'   ,'none '   ,'none' ,'none'    )
-    call s:guiOnly ( 'DiffAdd'      , s:brgreen , s:green , 'none' )
-    call s:guiOnly ( 'DiffDelete'   , s:brred   , s:red , 'none' )
-    call s:guiOnly ( 'DiffRemoved'  , s:brred   , s:red , 'none' )
-    call s:guiOnly ( 'ErrorMsg'     , s:brred   , s:red , 'none' )
-    call s:guiOnly ( 'DiffText'     , s:brblue  , s:blue , 'none' )
+    call s:guiOnly ( 'DiffAdd'      , s:brgreen , 'none', 'none' )
+    call s:guiOnly ( 'DiffDelete'   , s:brred   , 'none', 'none' )
+    call s:guiOnly ( 'DiffRemoved'  , s:brred   , 'none', 'none' )
+    call s:guiOnly ( 'ErrorMsg'     , s:brred   , 'none', 'none' )
+    call s:guiOnly ( 'DiffText'     , s:brblue  , 'none', 'none' )
 
 "1       9{{{1
     call s:hy ( 'Comment'      , 9  , 0 , 'none' )
