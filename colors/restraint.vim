@@ -70,7 +70,7 @@ func! ColoInvert(hex)
     return printf('#%s%x', repeat('0',zeros), h)
 endfunc
 
-" Inversion, best idea I've ever had :)
+" Inversion
 if &bg=='light'
     for i in range(0, len(s:colors) - 1)
         let s:colors[i] = ColoInvert(s:colors[i])
@@ -120,92 +120,81 @@ endif
     call s:guiOnly ( 'DiffText'     , s:brblue  , 'none', 'none' )
 
 "1       9{{{1
-    call s:hy ( 'Comment'      , 9  , 0 , 'none' )
-    call s:hy ( 'Todo'         , 11 , 9 , 'none' )
-    call s:hy ( 'LineNr'       , 9  , 0 , 'none' )
-
-    call s:hy ( 'Whitespace'   , 6  , 1 , 'none' )
-
-    call s:hy ( 'CursorLineNr' , 14 , 9 , 'none' )
-    call s:hy ( 'Error'        , 14 , 9 , 'none' )
-
-
+    call s:hy ( 'Whitespace'   , 9  , 1 , 'none' )
+    call s:hy ( 'Error'        , 9 , 'none' , 'none' )
+    call s:hy ( 'Constant'   , 1       , 'none' , 'none' )
+    call s:hy ( 'Boolean'    , 9       , 'none' , 'none' )
+    call s:hy ( 'Number'     , 1          , 'none'      , 'none'      )
+    call s:hy ( 'Float'        , 9 , 'none' , 'none' )
 
 " 2      10{{{1
-    call s:hy      ( 'PreCondit'  , 2        , 'none' , 'none' )
-    call s:hy      ( 'TypeDef'    , 2        , 'none' , 'none' )
-
-    call s:hy      ( 'Constant'   , 10       , 'none' , 'none' )
-    call s:hy      ( 'Boolean'    , 10       , 'none' , 'none' )
-    call s:hy      ( 'Keyword'    , 10       , 'none' , 'none' )
-
-    call s:hy      ( 'VertSplit'  , 6        , 'none' , 'none' )
-    call s:guiOnly ( 'Operator'   , s:dimpop , 'none' , 'none' )
-    call s:guiOnly ( 'BraceChars' , s:dimpop , 'none' , 'none' )
-    call s:guiOnly ( 'ParenChars' , s:dimpop , 'none' , 'none' )
-    call s:hy      ( 'Visual'     , 7        , 4      , 'none' )
+    call s:hy      ( 'Keyword'    , 2       , 'none' , 'none' )
+    call s:hy ( 'Visual'     , 15 , 2      , 'none' )
+    call s:hy      ( 'VertSplit'  , 10        , 'none' , 'bold' )
 
 " 3      11{{{1
-    call s:hy      ( 'Number'     , 11          , 'none'      , 'none'      )
+    call s:hy ( 'Operator'   , 3 , 'none' , 'none' )
+    call s:hy ( 'BraceChars' , 3 , 'none' , 'none' )
+    call s:hy ( 'ParenChars' , 3 , 'none' , 'none' )
+    call s:hy ( 'Delimeter'  , 3  , 'none' , 'none' )
+    call s:hy ( 'MatchParen' , 11 , 'none' , 'bold,underline' )
+
     call s:hy      ( 'Directory'  , 11          , 'none'      , 'none'      )
 
-    " FIXME
-    call s:guiOnly ( 'WarningMsg' , 'none'      , s:colors[8] , 'none'      )
-    call s:guiOnly ( 'Search'     , s:pop       , s:dimpop    , 'none'      )
-    call s:guiOnly ( 'SearchC'    , s:colors[6] , s:colors[2] , 'none'      )
-    call s:guiOnly ( 'IncSearch'  , 'none'      , s:colors[1] , 'underline' )
+    call s:hy ( 'WarningMsg' , 3 , 15 , 'inverse,bold'  )
+    call s:hy ( 'Search'     , 'none' , 'none' , 'inverse,bold'  )
+    call s:hy ( 'SearchC'    , 3 , 15 , 'inverse,bold'  )
+    call s:hy ( 'IncSearch'  , 0 , 3 , 'underline' )
 
 " 4      12{{{1
     call s:hy ( 'NonText'     , 4      , 'none' , 'none' )
     call s:hy ( 'SpecialChar' , 4      , 'none' , 'none' )
     call s:hy ( 'Special'     , 4      , 'none' , 'none' )
     call s:hy ( 'Label'       , 4      , 'none' , 'none' )
-
-    call s:hy ( 'StatusLine'  , 4      , 1      , 'none' )
-    call s:hy ( 'Folded'      , 4      , 1      , 'none' )
-    call s:hy ( 'FoldColumn'  , 4      , 1      , 'none' )
-    call s:hy ( 'SignColumn'  , 6      , 0      , 'none' )
-
-
-    call s:hy ( 'Identifier'  , 12     , 'none' , 'none' )
-    call s:hy ( 'Pmenu'       , 12     , 9      , 'none' )
-    call s:hy ( 'PmenuSbar'   , 'none' , 12     , 'none' )
+    call s:hy ( 'Comment'      , 4  , 'none' , 'none' )
+    call s:hy ( 'Todo'         , 12 , 4 , 'none' )
+    call s:hy ( 'LineNr'       , 4  , 'none' , 'none' )
+    call s:hy ( 'PreCondit'  , 12        , 'none' , 'none' )
+    call s:hy ( 'TypeDef'    , 12        , 'none' , 'none' )
+    call s:hy ( 'CursorLineNr' , 4 , 'none' , 'bold,inverse' )
 
 
 " 5      13{{{1
-    call s:hy ( 'Delimeter'    , 5  , 'none' , 'none' )
+    call s:hy ( 'Pmenu'       , 'none'     , 5      , 'none' )
+    call s:hy ( 'PmenuSbar'   , 'none' , 0     , 'none' )
+    call s:hy ( 'PmenuSel'   , 5     , 15, 'bold,underline' )
+    call s:hy ( 'PMenuThumb' , 'none' , 5     , 'none' )
+
     call s:hy ( 'String'       , 5  , 'none' , 'none' )
-    call s:hy ( 'Member'       , 5  , 'none' , 'none' )
+    call s:hy ( 'Character'  , 13      , 'none' , 'none' )
+    call s:hy ( 'Title'      , 13     , 'none' , 'none' )
 
-    call s:hy ( 'StorageClass' , 13 , 'none' , 'none' )
-    call s:hy ( 'Statement'    , 13 , 'none' , 'none' )
-
-    call s:hy ( 'Class'        , 13 , 'none' , 'none' )
-    call s:hy ( 'Float'        , 13 , 'none' , 'none' )
-
+    call s:hy ( 'StatusLine'  , 5      , 'none'      , 'none' )
+    call s:hy ( 'Folded'      , 5      , 'none'      , 'none' )
+    call s:hy ( 'FoldColumn'  , 5      , 'none'      , 'none' )
+    call s:hy ( 'SignColumn'  , 5      , 'none'      , 'none' )
+    call s:hy ( 'WildMenu'   , 'none'      , 5      , 'bold' )
 
 " 6      14{{{1
-    call s:hy ( 'Character'  , 6      , 'none' , 'none' )
     call s:hy ( 'Function'   , 6      , 'none' , 'none' )
+    call s:hy ( 'Member'       , 6  , 'none' , 'none' )
+    call s:hy ( 'Identifier'  , 6     , 'none' , 'none' )
 
-
+    call s:hy ( 'StorageClass' , 14 , 'none' , 'none' )
+    call s:hy ( 'Statement'    , 14 , 'none' , 'none' )
+    call s:hy ( 'Class'        , 14 , 'none' , 'none' )
     call s:hy ( 'SpecialKey' , 14     , 'none' , 'none' )
     call s:hy ( 'Repeat'     , 14     , 'none' , 'none' )
-    call s:hy ( 'Title'      , 14     , 'none' , 'none' )
-    call s:hy ( 'ModeMsg'    , 14     , 8 , 'none' )
+    call s:hy ( 'ModeMsg'    , 14     , 'none' , 'none' )
 
-    call s:hy ( 'PmenuSel'   , 14     , 10     , 'none' )
-    call s:hy ( 'PMenuThumb' , 'none' , 14     , 'none' )
-    call s:hy ( 'WildMenu'   , 6      , 2      , 'none' )
 
 " 7      15{{{1
-    call s:hy      ( 'Type'       , 15    , 'none' , 'none' )
+    call s:hy ( 'Type'       , 15    , 'none' , 'none' )
 
-    call s:hy      ( 'Ignore'     , 7     , 'none' , 'none' )
-    call s:hy      ( 'Conditonal' , 7     , 'none' , 'none' )
-    call s:hy      ( 'PreProc'    , 7     , 'none' , 'none' )
+    call s:hy ( 'Ignore'     , 7     , 'none' , 'none' )
+    call s:hy ( 'Conditonal' , 7     , 'none' , 'none' )
+    call s:hy ( 'PreProc'    , 7     , 'none' , 'none' )
 
-    call s:guiOnly ( 'MatchParen' , s:pop , 'none' , 'none' )
 
 " 0       8{{{1
     call s:hy ( 'Question' , 0 , 7  , 'none' )
@@ -220,8 +209,7 @@ endif
     hi link GitGutterDelete DiffDelete
     hi link GitGutterAdd    DiffAdd
     hi link GitGutterChange DiffText
-    call s:guiOnly ( 'GitGutterChangeDelete' , s:pop , s:colors[10] , 'none' )
-
+    call s:hy ( 'GitGutterChangeDelete' , 3, 'none', 'none' )
 " }}}
 " Plugin: & {{{1
 
@@ -232,5 +220,6 @@ endfor
 for x in range(9, 15)
     exec 'call s:hy ( "Logical".'.string(x-3).'  ,'.string(x).'  , 0 , "none" )'
 endfor
-hi GrepperCurrent cterm=none
-hi GrepperMatch   cterm=none
+
+hi GrepperCurrent cterm=none ctermbg=3 ctermfg=0
+hi GrepperMatch   cterm=bold ctermbg=3 ctermfg=15
