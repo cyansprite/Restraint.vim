@@ -129,7 +129,7 @@ endif
     call s:hy ( 'StorageClass' , 2  , 'none' , 'none' )
     call s:hy ( 'Keyword'      , 10 , 'none' , 'none' )
 
-    call s:hy ( 'Visual'    , 0  , 2      , 'none' )
+    call s:hy ( 'Visual'    , 0  , 10     , 'none' )
     call s:hy ( 'VertSplit' , 10 , 'none' , 'bold' )
     call s:hy ( 'DiffAdd'   , 15 , 2      , 'none' )
 
@@ -163,20 +163,20 @@ endif
 
 
 " 5      13{{{1
-    call s:hy ( 'Pmenu'      , 'none' , 5      , 'none'           )
-    call s:hy ( 'PmenuSbar'  , 'none' , 0      , 'none'           )
-    call s:hy ( 'PmenuSel'   , 5      , 15     , 'bold,underline' )
-    call s:hy ( 'PMenuThumb' , 'none' , 5      , 'none'           )
+    call s:hy ( 'Pmenu'      , 0      , 13     , 'none' )
+    call s:hy ( 'PmenuSbar'  , 'none' , 8      , 'none' )
+    call s:hy ( 'PmenuSel'   , 0      , 15     , 'bold' )
+    call s:hy ( 'PMenuThumb' , 'none' , 13     , 'none' )
 
-    call s:hy ( 'String'     , 5      , 'none' , 'none'           )
-    call s:hy ( 'Character'  , 13     , 'none' , 'none'           )
-    call s:hy ( 'Title'      , 13     , 'none' , 'none'           )
+    call s:hy ( 'String'     , 5      , 'none' , 'none' )
+    call s:hy ( 'Character'  , 13     , 'none' , 'none' )
+    call s:hy ( 'Title'      , 13     , 'none' , 'none' )
 
-    call s:hy ( 'StatusLine' , 5      , 'none' , 'none'           )
-    call s:hy ( 'Folded'     , 5      , 'none' , 'none'           )
-    call s:hy ( 'FoldColumn' , 5      , 'none' , 'none'           )
-    call s:hy ( 'SignColumn' , 5      , 'none' , 'none'           )
-    call s:hy ( 'WildMenu'   , 'none' , 5      , 'bold'           )
+    call s:hy ( 'StatusLine' , 5      , 'none' , 'none' )
+    call s:hy ( 'Folded'     , 5      , 'none' , 'none' )
+    call s:hy ( 'FoldColumn' , 5      , 'none' , 'none' )
+    call s:hy ( 'SignColumn' , 5      , 'none' , 'none' )
+    call s:hy ( 'WildMenu'   , 'none' , 5      , 'bold' )
 
 " 6      14{{{1
     call s:hy ( 'Function'     , 6  , 'none' , 'none' )
