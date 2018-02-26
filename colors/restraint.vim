@@ -110,8 +110,8 @@ endif
     call s:guiOnly ('QuickFixLine' ,'none'    ,'1'    ,'none'    )
 
     call s:hy ('EndOfBuffer' , '0'     , '0'    , 'none' )
-    call s:hy ( 'DiffChange' , 'none ' , 'none' , 'none' )
-    call s:hy ('CursorLine'  , 'none'  , 0      , 'none' )
+    call s:hy ('DiffChange'  , 'none ' , 'none' , 'none' )
+    call s:hy ('CursorLine'  , 'none'  , 'none' , 'none' )
 
 "1       9{{{1
     call s:hy ( 'Whitespace'  , 9  , 1      , 'none' )
@@ -137,13 +137,10 @@ endif
     call s:hy ( 'CursorLineNr' , 10  , 'none' , 'bold,inverse' )
 
 " 3      11{{{1
-    call s:hy ( 'Operator'   , 3      , 'none' , 'none'           )
-    call s:hy ( 'BraceChars' , 3      , 'none' , 'none'           )
-    call s:hy ( 'ParenChars' , 3      , 'none' , 'none'           )
-    call s:hy ( 'Delimeter'  , 3      , 'none' , 'none'           )
     call s:hy ( 'MatchParen' , 11     , 'none' , 'bold,underline' )
 
     call s:hy ( 'Directory'  , 11     , 'none' , 'none'           )
+    call s:hy ( 'Todo'       , 11     , 4      , 'none'           )
 
     call s:hy ( 'WarningMsg' , 3      , 15     , 'inverse,bold'   )
     call s:hy ( 'Search'     , 'none' , 'none' , 'inverse,bold'   )
@@ -156,7 +153,6 @@ endif
     call s:hy ( 'Special'      , 4  , 'none' , 'none'         )
     call s:hy ( 'Label'        , 4  , 'none' , 'none'         )
     call s:hy ( 'Comment'      , 4  , 'none' , 'none'         )
-    call s:hy ( 'Todo'         , 12 , 4      , 'none'         )
     call s:hy ( 'PreCondit'    , 12 , 'none' , 'none'         )
     call s:hy ( 'TypeDef'      , 12 , 'none' , 'none'         )
     call s:guiOnly ( 'DiffText'     , 15, 4, 'none' )
@@ -191,15 +187,20 @@ endif
 
 
 " 7      15{{{1
+    call s:hy ( 'Operator'   , 7      , 'none' , 'none'           )
+    call s:hy ( 'BraceChars' , 7      , 'none' , 'none'           )
+    call s:hy ( 'ParenChars' , 7      , 'none' , 'none'           )
+    call s:hy ( 'Delimeter'  , 7      , 'none' , 'none'           )
+
     call s:hy ( 'Type'       , 15 , 'none' , 'none' )
-
-    call s:hy ( 'Ignore'     , 7  , 'none' , 'none' )
-    call s:hy ( 'Conditonal' , 7  , 'none' , 'none' )
-    call s:hy ( 'PreProc'    , 7  , 'none' , 'none' )
-
 
 " 0       8{{{1
     call s:hy ( 'Question' , 0 , 7  , 'none' )
+
+    call s:hy ( 'Ignore'     , 8  , 'none' , 'none' )
+    call s:hy ( 'Conditonal' , 8  , 'none' , 'none' )
+    call s:hy ( 'PreProc'    , 8  , 'none' , 'none' )
+
     call s:hy ( 'MoreMsg'  , 8 , 15 , 'none' )
 
 " Relink  >{{{1
