@@ -125,16 +125,15 @@ endif
     call s:hy ( 'DiffRemoved' , 15 , 1      , 'none' )
 
 " 2      10{{{1
-    call s:hy ( 'Member'       , 2  , 'none' , 'none' )
+    call s:hy ( 'Function'     , 2  , 'none' , 'none' )
     call s:hy ( 'StorageClass' , 2  , 'none' , 'none' )
     call s:hy ( 'Keyword'      , 10 , 'none' , 'none' )
 
+    call s:hy ( 'Folded'     , 2      , 'none' , 'none' )
+    call s:hy ( 'FoldColumn' , 2      , 'none' , 'none' )
     call s:hy ( 'Visual'    , 0  , 10     , 'none' )
     call s:hy ( 'VertSplit' , 10 , 'none' , 'bold' )
     call s:hy ( 'DiffAdd'   , 15 , 2      , 'none' )
-
-    call s:hy ( 'LineNr'       , 2  , 'none' , 'none'         )
-    call s:hy ( 'CursorLineNr' , 10  , 'none' , 'bold,inverse' )
 
 " 3      11{{{1
     call s:hy ( 'MatchParen' , 11     , 'none' , 'bold,underline' )
@@ -151,8 +150,8 @@ endif
     call s:hy ( 'NonText'      , 4  , 'none' , 'none'         )
     call s:hy ( 'SpecialChar'  , 4  , 'none' , 'none'         )
     call s:hy ( 'Special'      , 4  , 'none' , 'none'         )
-    call s:hy ( 'Label'        , 4  , 'none' , 'none'         )
     call s:hy ( 'Comment'      , 4  , 'none' , 'none'         )
+    call s:hy ( 'Label'        , 12  , 'none' , 'none'        )
     call s:hy ( 'PreCondit'    , 12 , 'none' , 'none'         )
     call s:hy ( 'TypeDef'      , 12 , 'none' , 'none'         )
     call s:guiOnly ( 'DiffText'     , 15, 4, 'none' )
@@ -165,32 +164,34 @@ endif
     call s:hy ( 'PMenuThumb' , 'none' , 13     , 'none' )
 
     call s:hy ( 'String'     , 5      , 'none' , 'none' )
+    call s:hy ( 'Conditonal' , 5      , 'none' , 'none' )
+    call s:hy ( 'Repeat'     , 13     , 'none' , 'none' )
     call s:hy ( 'Character'  , 13     , 'none' , 'none' )
     call s:hy ( 'Title'      , 13     , 'none' , 'none' )
 
     call s:hy ( 'StatusLine' , 5      , 'none' , 'none' )
-    call s:hy ( 'Folded'     , 5      , 'none' , 'none' )
-    call s:hy ( 'FoldColumn' , 5      , 'none' , 'none' )
+    call s:hy ( 'LineNr'       , 5  , 'none' , 'none'         )
+    call s:hy ( 'CursorLineNr' , 13  , 'none' , 'bold,inverse' )
+
     call s:hy ( 'SignColumn' , 5      , 'none' , 'none' )
     call s:hy ( 'WildMenu'   , 'none' , 5      , 'bold' )
 
 " 6      14{{{1
-    call s:hy ( 'Function'     , 6  , 'none' , 'none' )
+    call s:hy ( 'Member'       , 6  , 'none' , 'none' )
     call s:hy ( 'Identifier'   , 6  , 'none' , 'none' )
 
     call s:hy ( 'Statement'    , 14 , 'none' , 'none' )
     call s:hy ( 'Class'        , 14 , 'none' , 'none' )
 
     call s:hy ( 'SpecialKey'   , 14 , 'none' , 'none' )
-    call s:hy ( 'Repeat'       , 14 , 'none' , 'none' )
     call s:hy ( 'ModeMsg'      , 14 , 'none' , 'none' )
 
 
 " 7      15{{{1
-    call s:hy ( 'Operator'   , 7      , 'none' , 'none'           )
-    call s:hy ( 'BraceChars' , 7      , 'none' , 'none'           )
-    call s:hy ( 'ParenChars' , 7      , 'none' , 'none'           )
-    call s:hy ( 'Delimeter'  , 7      , 'none' , 'none'           )
+    call s:hy ( 'Operator'   , 15 , 'none' , 'none' )
+    call s:hy ( 'BraceChars' , 15 , 'none' , 'none' )
+    call s:hy ( 'ParenChars' , 15 , 'none' , 'none' )
+    call s:hy ( 'Delimeter'  , 15 , 'none' , 'none' )
 
     call s:hy ( 'Type'       , 15 , 'none' , 'none' )
 
@@ -198,7 +199,6 @@ endif
     call s:hy ( 'Question' , 0 , 7  , 'none' )
 
     call s:hy ( 'Ignore'     , 8  , 'none' , 'none' )
-    call s:hy ( 'Conditonal' , 8  , 'none' , 'none' )
     call s:hy ( 'PreProc'    , 8  , 'none' , 'none' )
 
     call s:hy ( 'MoreMsg'  , 8 , 15 , 'none' )
@@ -209,12 +209,14 @@ endif
     hi link vimHighlight    Member
     hi link vimParenSep     Operator
     hi link csClass         Structure
+    hi link cConditional    Conditonal
+    hi link cRepeat         Repeat
 " }}}
 " Plugin: & {{{1
-call s:hy ( 'GitGutterDelete '      , 1 , 0 , 'none' )
-call s:hy ( 'GitGutterAdd    '      , 2 , 0 , 'none' )
-call s:hy ( 'GitGutterChange '      , 4 , 0 , 'none' )
-call s:hy ( 'GitGutterChangeDelete' , 3 , 0 , 'none' )
+call s:hy ( 'GitGutterDelete '      , 1 , 'none' , 'none' )
+call s:hy ( 'GitGutterAdd    '      , 2 , 'none' , 'none' )
+call s:hy ( 'GitGutterChange '      , 4 , 'none' , 'none' )
+call s:hy ( 'GitGutterChangeDelete' , 3 , 'none' , 'none' )
 call s:hy      ( 'LogicalBuffer'       , 0    , 15, 'none' )
 for x in range(2, 7)
     exec 'call s:hy ( "Logical".'.string(x-2).'  ,'.string(x).'  , 0 , "none" )'
