@@ -131,7 +131,7 @@ endif
 
     call s:hy ( 'Folded'     , 2      , 'none' , 'none' )
     call s:hy ( 'FoldColumn' , 2      , 'none' , 'none' )
-    call s:hy ( 'Visual'    , 0  , 10     , 'none' )
+    call s:hy ( 'Visual'    , 'none'  , 0     , 'none' )
     call s:hy ( 'VertSplit' , 10 , 'none' , 'bold' )
     call s:hy ( 'DiffAdd'   , 15 , 2      , 'none' )
 
@@ -178,9 +178,9 @@ endif
 
 " 6      14{{{1
     call s:hy ( 'Member'       , 6  , 'none' , 'none' )
-    call s:hy ( 'Identifier'   , 6  , 'none' , 'none' )
+    call s:hy ( 'Statement'    , 6  , 'none' , 'none' )
 
-    call s:hy ( 'Statement'    , 14 , 'none' , 'none' )
+    call s:hy ( 'Identifier'   , 14 , 'none' , 'none' )
     call s:hy ( 'Class'        , 14 , 'none' , 'none' )
 
     call s:hy ( 'SpecialKey'   , 14 , 'none' , 'none' )
@@ -188,12 +188,13 @@ endif
 
 
 " 7      15{{{1
-    call s:hy ( 'Operator'   , 15 , 'none' , 'none' )
-    call s:hy ( 'BraceChars' , 15 , 'none' , 'none' )
-    call s:hy ( 'ParenChars' , 15 , 'none' , 'none' )
-    call s:hy ( 'Delimeter'  , 15 , 'none' , 'none' )
+    call s:hy ( 'Operator'    , 3  , 'none' , 'none' )
+    call s:hy ( 'BraceChars'  , 15 , 'none' , 'none' )
+    call s:hy ( 'BracketChars', 15 , 'none' , 'none' )
+    call s:hy ( 'ParenChars'  , 15 , 'none' , 'none' )
+    call s:hy ( 'Delimeter'   , 8  , 'none' , 'none' )
 
-    call s:hy ( 'Type'       , 15 , 'none' , 'none' )
+    call s:hy ( 'Type'        , 15 , 'none' , 'none' )
 
 " 0       8{{{1
     call s:hy ( 'Question' , 0 , 7  , 'none' )
@@ -218,12 +219,12 @@ call s:hy ( 'GitGutterAdd    '      , 2 , 'none' , 'none' )
 call s:hy ( 'GitGutterChange '      , 4 , 'none' , 'none' )
 call s:hy ( 'GitGutterChangeDelete' , 3 , 'none' , 'none' )
 call s:hy      ( 'LogicalBuffer'       , 0    , 15, 'none' )
-for x in range(2, 7)
-    exec 'call s:hy ( "Logical".'.string(x-2).'  ,'.string(x).'  , 0 , "none" )'
-endfor
-for x in range(9, 15)
-    exec 'call s:hy ( "Logical".'.string(x-3).'  ,'.string(x).'  , 0 , "none" )'
-endfor
 
-hi GrepperCurrent cterm=none ctermbg=3 ctermfg=0
-hi GrepperMatch   cterm=bold ctermbg=3 ctermfg=15
+let s:colors = [ 1, 2, 3, 4, 5, 6 ]
+for x in range(0,100)
+    exec 'hi Logical'.x.' ctermfg=' . s:colors[x % len(s:colors)]
+endfor
+hi LogicalBuffer ctermfg=15 ctermbg=0 cterm=bold
+
+hi GrepperCurrent cterm=bold ctermbg=8 ctermfg=none
+hi GrepperMatch   cterm=none ctermbg=0 ctermfg=none
