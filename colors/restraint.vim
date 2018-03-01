@@ -132,7 +132,7 @@ endif
     call s:hy ( 'Folded'     , 2      , 'none' , 'none' )
     call s:hy ( 'FoldColumn' , 2      , 'none' , 'none' )
     call s:hy ( 'Visual'    , 'none'  , 0     , 'none' )
-    call s:hy ( 'VertSplit' , 10 , 'none' , 'bold' )
+    call s:hy ( 'VertSplit' , 13, 'none', 'bold' )
     call s:hy ( 'DiffAdd'   , 15 , 2      , 'none' )
 
 " 3      11{{{1
