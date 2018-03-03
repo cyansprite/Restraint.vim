@@ -145,12 +145,12 @@ endif
     call s:hy ( 'Search'     , 'none' , 'none' , 'inverse,bold'   )
     call s:hy ( 'SearchC'    , 3      , 15     , 'inverse,bold'   )
     call s:hy ( 'IncSearch'  , 0      , 3      , 'underline'      )
+    call s:hy ( 'Comment'    , 3      , 'none' , 'none'         )
 
 " 4      12{{{1
+    call s:hy ( 'Operator'     , 4  , 'none' , 'none'         )
     call s:hy ( 'NonText'      , 4  , 'none' , 'none'         )
-    call s:hy ( 'SpecialChar'  , 4  , 'none' , 'none'         )
     call s:hy ( 'Special'      , 4  , 'none' , 'none'         )
-    call s:hy ( 'Comment'      , 4  , 'none' , 'none'         )
     call s:hy ( 'Label'        , 12  , 'none' , 'none'        )
     call s:hy ( 'PreCondit'    , 12 , 'none' , 'none'         )
     call s:hy ( 'TypeDef'      , 12 , 'none' , 'none'         )
@@ -167,6 +167,7 @@ endif
     call s:hy ( 'Conditonal' , 5      , 'none' , 'none' )
     call s:hy ( 'Repeat'     , 13     , 'none' , 'none' )
     call s:hy ( 'Character'  , 13     , 'none' , 'none' )
+    call s:hy ( 'SpecialChar', 13     , 'none' , 'none' )
     call s:hy ( 'Title'      , 13     , 'none' , 'none' )
 
     call s:hy ( 'StatusLine' , 5      , 'none' , 'none' )
@@ -188,7 +189,6 @@ endif
 
 
 " 7      15{{{1
-    call s:hy ( 'Operator'    , 3  , 'none' , 'none' )
     call s:hy ( 'BraceChars'  , 15 , 'none' , 'none' )
     call s:hy ( 'BracketChars', 15 , 'none' , 'none' )
     call s:hy ( 'ParenChars'  , 15 , 'none' , 'none' )
