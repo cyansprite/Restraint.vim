@@ -139,22 +139,21 @@ endif
     call s:hy ( 'MatchParen' , 11     , 'none' , 'bold,underline' )
 
     call s:hy ( 'Directory'  , 11     , 'none' , 'none'           )
-    call s:hy ( 'Todo'       , 11     , 4      , 'none'           )
+    call s:hy ( 'Todo'       , 11     , 'none' , 'inverse,bold'   )
 
-    call s:hy ( 'WarningMsg' , 3      , 15     , 'inverse,bold'   )
+    call s:hy ( 'WarningMsg' , 3      , 'none' , 'inverse,bold'   )
     call s:hy ( 'Search'     , 'none' , 'none' , 'inverse,bold'   )
     call s:hy ( 'SearchC'    , 3      , 15     , 'inverse,bold'   )
     call s:hy ( 'IncSearch'  , 0      , 3      , 'underline'      )
     call s:hy ( 'Comment'    , 3      , 'none' , 'none'         )
 
 " 4      12{{{1
-    call s:hy ( 'Operator'     , 4  , 'none' , 'none'         )
-    call s:hy ( 'NonText'      , 4  , 'none' , 'none'         )
-    call s:hy ( 'Special'      , 4  , 'none' , 'none'         )
-    call s:hy ( 'Label'        , 12  , 'none' , 'none'        )
-    call s:hy ( 'PreCondit'    , 12 , 'none' , 'none'         )
-    call s:hy ( 'TypeDef'      , 12 , 'none' , 'none'         )
-    call s:guiOnly ( 'DiffText'     , 15, 4, 'none' )
+    call s:hy ( 'NonText'      , 12 , 'none' , 'none'         )
+    call s:hy ( 'Special'      , 12 , 'none' , 'none'         )
+    call s:hy ( 'Label'        , 4  , 'none' , 'none'        )
+    call s:hy ( 'PreCondit'    , 4  , 'none' , 'none'         )
+    call s:hy ( 'TypeDef'      , 4  , 'none' , 'none'         )
+    call s:guiOnly ( 'DiffText', 15, 4, 'none' )
 
 
 " 5      13{{{1
@@ -171,11 +170,11 @@ endif
     call s:hy ( 'Title'      , 13     , 'none' , 'none' )
 
     call s:hy ( 'StatusLine' , 5      , 'none' , 'none' )
-    call s:hy ( 'LineNr'       , 5  , 'none' , 'none'         )
-    call s:hy ( 'CursorLineNr' , 13  , 'none' , 'bold,inverse' )
+    call s:hy ( 'LineNr'       , 2  , 'none' , 'none'         )
+    call s:hy ( 'CursorLineNr' , 2  , 'none' , 'bold,inverse' )
 
     call s:hy ( 'SignColumn' , 5      , 'none' , 'none' )
-    call s:hy ( 'WildMenu'   , 'none' , 5      , 'bold' )
+    call s:hy ( 'WildMenu'   , 5      , 'none' , 'bold,inverse' )
 
 " 6      14{{{1
     call s:hy ( 'Member'       , 6  , 'none' , 'none' )
@@ -189,9 +188,10 @@ endif
 
 
 " 7      15{{{1
-    call s:hy ( 'BraceChars'  , 15 , 'none' , 'none' )
-    call s:hy ( 'BracketChars', 15 , 'none' , 'none' )
-    call s:hy ( 'ParenChars'  , 15 , 'none' , 'none' )
+    call s:hy ( 'BraceChars'  , 'none' , 'none' , 'bold' )
+    call s:hy ( 'BracketChars', 'none' , 'none' , 'bold' )
+    call s:hy ( 'ParenChars'  , 'none' , 'none' , 'bold' )
+    call s:hy ( 'Operator'    , 'none' , 'none' , 'bold' )
     call s:hy ( 'Delimeter'   , 8  , 'none' , 'none' )
 
     call s:hy ( 'Type'        , 15 , 'none' , 'none' )
@@ -220,9 +220,10 @@ call s:hy ( 'GitGutterChange '      , 4 , 'none' , 'none' )
 call s:hy ( 'GitGutterChangeDelete' , 3 , 'none' , 'none' )
 call s:hy      ( 'LogicalBuffer'       , 0    , 15, 'none' )
 
-let s:colors = [ 1, 2, 3, 4, 5, 6 ]
+let s:colors = [ 1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14 ]
+call reverse(s:colors)
 for x in range(0,100)
-    exec 'hi Logical'.x.' ctermfg=' . s:colors[x % len(s:colors)]
+    exec 'hi Logical'.x.' cterm=bold ctermfg=' . s:colors[x % len(s:colors)]
 endfor
 hi LogicalBuffer ctermfg=15 ctermbg=0 cterm=bold
 
