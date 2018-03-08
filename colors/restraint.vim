@@ -145,7 +145,7 @@ endif
     call s:hy ( 'Search'     , 'none' , 'none' , 'inverse,bold'   )
     call s:hy ( 'SearchC'    , 3      , 15     , 'inverse,bold'   )
     call s:hy ( 'IncSearch'  , 0      , 3      , 'underline'      )
-    call s:hy ( 'Comment'    , 3      , 'none' , 'none'         )
+    call s:hy ( 'Comment'    , 8      , 'none' , 'none'         )
 
 " 4      12{{{1
     call s:hy ( 'NonText'      , 12 , 'none' , 'none'         )
@@ -170,8 +170,8 @@ endif
     call s:hy ( 'Title'      , 13     , 'none' , 'none' )
 
     call s:hy ( 'StatusLine' , 5      , 'none' , 'none' )
-    call s:hy ( 'LineNr'       , 2  , 'none' , 'none'         )
-    call s:hy ( 'CursorLineNr' , 2  , 'none' , 'bold,inverse' )
+    call s:hy ( 'LineNr'       , 8  , 'none' , 'none'         )
+    call s:hy ( 'CursorLineNr' , 8  , 'none' , 'bold,inverse' )
 
     call s:hy ( 'SignColumn' , 5      , 'none' , 'none' )
     call s:hy ( 'WildMenu'   , 5      , 'none' , 'bold,inverse' )
