@@ -157,10 +157,10 @@ endif
 
 
 " 5      13{{{1
-    call s:hy ( 'Pmenu'      , 0      , 13     , 'none' )
+    call s:hy ( 'Pmenu'      , 0      , 7     , 'none' )
     call s:hy ( 'PmenuSbar'  , 'none' , 8      , 'none' )
-    call s:hy ( 'PmenuSel'   , 0      , 15     , 'bold' )
-    call s:hy ( 'PMenuThumb' , 'none' , 13     , 'none' )
+    call s:hy ( 'PmenuSel'   , 7      , 13     , 'bold' )
+    call s:hy ( 'PMenuThumb' , 'none' , 7     , 'none' )
 
     call s:hy ( 'String'     , 5      , 'none' , 'none' )
     call s:hy ( 'Conditonal' , 5      , 'none' , 'none' )
