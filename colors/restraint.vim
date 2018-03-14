@@ -110,7 +110,7 @@ endif
     call s:guiOnly ('QuickFixLine' ,'none'    ,'1'    ,'none'    )
 
     call s:hy ('EndOfBuffer' , '0'     , '0'    , 'none' )
-    call s:hy ('DiffChange'  , 'none ' , 'none' , 'none' )
+    call s:hy ('DiffChange'  , 'none ' , '0' , 'none' )
     call s:hy ('CursorLine'  , 'none'  , 'none' , 'none' )
 
 "1       9{{{1
@@ -133,7 +133,7 @@ endif
     call s:hy ( 'FoldColumn' , 2      , 'none' , 'none' )
     call s:hy ( 'Visual'    , 'none'  , 0     , 'none' )
     call s:hy ( 'VertSplit' , 13, 'none', 'bold' )
-    call s:hy ( 'DiffAdd'   , 15 , 2      , 'none' )
+    call s:hy ( 'DiffAdd'   , 0 , 2      , 'none' )
 
 " 3      11{{{1
     call s:hy ( 'MatchParen' , 11     , 'none' , 'bold,underline' )
@@ -153,7 +153,7 @@ endif
     call s:hy ( 'Label'        , 4  , 'none' , 'none'        )
     call s:hy ( 'PreCondit'    , 4  , 'none' , 'none'         )
     call s:hy ( 'TypeDef'      , 4  , 'none' , 'none'         )
-    call s:guiOnly ( 'DiffText', 15, 4, 'none' )
+    call s:hy ( 'DiffText'     , 'none' , 8      , 'none' )
 
 
 " 5      13{{{1
