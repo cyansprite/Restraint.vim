@@ -168,9 +168,9 @@ endif
     call s:hy ( 'SpecialChar', 13     , 'none' , 'none' )
     call s:hy ( 'Title'      , 13     , 'none' , 'none' )
 
-    call s:hy ( 'StatusLine' , 5      , 'none' , 'inverse' )
-    call s:hy ( 'LineNr'       , 13  , 'none' , 'none' )
-    call s:hy ( 'CursorLineNr' , 13  , 'none' , 'bold,inverse' )
+    call s:hy ( 'StatusLine' , 'none'      , 'none' , 'inverse' )
+    call s:hy ( 'LineNr'       , 'none'  , 'none' , 'none' )
+    call s:hy ( 'CursorLineNr' , 'none'  , 'none' , 'bold,inverse' )
 
     call s:hy ( 'SignColumn' , 5      , 'none' , 'none' )
     call s:hy ( 'WildMenu'   , 5      , 'none' , 'bold,inverse' )
@@ -183,7 +183,7 @@ endif
     call s:hy ( 'Class'        , 14 , 'none' , 'none' )
 
     call s:hy ( 'SpecialKey'   , 14 , 'none' , 'none' )
-    call s:hy ( 'ModeMsg'      , 14 , 'none' , 'bold' )
+    call s:hy ( 'ModeMsg'      , 'none' , 'none' , 'bold' )
 
 
 " 7      15{{{1
