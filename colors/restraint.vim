@@ -114,7 +114,7 @@ endif
     call s:hy ('CursorLine'  , 'none'  , 'none' , 'none' )
 
 "1       9{{{1
-    call s:hy ( 'Whitespace'  , 9  , 1      , 'none' )
+    call s:hy ( 'Whitespace'  , 9  , 0      , 'none' )
     call s:hy ( 'Error'       , 9  , 'none' , 'none' )
     call s:hy ( 'Constant'    , 1  , 'none' , 'none' )
     call s:hy ( 'Boolean'     , 9  , 'none' , 'none' )
@@ -131,7 +131,7 @@ endif
 
     call s:hy ( 'Folded'     , 2      , 'none' , 'none' )
     call s:hy ( 'FoldColumn' , 2      , 'none' , 'none' )
-    call s:hy ( 'Visual'    , 'none'  , 0     , 'none' )
+    call s:hy ( 'Visual'    , 'none'  , 'none' , 'inverse')
     call s:hy ( 'VertSplit' , 13, 'none', 'bold' )
     call s:hy ( 'DiffAdd'   , 0 , 2      , 'none' )
 
@@ -145,7 +145,6 @@ endif
     call s:hy ( 'Search'     , 'none' , 'none' , 'inverse,bold'   )
     call s:hy ( 'SearchC'    , 3      , 15     , 'inverse,bold'   )
     call s:hy ( 'IncSearch'  , 0      , 3      , 'underline'      )
-    call s:hy ( 'Comment'    , 8      , 'none' , 'none'         )
 
 " 4      12{{{1
     call s:hy ( 'NonText'      , 12 , 'none' , 'none'         )
@@ -169,9 +168,9 @@ endif
     call s:hy ( 'SpecialChar', 13     , 'none' , 'none' )
     call s:hy ( 'Title'      , 13     , 'none' , 'none' )
 
-    call s:hy ( 'StatusLine' , 5      , 'none' , 'none' )
-    call s:hy ( 'LineNr'       , 8  , 'none' , 'none'         )
-    call s:hy ( 'CursorLineNr' , 8  , 'none' , 'bold,inverse' )
+    call s:hy ( 'StatusLine' , 5      , 'none' , 'inverse' )
+    call s:hy ( 'LineNr'       , 13  , 'none' , 'none' )
+    call s:hy ( 'CursorLineNr' , 13  , 'none' , 'bold,inverse' )
 
     call s:hy ( 'SignColumn' , 5      , 'none' , 'none' )
     call s:hy ( 'WildMenu'   , 5      , 'none' , 'bold,inverse' )
@@ -184,7 +183,7 @@ endif
     call s:hy ( 'Class'        , 14 , 'none' , 'none' )
 
     call s:hy ( 'SpecialKey'   , 14 , 'none' , 'none' )
-    call s:hy ( 'ModeMsg'      , 14 , 'none' , 'none' )
+    call s:hy ( 'ModeMsg'      , 14 , 'none' , 'bold' )
 
 
 " 7      15{{{1
@@ -192,17 +191,18 @@ endif
     call s:hy ( 'BracketChars', 'none' , 'none' , 'bold' )
     call s:hy ( 'ParenChars'  , 'none' , 'none' , 'bold' )
     call s:hy ( 'Operator'    , 'none' , 'none' , 'bold' )
-    call s:hy ( 'Delimeter'   , 8  , 'none' , 'none' )
+    call s:hy ( 'Comment'     , 12      , 'none' , 'none'         )
+    call s:hy ( 'Ignore'      , 7  , 'none' , 'none' )
+    call s:hy ( 'PreProc'     , 7  , 'none' , 'none' )
+    call s:hy ( 'Delimeter'   , 7  , 'none' , 'none' )
 
     call s:hy ( 'Type'        , 15 , 'none' , 'none' )
 
 " 0       8{{{1
     call s:hy ( 'Question' , 0 , 7  , 'none' )
 
-    call s:hy ( 'Ignore'     , 8  , 'none' , 'none' )
-    call s:hy ( 'PreProc'    , 8  , 'none' , 'none' )
 
-    call s:hy ( 'MoreMsg'  , 8 , 15 , 'none' )
+    call s:hy ( 'MoreMsg'  , 0 ,  5, 'none' )
 
 " Relink  >{{{1
     hi link vimCommentTitle Title
