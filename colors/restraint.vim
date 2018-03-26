@@ -105,7 +105,6 @@ endif
     call s:guiOnly ('UnderLine'    ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('CursorColumn' ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('Cursor'       ,'none'    ,'none' ,'none'    )
-    call s:guiOnly ('ColorColumn'  ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('StatuslineNc' ,'none'    ,'none' ,'none'    )
     call s:guiOnly ('QuickFixLine' ,'none'    ,'1'    ,'none'    )
 
@@ -136,10 +135,11 @@ endif
     call s:hy ( 'DiffAdd'   , 0 , 2      , 'none' )
 
 " 3      11{{{1
+    call s:hy ( 'Comment'     , 3      , 'none' , 'none'          )
     call s:hy ( 'MatchParen' , 11     , 'none' , 'bold,underline' )
 
     call s:hy ( 'Directory'  , 11     , 'none' , 'none'           )
-    call s:hy ( 'Todo'       , 11     , 'none' , 'inverse,bold'   )
+    call s:hy ( 'Todo'       , 11     , 'none' , 'bold'           )
 
     call s:hy ( 'WarningMsg' , 3      , 'none' , 'inverse,bold'   )
     call s:hy ( 'Search'     , 'none' , 'none' , 'inverse,bold'   )
@@ -156,9 +156,9 @@ endif
 
 
 " 5      13{{{1
-    call s:hy ( 'Pmenu'      , 0      , 7     , 'none' )
-    call s:hy ( 'PmenuSbar'  , 'none' , 8      , 'none' )
-    call s:hy ( 'PmenuSel'   , 7      , 13     , 'bold' )
+    call s:hy ( 'Pmenu'      , 'none' , 'none', 'bold' )
+    call s:hy ( 'PmenuSbar'  , 'none' , 8     , 'none' )
+    call s:hy ( 'PmenuSel'   , 'none' , 'none', 'bold,inverse' )
     call s:hy ( 'PMenuThumb' , 'none' , 7     , 'none' )
 
     call s:hy ( 'String'     , 5      , 'none' , 'none' )
@@ -168,12 +168,12 @@ endif
     call s:hy ( 'SpecialChar', 13     , 'none' , 'none' )
     call s:hy ( 'Title'      , 13     , 'none' , 'none' )
 
-    call s:hy ( 'StatusLine' , 'none'      , 'none' , 'inverse' )
+    call s:hy ( 'StatusLine' , 'none'      , 'none' , 'bold' )
     call s:hy ( 'LineNr'       , 'none'  , 'none' , 'none' )
     call s:hy ( 'CursorLineNr' , 'none'  , 'none' , 'bold,inverse' )
 
     call s:hy ( 'SignColumn' , 5      , 'none' , 'none' )
-    call s:hy ( 'WildMenu'   , 5      , 'none' , 'bold,inverse' )
+    call s:hy ( 'WildMenu'   , 'none' , 'none' , 'bold,inverse' )
 
 " 6      14{{{1
     call s:hy ( 'Member'       , 6  , 'none' , 'none' )
@@ -191,17 +191,16 @@ endif
     call s:hy ( 'BracketChars', 'none' , 'none' , 'bold' )
     call s:hy ( 'ParenChars'  , 'none' , 'none' , 'bold' )
     call s:hy ( 'Operator'    , 'none' , 'none' , 'bold' )
-    call s:hy ( 'Comment'     , 12      , 'none' , 'none'         )
     call s:hy ( 'Ignore'      , 7  , 'none' , 'none' )
     call s:hy ( 'PreProc'     , 7  , 'none' , 'none' )
     call s:hy ( 'Delimeter'   , 7  , 'none' , 'none' )
 
-    call s:hy ( 'Type'        , 15 , 'none' , 'none' )
+    call s:hy ( 'Type'        , 15 , 'none' , 'bold' )
 
 " 0       8{{{1
-    call s:hy ( 'Question' , 0 , 7  , 'none' )
+    call s:hy ('ColorColumn', 'none', 8, 'none'    )
 
-
+    call s:hy ( 'Question' , 0 ,  7, 'none' )
     call s:hy ( 'MoreMsg'  , 0 ,  5, 'none' )
 
 " Relink  >{{{1
