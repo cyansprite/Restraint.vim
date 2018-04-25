@@ -22,6 +22,7 @@ endfunc
 
 " Nons:   -{{{1
     call s:hy ('Normal'       , 'none'  , 'none' , 'none' )
+    call s:hy ('NormalNC'     , 'none'  , 0      , 'none' )
     call s:hy ('UnderLine'    , 'none'  , 'none' , 'none' )
     call s:hy ('CursorColumn' , 'none'  , 'none' , 'none' )
     call s:hy ('Cursor'       , 'none'  , 'none' , 'none' )
@@ -49,15 +50,15 @@ endfunc
     call s:hy ( 'String'     , 10      , 'none' , 'none' )
 
     call s:hy ( 'Folded'       , 2      , 'none' , 'none'    )
-    call s:hy ( 'FoldColumn'   , 2      , 'none' , 'none'    )
+    call s:hy ( 'FoldColumn'   , 2      , 0 , 'none'    )
     call s:hy ( 'Visual'       , 'none' , 'none' , 'inverse' )
-    call s:hy ( 'VertSplit'    , 14      , 'none' , 'bold'    )
+    call s:hy ( 'VertSplit'    , 6     , 'none' , 'none'    )
     call s:hy ( 'DiffAdd'      , 0      , 2      , 'none'    )
 
 " 3      11{{{1
     call s:hy ( 'Boolean'     , 3  , 'none' , 'none' )
     call s:hy ( 'Constant'    , 11  , 'none' , 'bold' )
-    call s:hy ( 'MatchParen' , 11     , 'none' , 'bold,underline' )
+    call s:hy ( 'MatchParen' , 11     , 'none' , 'bold' )
 
     call s:hy ( 'Directory'  , 11     , 'none' , 'none'           )
     call s:hy ( 'Todo'       , 11     , 'none' , 'bold'           )
@@ -89,10 +90,10 @@ endfunc
 
     call s:hy ( 'StatusLine' , 'none'      , 'none' , 'bold' )
     call s:hy ( 'StatusLineAdd' , '2'      , 'none' , 'none' )
-    call s:hy ( 'LineNr'       , 'none'  , 'none' , 'bold' )
+    call s:hy ( 'LineNr'       , 'none'  , 235 , 'bold' )
     call s:hy ( 'CursorLineNr' , 'none'  , 'none' , 'bold,inverse' )
 
-    call s:hy ( 'SignColumn' , 5      , 'none' , 'none' )
+    call s:hy ( 'SignColumn' , 5      , 0 , 'none' )
     call s:hy ( 'WildMenu'   , 'none' , 'none' , 'bold,inverse' )
 
 " 6      14{{{1
@@ -135,10 +136,10 @@ endfunc
     hi link cRepeat         Repeat
 " }}}
 " Plugin: & {{{1
-call s:hy ( 'GitGutterDelete '      , 1 , 'none' , 'none' )
-call s:hy ( 'GitGutterAdd    '      , 2 , 'none' , 'none' )
-call s:hy ( 'GitGutterChange '      , 4 , 'none' , 'none' )
-call s:hy ( 'GitGutterChangeDelete' , 3 , 'none' , 'none' )
+call s:hy ( 'GitGutterDelete '      , 1 , 0 , 'none' )
+call s:hy ( 'GitGutterAdd    '      , 2 , 0 , 'none' )
+call s:hy ( 'GitGutterChange '      , 4 , 0 , 'none' )
+call s:hy ( 'GitGutterChangeDelete' , 3 , 0 , 'none' )
 call s:hy      ( 'LogicalBuffer'       , 0    , 15, 'none' )
 
 let s:colors = [ 1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14 ]
