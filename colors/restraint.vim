@@ -41,51 +41,51 @@ endfunc
     call s:hy ( 'SpellBad'    , 1 , 7      , 'reverse' )
     call s:hy ( 'ErrorMsg'    , 1 , 7      , 'reverse' )
     call s:hy ( 'DiffRemoved' , 1 , 'none' , 'none'    )
-    call s:hy ( 'String'      , 2 , 'none' , 'none'    )
+    call s:hy ( 'Function'    , 9 , 'none' , 'none'    )
 
 " 2      10{{{1
-    call s:hy ( 'StorageClass' , 2      , 'none' , 'none'         )
-    call s:hy ( 'Keyword'      , 2      , 'none' , 'none'         )
+    call s:hy ( 'StorageClass' , 2      , 'none' , 'none'    )
+    call s:hy ( 'Keyword'      , 2      , 'none' , 'none'    )
+    call s:hy ( 'String'       , 2      , 'none' , 'none'    )
 
-    call s:hy ( 'Folded'       , 'none' , 'none' , 'none'         )
-    call s:hy ( 'FoldColumn'   , 2      , 'none' , 'none'         )
-    call s:hy ( 'Visual'       , 7      , 3      , 'bold'         )
-    call s:hy ( 'DiffAdd'      , 2      , 0      , 'reverse'      )
-    call s:hy ( 'diffAdded'    , 2      , 0      , 'reverse'      )
-    call s:hy ( 'Number'       , 2      , 'none' , 'bold'         )
-    call s:hy ( 'QShit'        , 2      , 'none' , 'none'         )
+    call s:hy ( 'Folded'       , 'none' , 'none' , 'none'    )
+    call s:hy ( 'FoldColumn'   , 2      , 'none' , 'none'    )
+    call s:hy ( 'Visual'       , 'none' , 0      , 'none'    )
+    call s:hy ( 'DiffAdd'      , 2      , 0      , 'reverse' )
+    call s:hy ( 'diffAdded'    , 2      , 0      , 'reverse' )
+    call s:hy ( 'Number'       , 2      , 'none' , 'bold'    )
+    call s:hy ( 'QShit'        , 2      , 'none' , 'none'    )
 
 " 3      11{{{1
     call s:hy ( 'Float'        , 3      , 'none' , 'bold'              )
 
     call s:hy ( 'Directory'    , 3      , 'none' , 'none'              )
-    call s:hy ( 'Todo'         , 3      , 'none' , 'none'              )
+    call s:hy ( 'Todo'         , 11     , 'none' , 'reverse,bold'      )
 
     call s:hy ( 'WarningMsg'   , 3      , 'none' , 'inverse,bold'      )
     call s:hy ( 'Special'      , 3      , 'none' , 'none'              )
     call s:hy ( 'Search'       , 'none' , 'none' , 'inverse'           )
     call s:hy ( 'SearchC'      , 'none' , 'none' , 'underline,reverse' )
     call s:hy ( 'IncSearch'    , 0      , 3      , 'none'              )
-    call s:hy ( 'BraceChars'   , 3      , 'none' , 'none'              )
-    call s:hy ( 'BracketChars' , 3      , 'none' , 'none'              )
-    call s:hy ( 'ParenChars'   , 3      , 'none' , 'none'              )
+    " call s:hy ( 'BraceChars'   , 3      , 'none' , 'none'              )
+    " call s:hy ( 'BracketChars' , 3      , 'none' , 'none'              )
+    " call s:hy ( 'ParenChars'   , 3      , 'none' , 'none'              )
     call s:hy ( 'Ignore'       , 3      , 'none' , 'none'              )
     call s:hy ( 'Delimeter'    , 3      , 'none' , 'none'              )
+    call s:hy ( 'Statement'    , 3      , 'none' , 'none'              )
 
 " 4      12{{{1
     call s:hy ( 'NonText'   , 4 , 'none' , 'none'    )
-    call s:hy ( 'Label'     , 4 , 'none' , 'none'    )
     call s:hy ( 'PreCondit' , 4 , 'none' , 'none'    )
-    call s:hy ( 'TypeDef'   , 4 , 'none' , 'none'    )
     call s:hy ( 'Operator'  , 4 , 'none' , 'none'    )
     call s:hy ( 'Type'      , 4 , 'none' , 'none'    )
     call s:hy ( 'Constant'  , 4 , 'none' , 'none'    )
-    call s:hy ( 'Statement' , 4 , 'none' , 'none'    )
 
     call s:hy ( 'DiffText'  , 4 , 7      , 'reverse' )
 
 " 5      13{{{1
-    call s:hy ( 'Pmenu'       , 8      , 'none' , 'reverse'      )
+    call s:hy ( 'TypeDef'     , 5      , 'none' , 'none'         )
+    call s:hy ( 'Label'       , 5      , 'none' , 'none'         )
     call s:hy ( 'PmenuSbar'   , 7      , 'none' , 'reverse'      )
     call s:hy ( 'PmenuSel'    , 5      , 7      , 'reverse,bold' )
     call s:hy ( 'PMenuThumb'  , 5      , 'none' , 'reverse'      )
@@ -106,7 +106,6 @@ endfunc
 
     call s:hy ( 'Identifier' , 6  , 'none' , 'none' )
     call s:hy ( 'Class'      , 6  , 'none' , 'none' )
-    call s:hy ( 'Function'   , 6  , 'none' , 'none' )
 
     call s:hy ( 'SpecialKey' , 6  , 'none' , 'none' )
 
@@ -117,7 +116,8 @@ endfunc
 
 
 " 0       8{{{1
-    call s:hy ( 'Comment'     , 0  , 'none' , 'bold' )
+    call s:hy ( 'Comment' , 8      , 'none' , 'none' )
+    call s:hy ( 'Pmenu'   , 'none' , 0      , 'none' )
 
 
 " Dynamic x{{{1
@@ -128,7 +128,7 @@ endfunc
     call s:hy ( 'LineNr'        , g:accentColor , 'none' , 'none'         )
     call s:hy ( 'CursorLineNr'  , g:accentColor , 'none' , 'bold,inverse' )
     call s:hy ( 'ModeMsg'       , g:accentColor , 'none' , 'inverse,bold' )
-    call s:hy ( 'MatchParen'    , g:accentColor , 'none' , 'none'         )
+    call s:hy ( 'MatchParen'    , 'none'        , 8      , 'none'         )
     call s:hy ( 'LogicalBuffer' , 7             , g:accentColor, 'bold')
 
 " Relink  >{{{1
@@ -164,3 +164,25 @@ endfor
 
 hi GrepperCurrent ctermfg=0 ctermbg=2 cterm=none
 hi GrepperMatch   ctermfg=0 ctermbg=3 cterm=none
+
+hi InnerScope ctermbg=239 ctermfg=none cterm=none
+hi OuterScope ctermbg=236 ctermfg=none cterm=none
+hi LinkScope  ctermbg=242 ctermfg=none cterm=none
+
+" Test:   ? {{{1
+hi Test0 ctermfg=0
+hi Test1 ctermfg=1
+hi Test2 ctermfg=2
+hi Test3 ctermfg=3
+hi Test4 ctermfg=4
+hi Test5 ctermfg=5
+hi Test6 ctermfg=6
+hi Test7 ctermfg=7
+hi Test8 ctermfg=8
+hi Test9 ctermfg=9
+hi Test10 ctermfg=10
+hi Test11 ctermfg=11
+hi Test12 ctermfg=12
+hi Test13 ctermfg=13
+hi Test14 ctermfg=14
+hi Test15 ctermfg=15
