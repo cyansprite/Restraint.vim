@@ -5,7 +5,7 @@
 " Requirements: Term Colors for terminal or GUI color support.
 " Note:         *Xresources Not Updated*
 "               Don't use more than 16 term colors
-"               Use light colros ontop of dark colros for normal, inverse for
+"               Use light colors ontop of dark colors for normal, inverse for
 "               selected.
 
 " Setup   +{{{1
@@ -51,7 +51,13 @@ endfunc
 
     call s:hy ( 'Folded'       , 'none' , 'none' , 'none'    )
     call s:hy ( 'FoldColumn'   , 2      , 'none' , 'none'    )
-    call s:hy ( 'Visual'       , 'none' , 232    , 'none'    )
+
+    if &bg == "dark"
+        call s:hy ( 'Visual'       , 15, 0    , 'none'    )
+    else
+        call s:hy ( 'Visual'       , 0, 15, 'none'    )
+    endif
+
     call s:hy ( 'DiffAdd'      , 2      , 0      , 'inverse' )
     call s:hy ( 'diffAdded'    , 2      , 0      , 'inverse' )
     call s:hy ( 'Number'       , 2      , 'none' , 'bold'    )
@@ -97,6 +103,7 @@ endfunc
     call s:hy ( 'diffSubname' , 5      , 'none' , 'none'         )
     call s:hy ( 'PreProc'     , 5      , 'none' , 'none'         )
     call s:hy ( 'MoreMsg'     , 5      , 0      , 'inverse'      )
+    call s:hy ( 'Repeat'     , 13 , 'none' , 'none'    )
 
     call s:hy ( 'SignColumn'  , 5      , 'none' , 'none'         )
     call s:hy ( 'WildMenu'    , 'none' , 'none' , 'bold,inverse' )
@@ -110,18 +117,24 @@ endfunc
     call s:hy ( 'SpecialKey' , 6  , 'none' , 'none' )
 
 " 7      15{{{1
-    call s:hy ( 'Repeat'     , 13 , 'none' , 'none'    )
     call s:hy ( 'Question'   , 7  , 0      , 'inverse' )
     call s:hy ( 'Conditonal' , 7  , 'none' , 'none'    )
+    if &bg == "light"
+        call s:hy ( 'Comment' , 7      , 'none' , 'none' )
+        call s:hy ( 'Pmenu'   , 0, 15      , 'none' )
+    endif
 
 
 " 0       8{{{1
-    call s:hy ( 'Comment' , 8      , 'none' , 'none' )
-    call s:hy ( 'Pmenu'   , 'none' , 0      , 'none' )
+    if &bg == "dark"
+        call s:hy ( 'Comment' , 8      , 'none' , 'none' )
+        call s:hy ( 'Pmenu'   , 'none' , 0      , 'none' )
+    endif
 
 
 " Dynamic x{{{1
-    let g:accentColor = 8
+
+    let g:accentColor = 2
 
     call s:hy ( 'EndOfBuffer'   , g:accentColor , 'none'        , 'bold'         )
     call s:hy ( 'VertSplit'     , g:accentColor , g:accentColor , 'bold'         )
@@ -166,26 +179,14 @@ endfor
 hi GrepperCurrent ctermfg=0 ctermbg=2 cterm=none
 hi GrepperMatch   ctermfg=0 ctermbg=3 cterm=none
 
-hi InnerScope ctermbg=236 ctermfg=none cterm=none
-hi OuterScope ctermbg=239 ctermfg=none cterm=none
-hi LinkScope  ctermbg=242 ctermfg=none cterm=none
+if &bg == "dark"
+    hi InnerScope ctermbg=236 ctermfg=none cterm=none
+    hi OuterScope ctermbg=239 ctermfg=none cterm=none
+    hi LinkScope  ctermbg=242 ctermfg=none cterm=none
+else
+    hi InnerScope ctermbg=255 ctermfg=none cterm=none
+    hi OuterScope ctermbg=252 ctermfg=none cterm=none
+    hi LinkScope  ctermbg=250 ctermfg=none cterm=none
+endif
 
 hi link csType          Member
-
-" Test:   ? {{{1
-hi Test0 ctermfg=0
-hi Test1 ctermfg=1
-hi Test2 ctermfg=2
-hi Test3 ctermfg=3
-hi Test4 ctermfg=4
-hi Test5 ctermfg=5
-hi Test6 ctermfg=6
-hi Test7 ctermfg=7
-hi Test8 ctermfg=8
-hi Test9 ctermfg=9
-hi Test10 ctermfg=10
-hi Test11 ctermfg=11
-hi Test12 ctermfg=12
-hi Test13 ctermfg=13
-hi Test14 ctermfg=14
-hi Test15 ctermfg=15
