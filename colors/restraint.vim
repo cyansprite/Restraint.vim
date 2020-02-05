@@ -74,9 +74,9 @@ endfunc
     call s:hy ( 'Search'       , 'none' , 'none' , 'inverse'           )
     call s:hy ( 'SearchC'      , 'none' , 'none' , 'underline,inverse' )
     call s:hy ( 'IncSearch'    , 0      , 3      , 'none'              )
-    call s:hy ( 'BraceChars'   , 1      , 'none' , 'none'              )
-    call s:hy ( 'BracketChars' , 1      , 'none' , 'none'              )
-    call s:hy ( 'ParenChars'   , 1      , 'none' , 'none'              )
+    call s:hy ( 'BraceChars'   , 7      , 'none' , 'bold'              )
+    call s:hy ( 'BracketChars' , 7      , 'none' , 'bold'              )
+    call s:hy ( 'ParenChars'   , 7      , 'none' , 'bold'              )
     call s:hy ( 'Ignore'       , 3      , 'none' , 'none'              )
     call s:hy ( 'Delimeter'    , 3      , 'none' , 'none'              )
     call s:hy ( 'Statement'    , 3      , 'none' , 'none'              )
@@ -92,9 +92,6 @@ endfunc
 " 5      13{{{1
     call s:hy ( 'TypeDef'     , 5      , 'none' , 'none'         )
     call s:hy ( 'Label'       , 5      , 'none' , 'none'         )
-    call s:hy ( 'PmenuSbar'   , 7      , 'none' , 'inverse'      )
-    call s:hy ( 'PmenuSel'    , 5      , 7      , 'inverse,bold' )
-    call s:hy ( 'PMenuThumb'  , 5      , 'none' , 'inverse'      )
     call s:hy ( 'Boolean'     , 5      , 'none' , 'none'         )
 
     call s:hy ( 'Character'   , 5      , 'none' , 'none'         )
@@ -103,13 +100,13 @@ endfunc
     call s:hy ( 'diffSubname' , 5      , 'none' , 'none'         )
     call s:hy ( 'PreProc'     , 5      , 'none' , 'none'         )
     call s:hy ( 'MoreMsg'     , 5      , 0      , 'inverse'      )
-    call s:hy ( 'Repeat'     , 13 , 'none' , 'none'    )
+    call s:hy ( 'Repeat'      , 13     , 'none' , 'none'         )
 
     call s:hy ( 'SignColumn'  , 5      , 'none' , 'none'         )
     call s:hy ( 'WildMenu'    , 'none' , 'none' , 'bold,inverse' )
 
 " 6      14{{{1
-    call s:hy ( 'Operator'  , 6 , 'none' , 'none'   )
+    call s:hy ( 'Operator'  , 6 , 'none' , 'bold'   )
 
     call s:hy ( 'Identifier' , 6  , 'none' , 'none' )
     call s:hy ( 'Class'      , 6  , 'none' , 'none' )
@@ -119,30 +116,25 @@ endfunc
 " 7      15{{{1
     call s:hy ( 'Question'   , 7  , 0      , 'inverse' )
     call s:hy ( 'Conditonal' , 7  , 'none' , 'none'    )
-    if &bg == "light"
-        call s:hy ( 'Comment' , 7      , 'none' , 'none' )
-        call s:hy ( 'Pmenu'   , 0, 15      , 'none' )
-    endif
-
 
 " 0       8{{{1
-    if &bg == "dark"
-        call s:hy ( 'Comment' , 8      , 'none' , 'none' )
-        call s:hy ( 'Pmenu'   , 'none' , 0      , 'none' )
-    endif
+    call s:hy ( 'MatchParen'    , 'none'        , 8             , 'none'         )
 
 
 " Dynamic x{{{1
 
-    let g:accentColor = 2
-
+    let g:accentColor = 11
     call s:hy ( 'EndOfBuffer'   , g:accentColor , 'none'        , 'bold'         )
     call s:hy ( 'VertSplit'     , g:accentColor , g:accentColor , 'bold'         )
     call s:hy ( 'StatusLine'    , g:accentColor , 'none'        , 'none'         )
     call s:hy ( 'LineNr'        , g:accentColor , 'none'        , 'none'         )
     call s:hy ( 'CursorLineNr'  , g:accentColor , 'none'        , 'bold,inverse' )
     call s:hy ( 'ModeMsg'       , g:accentColor , 'none'        , 'inverse,bold' )
-    call s:hy ( 'MatchParen'    , 'none'        , 8             , 'none'         )
+    call s:hy ( 'Pmenu'         , g:accentColor , 0             , 'none'         )
+    call s:hy ( 'PmenuSbar'     , g:accentColor , 'none'        , 'inverse'      )
+    call s:hy ( 'PmenuSel'      , g:accentColor , 0             , 'inverse,bold' )
+    call s:hy ( 'PMenuThumb'    , g:accentColor , 'none'        , 'inverse'      )
+    call s:hy ( 'Comment'       , g:accentColor , 0             , 'none'         )
     call s:hy ( 'LogicalBuffer' , 7             , g:accentColor , 'bold'         )
 
 " Relink  >{{{1
