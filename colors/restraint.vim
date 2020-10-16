@@ -32,7 +32,7 @@ endfunc
     call s:hy ( 'QuickFixLine' , 'none'  , 'none' , 'inverse' )
 
     call s:hy ( 'DiffChange'   , 'none ' , 'none' , 'none'    )
-    call s:hy ( 'CursorLine'   , 'none'  , 'none' , 'none'    )
+    call s:hy ( 'CursorLine'   , 'none'  , 0      , 'none'    )
     call s:hy ( 'ColorColumn'  , 'none'  , 'none' , 'none'    )
 
 "1       9{{{1
@@ -117,13 +117,13 @@ endfunc
 
 
 " Dynamic x{{{1
-    let g:accentColor = get(g:, "accentColor", 8)
+    let g:accentColor = get(g:, "accentColor", 3)
     call s:hy ( 'FoldColumn'    , g:accentColor , 'none'        , 'none'         )
     call s:hy ( 'EndOfBuffer'   , g:accentColor , 'none'        , 'bold'         )
     call s:hy ( 'VertSplit'     , g:accentColor , g:accentColor , 'bold'         )
     call s:hy ( 'StatusLine'    , g:accentColor , 'none'        , 'none'         )
     call s:hy ( 'LineNr'        , g:accentColor , 'none'        , 'none'         )
-    call s:hy ( 'CursorLineNr'  , g:accentColor , 'none'        , 'bold,inverse' )
+    call s:hy ( 'CursorLineNr'  , g:accentColor , 0             , 'bold'         )
     call s:hy ( 'ModeMsg'       , g:accentColor , 'none'        , 'inverse,bold' )
     call s:hy ( 'PmenuSbar'     , g:accentColor , 'none'        , 'inverse'      )
     call s:hy ( 'PMenuThumb'    , g:accentColor , 'none'        , 'inverse'      )
