@@ -84,7 +84,7 @@ endfunc
     call s:hy ( 'Type'      , 4  , 'none' , 'none' )
     call s:hy ( 'Constant'  , 12 , 'none' , 'none' )
     call s:hy ( 'Member'    , 4  , 'none' , 'none' )
-    call s:hy ( 'DiffText'  , 4  , 7      , 'none' )
+    call s:hy ( 'DiffText'  , 0  , 4      , 'none' )
 
 " 5      13{{{1
     call s:hy ( 'TypeDef'     , 5      , 'none' , 'none'         )
