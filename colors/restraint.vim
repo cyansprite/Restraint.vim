@@ -8,16 +8,48 @@
 "               Use light colors ontop of dark colors for normal, inverse for
 "               selected.
 
+set termguicolors
+let &pumblend=1
+let s:blend=20
+
 " Setup   +{{{1
 hi clear
 if exists("syntax_on")
     syntax reset
 endif
 
+let s:colorList = {
+            \ "fg": '#181816',
+            \ "bg": '#f2f2de',
+            \ 0 : '#121211',
+            \ 8 : '#808075',
+            \ 1 : '#8c4646',
+            \ 9 : '#ff4c96',
+            \ 2 : '#1ba93e',
+            \ 10 : '#6bce3e',
+            \ 3 : '#acaa55',
+            \ 11 : '#df8243',
+            \ 4 : '#4b64bb',
+            \ 12 : '#43a7de',
+            \ 5 : '#af59b1',
+            \ 13 : '#ef4cff',
+            \ 6 : '#59b09f',
+            \ 14 : '#40d6d3',
+            \ 7 : '#c6c6b5',
+            \ 15 : '#ffffea',
+            \ 253 : '#eeeedd',
+            \ 'none' : 'none'
+            \ }
+
 let g:colors_name = "restraint"
 
-func! s:hy(name, f, b, t)
-    exec 'hi '.a:name.' ctermfg='.a:f.' ctermbg='.a:b.' cterm='.a:t
+func! s:hy(name, f, b, t, ...)
+    try
+        " echom 'hi '.a:name.' ctermfg='.a:f.' ctermbg='.a:b.' cterm='.a:t. ' guifg='.s:colorList[a:f].' guibg='.s:colorList[a:b].' gui='.a:t . ' blend=' s:blend
+        exec 'hi '.a:name.' ctermfg='.a:f.' ctermbg='.a:b.' cterm='.a:t. ' guifg='.s:colorList[a:f].' guibg='.s:colorList[a:b].' gui='.a:t . ' blend=' s:blend
+    cat /.*/
+        echohl ErrorMsg | echom v:exception . 'in :' . v:throwpoint . ' for ' . a:name | echohl None
+    endtry
 endfunc
 
 " EasyAlign*/,\|)/
@@ -31,8 +63,7 @@ endfunc
     call s:hy ( 'StatuslineNc' , 'none'  , 'none' , 'none'    )
     call s:hy ( 'QuickFixLine' , 'none'  , 'none' , 'inverse' )
 
-    call s:hy ( 'DiffChange'   , 'none ' , 'none' , 'none'    )
-    call s:hy ( 'CursorLine'   , 'none'  , 0      , 'none'    )
+    call s:hy ( 'DiffChange'   , 'none' , 'none' , 'none'    )
     call s:hy ( 'ColorColumn'  , 'none'  , 'none' , 'none'    )
 
 "1       9{{{1
@@ -117,13 +148,19 @@ endfunc
 
 
 " Dynamic x{{{1
-    let g:accentColor = get(g:, "accentColor", 3)
+    let g:accentColor = get(g:, "accentColor", 5)
     call s:hy ( 'FoldColumn'    , g:accentColor , 'none'        , 'none'         )
     call s:hy ( 'EndOfBuffer'   , g:accentColor , 'none'        , 'bold'         )
     call s:hy ( 'VertSplit'     , g:accentColor , g:accentColor , 'bold'         )
     call s:hy ( 'StatusLine'    , g:accentColor , 'none'        , 'none'         )
     call s:hy ( 'LineNr'        , g:accentColor , 'none'        , 'none'         )
-    call s:hy ( 'CursorLineNr'  , g:accentColor , 0             , 'bold'         )
+    if &bg=="light"
+        call s:hy ( 'CursorLineNr'  , g:accentColor , 15             , 'bold'         )
+        call s:hy ( 'CursorLine'   , 'none'  , 15      , 'none'    )
+    else
+        call s:hy ( 'CursorLineNr'  , g:accentColor , 0             , 'bold'         )
+        call s:hy ( 'CursorLine'   , 'none'  , 0      , 'none'    )
+    endif
     call s:hy ( 'ModeMsg'       , g:accentColor , 'none'        , 'inverse,bold' )
     call s:hy ( 'PmenuSbar'     , g:accentColor , 'none'        , 'inverse'      )
     call s:hy ( 'PMenuThumb'    , g:accentColor , 'none'        , 'inverse'      )
@@ -135,8 +172,8 @@ endfunc
         call s:hy ( 'Comment'  , 8             , 253 , 'none'         )
     else
         call s:hy ( 'Pmenu'    , g:accentColor , 0 , 'none'         )
-        call s:hy ( 'Comment'  , 8             , 0 , 'none'         )
         call s:hy ( 'PmenuSel' , g:accentColor , 0 , 'inverse,bold' )
+        call s:hy ( 'Comment'  , 8             , 0 , 'none'         )
     endif
 
 " Relink  >{{{1
@@ -173,14 +210,15 @@ endfor
 hi GrepperCurrent ctermfg=0 ctermbg=2 cterm=none
 hi GrepperMatch   ctermfg=0 ctermbg=3 cterm=none
 
+" TODO
 if &bg == "dark"
-    hi InnerScope ctermbg=236 ctermfg=none cterm=none
-    hi OuterScope ctermbg=239 ctermfg=none cterm=none
-    hi LinkScope  ctermbg=242 ctermfg=none cterm=none
+    hi InnerScope ctermbg=236 guibg=#000000
+    hi OuterScope ctermbg=239 guibg=#000000
+    hi LinkScope  ctermbg=242 guibg=#000000
 else
-    hi InnerScope ctermbg=255 ctermfg=none cterm=none
-    hi OuterScope ctermbg=252 ctermfg=none cterm=none
-    hi LinkScope  ctermbg=250 ctermfg=none cterm=none
+    hi InnerScope ctermbg=255 guibg=#ffffff
+    hi OuterScope ctermbg=252 guibg=#ffffff
+    hi LinkScope  ctermbg=250 guibg=#ffffff
 endif
 
 hi link csType          Member
