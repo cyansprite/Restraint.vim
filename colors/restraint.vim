@@ -64,9 +64,12 @@ let s:colorList_work = {
             \ 'none' : 'none'
             \ }
 
-if hostname() == "mojajojo" || hostname() == "cinder"
+if hostname() == "cinder"
     let s:colorList = s:colorList_work
     let g:accentColor = 9
+elseif hostname() == "mojajojo"
+    let s:colorList = s:colorList_work
+    let g:accentColor = 13
 endif
 
 let g:colors_name = "restraint"
@@ -192,7 +195,7 @@ endfunc
     call s:hy ( 'ModeMsg'       , g:accentColor , 'none'        , 'inverse,bold' )
     call s:hy ( 'PmenuSbar'     , g:accentColor , 'none'        , 'inverse'      )
     call s:hy ( 'PMenuThumb'    , g:accentColor , 'none'        , 'inverse'      )
-    call s:hy ( 'LogicalBuffer' , 7             , g:accentColor , 'bold'         )
+    call s:hy ( 'LogicalBuffer' , 15             , g:accentColor , 'bold'        )
 
     if &bg=="light"
         call s:hy ( 'Pmenu'    , g:accentColor , 253 , 'none'         )
