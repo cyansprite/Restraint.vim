@@ -11,6 +11,8 @@
 set termguicolors
 let &pumblend=1
 let s:blend=20
+let &winblend=27
+let s:blend=27
 
 " Setup   +{{{1
 hi clear
