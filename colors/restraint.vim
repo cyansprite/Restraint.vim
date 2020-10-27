@@ -66,6 +66,7 @@ let s:colorList_work = {
 
 if hostname() == "mojajojo" || hostname() == "cinder"
     let s:colorList = s:colorList_work
+    let g:accentColor = 9
 endif
 
 let g:colors_name = "restraint"
@@ -175,7 +176,7 @@ endfunc
 
 
 " Dynamic x{{{1
-    let g:accentColor = get(g:, "accentColor", 5)
+    let g:accentColor = get(g:, "accentColor", 3)
     call s:hy ( 'FoldColumn'    , g:accentColor , 'none'        , 'none'         )
     call s:hy ( 'EndOfBuffer'   , g:accentColor , 'none'        , 'bold'         )
     call s:hy ( 'VertSplit'     , g:accentColor , g:accentColor , 'bold'         )
