@@ -191,17 +191,17 @@ endfunc
     call s:hy ( 'Conditonal' , 8      , 'none' , 'none' )
 
 " Dynamic x{{{1
-    call s:hy ( 'Folded'        , g:accentColorLight , 'none' , 'none'    )
+    call s:hy ( 'Folded'        , g:accentColorLight , 'none'        , 'none'         )
     call s:hy ( 'StatuslineNc'  , g:accentColorLight , 'none'        , 'none'         )
     call s:hy ( 'FoldColumn'    , g:accentColorLight , 'none'        , 'none'         )
-    call s:hy ( 'EndOfBuffer'   , g:accentColor , 'none'        , 'bold'         )
-    call s:hy ( 'VertSplit'     , g:accentColorLight , g:accentColor , 'bold'         )
-    call s:hy ( 'StatusLine'    , g:accentColor , 'none'        , 'none'         )
+    call s:hy ( 'EndOfBuffer'   , g:accentColor      , 'none'        , 'bold'         )
+    call s:hy ( 'VertSplit'     , g:accentColor      , 'none'        , 'bold'         )
+    call s:hy ( 'StatusLine'    , g:accentColor      , 'none'        , 'none'         )
     call s:hy ( 'LineNr'        , g:accentColorLight , 'none'        , 'none'         )
-    call s:hy ( 'ModeMsg'       , g:accentColor , 'none'        , 'inverse,bold' )
-    call s:hy ( 'PmenuSbar'     , g:accentColor , 'none'        , 'inverse'      )
-    call s:hy ( 'PMenuThumb'    , g:accentColor , 'none'        , 'inverse'      )
-    call s:hy ( 'LogicalBuffer' , 15            , g:accentColor , 'bold'         )
+    call s:hy ( 'ModeMsg'       , g:accentColor      , 'none'        , 'inverse,bold' )
+    call s:hy ( 'PmenuSbar'     , g:accentColor      , 'none'        , 'inverse'      )
+    call s:hy ( 'PMenuThumb'    , g:accentColor      , 'none'        , 'inverse'      )
+    call s:hy ( 'LogicalBuffer' , 15                 , g:accentColor , 'bold'         )
 
     if &bg=="light"
         call s:hy ( 'CursorLineNr' , g:accentColor , 15 , 'bold' )
@@ -226,6 +226,7 @@ endfunc
     hi link vimIsCommand    Constant
     hi link vimHighlight    Member
     hi link vimUserFunc     UserFunction
+    hi link vimFunction     UserFunction
     hi link vimContinue     ParenChars
     hi link vimParenSep     Operator
     hi link vimExecute      Operator
@@ -248,10 +249,10 @@ let g:gitgutter_sign_modified_removed   = '~_'
 
 let s:colors = [ 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 ]
 call reverse(s:colors)
-for x in range(0,100)
+for x in range(0,10)
     exec 'hi Logical'.x.' cterm=bold ctermfg=' . s:colors[x % len(s:colors)]
 endfor
-for x in range(0,100)
+for x in range(0,10)
     exec 'hi LogicalTab'.x.' cterm=bold,inverse ctermbg=7 ctermfg=' . s:colors[x % len(s:colors)]
 endfor
 
@@ -270,3 +271,12 @@ else
 endif
 
 hi link csType          Member
+
+call s:hy ( 'NormalMode'   , g:accentColor , 'none' , 'bold' )
+call s:hy ( 'InsertMode'   , g:accentColor + 1 , 'none' , 'bold' )
+call s:hy ( 'VisualMode'   , g:accentColor + 2 , 'none' , 'bold' )
+call s:hy ( 'SelectMode'   , g:accentColor + 3 , 'none' , 'bold' )
+call s:hy ( 'CommandMode'  , g:accentColor + 4 , 'none' , 'bold' )
+call s:hy ( 'TerminalMode' , g:accentColor + 5 , 'none' , 'bold' )
+call s:hy ( 'OtherMode'    , g:accentColor + 6 , 'none' , 'bold' )
+call s:hy ( 'ReplaceMode'  , 'none'            , 1, 'bold' )
