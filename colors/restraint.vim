@@ -36,7 +36,7 @@ let s:colorList = {
             \ 13     : '#ef4cff',
             \ 6      : '#59b09f',
             \ 14     : '#40d6d3',
-            \ 7      : '#c6c6b5',
+            \ 7      : '#a6a685',
             \ 15     : '#ffffea',
             \ 253    : '#eeeedd',
             \ 'none' : 'none'
@@ -111,9 +111,10 @@ endfunc
     call s:hy ( 'Error'       , 1 , 'none' , 'none' )
     call s:hy ( 'DiffDelete'  , 7 , 1      , 'none' )
     call s:hy ( 'SpellBad'    , 7 , 1      , 'none' )
-    call s:hy ( 'ErrorMsg'    , 0 , 1      , 'none' )
+    call s:hy ( 'ErrorMsg'    , 15, 1      , 'none' )
     call s:hy ( 'DiffRemoved' , 1 , 'none' , 'none' )
     call s:hy ( 'Function'    , 9 , 'none' , 'none' )
+    call s:hy ( 'Member'      , 1 , 'none' , 'none' )
 
 " 2      10{{{1
     call s:hy ( 'StorageClass' , 10     , 'none' , 'none'    )
@@ -145,7 +146,6 @@ endfunc
     call s:hy ( 'NonText'   , 4  , 'none' , 'none' )
     call s:hy ( 'PreCondit' , 4  , 'none' , 'none' )
     call s:hy ( 'Constant'  , 12 , 'none' , 'none' )
-    call s:hy ( 'Member'    , 4  , 'none' , 'none' )
     call s:hy ( 'DiffText'  , 0  , 4      , 'none' )
     call s:hy ( 'Keyword'   , 12 , 'none' , 'none' )
     call s:hy ( 'Statement' , 4  , 'none' , 'none' )
@@ -168,11 +168,11 @@ endfunc
 
 " 6      14{{{1
     call s:hy ( 'Type'       , 6  , 'none' , 'none' )
-    call s:hy ( 'Class'      , 6  , 'none' , 'none' )
     call s:hy ( 'SpecialKey' , 6  , 'none' , 'none' )
 
 " 7      15{{{1
     call s:hy ( 'Question'     , 7  , 0      , 'inverse' )
+    call s:hy ( 'Class'        , 7  , 'none' , 'none' )
 
     if &bg=="dark"
         call s:hy ( 'BraceChars'   , 15 , 'none' , 'none' )
@@ -191,7 +191,7 @@ endfunc
     call s:hy ( 'Conditonal' , 8      , 'none' , 'none' )
 
 " Dynamic x{{{1
-    call s:hy ( 'Folded'        , g:accentColorLight , 'none'        , 'none'         )
+    call s:hy ( 'Folded'        , 15                 , g:accentColor , 'none'         )
     call s:hy ( 'StatuslineNc'  , g:accentColorLight , 'none'        , 'none'         )
     call s:hy ( 'FoldColumn'    , g:accentColorLight , 'none'        , 'none'         )
     call s:hy ( 'EndOfBuffer'   , g:accentColor      , 'none'        , 'bold'         )
@@ -233,8 +233,9 @@ endfunc
     hi link csClass         Structure
     hi link cConditional    Conditonal
     hi link cRepeat         Repeat
+    hi link pythonDecoratorName Constant
+    hi link pythonBuiltin Label
 " }}}
-
 " Plugin: & {{{1
 call s:hy ( 'GitGutterDelete '      , 1 , 'none' , 'none' )
 call s:hy ( 'GitGutterAdd    '      , 2 , 'none' , 'none' )
@@ -272,11 +273,11 @@ endif
 
 hi link csType          Member
 
-call s:hy ( 'NormalMode'   , g:accentColor , 'none' , 'bold' )
-call s:hy ( 'InsertMode'   , g:accentColor + 1 , 'none' , 'bold' )
-call s:hy ( 'VisualMode'   , g:accentColor + 2 , 'none' , 'bold' )
-call s:hy ( 'SelectMode'   , g:accentColor + 3 , 'none' , 'bold' )
-call s:hy ( 'CommandMode'  , g:accentColor + 4 , 'none' , 'bold' )
-call s:hy ( 'TerminalMode' , g:accentColor + 5 , 'none' , 'bold' )
-call s:hy ( 'OtherMode'    , g:accentColor + 6 , 'none' , 'bold' )
-call s:hy ( 'ReplaceMode'  , 'none'            , 1, 'bold' )
+call s:hy ( 'NormalMode'   , 15 , g:accentColor , 'bold' )
+call s:hy ( 'InsertMode'   , 15 , 14            , 'bold' )
+call s:hy ( 'VisualMode'   , 15 , 10            , 'bold' )
+call s:hy ( 'SelectMode'   , 15 , 7             , 'bold' )
+call s:hy ( 'CommandMode'  , 15 , 13            , 'bold' )
+call s:hy ( 'TerminalMode' , 15 , 12            , 'bold' )
+call s:hy ( 'OtherMode'    , 15 , 8             , 'bold' )
+call s:hy ( 'ReplaceMode'  , 15 , 1             , 'bold' )
