@@ -11,9 +11,9 @@
 set termguicolors
 let &pumblend=1
 let &winblend=27
-let s:blend=27
+let s:blend=20
 
-" Setup   +{{{1
+" Setup:  +{{{1
 hi clear
 if exists("syntax_on")
     syntax reset
@@ -83,12 +83,27 @@ endif
 
 let g:accentColor = get(g:, "accentColor", 11)
 let g:accentColorLight = get(g:, "accentColorLight", 3)
-
 let g:colors_name = "restraint"
+
+let s:colorList['Search']     = '#aaaa00'
+let s:colorList['SearchC']    = '#ffff00'
+let s:colorList['MatchParen'] = '#00aacc'
+let s:colorList['ParenChars'] = '#00aacc'
+let s:colorList['Operator']   = '#ffaa00'
+
+func! s:cterm(c)
+    if a:c =~# '^\d\+$'
+        if a:c < 16 && a:c > -1
+            return a:c
+        endif
+    endif
+
+    return 'none'
+endfunc
 
 func! s:hy(name, f, b, t, ...)
     try
-        exec 'hi '.a:name.' ctermfg='.a:f.' ctermbg='.a:b.' cterm='.a:t. ' guifg='.s:colorList[a:f].' guibg='.s:colorList[a:b].' gui='.a:t . ' blend=' s:blend
+        exec 'hi '.a:name.' ctermfg='.s:cterm(a:f).' ctermbg='.s:cterm(a:b).' cterm='.a:t. ' guifg='.s:colorList[a:f].' guibg='.s:colorList[a:b].' gui='.a:t . ' blend=' s:blend
     cat /.*/
         echohl ErrorMsg | echom v:exception . 'in :' . v:throwpoint . ' for ' . a:name | echohl None
     endtry
@@ -96,18 +111,47 @@ endfunc
 
 " EasyAlign*/,\|)/
 
+" Special:|{{{1
+    call s:hy ( 'Search'       , 15           , 'Search'     , 'none' )
+    call s:hy ( 'SearchC'      , 0            , 'SearchC'    , 'none' )
+    call s:hy ( 'MatchParen'   , 'none'       , 'MatchParen' , 'none' )
+    call s:hy ( 'BraceChars'   , 'ParenChars' , 'none'       , 'none' )
+    call s:hy ( 'BracketChars' , 'ParenChars' , 'none'       , 'none' )
+    call s:hy ( 'ParenChars'   , 'ParenChars' , 'none'       , 'none' )
+    call s:hy ( 'Operator'     , 'Operator'   , 'none'       , 'bold' )
+
+    if &bg == "dark"
+        call s:hy ( 'ColorColumn'  , 'none'        , '0' , 'none'         )
+        call s:hy ( 'Whitespace'   , 1             , 0   , 'none'         )
+        call s:hy ( 'Visual'       , 0             , 15  , 'none'         )
+        call s:hy ( 'CursorLineNr' , g:accentColor , 0   , 'bold'         )
+        call s:hy ( 'CursorLine'   , 'none'        , 0   , 'none'         )
+        call s:hy ( 'Pmenu'        , g:accentColor , 0   , 'none'         )
+        call s:hy ( 'PmenuSel'     , g:accentColor , 0   , 'inverse,bold' )
+        call s:hy ( 'Comment'      , 8             , 0   , 'none'         )
+        call s:hy ( 'Title'        , 5             , 0   , 'none'         )
+    else
+        call s:hy ( 'ColorColumn'  , 'none'        , '15' , 'none'         )
+        call s:hy ( 'Visual'       , 15            , 0    , 'none'         )
+        call s:hy ( 'Whitespace'   , 1             , 15   , 'none'         )
+        call s:hy ( 'CursorLineNr' , g:accentColor , 15   , 'bold'         )
+        call s:hy ( 'Pmenu'        , g:accentColor , 15   , 'none'         )
+        call s:hy ( 'PmenuSel'     , g:accentColor , 15   , 'inverse,bold' )
+        call s:hy ( 'Comment'      , 8             , 15   , 'none'         )
+        call s:hy ( 'Title'        , 5             , 15   , 'none'         )
+    endif
+
 " Nons:   -{{{1
-    exec 'hi Normal ctermfg=none ctermbg=none cterm=none gui=none guifg='.s:colorList['fg'].' guibg='.s:colorList['bg']
+    call s:hy ( 'Normal'       , 'fg'   , 'bg'   , 'none'    )
     call s:hy ( 'NormalNC'     , 'none' , 'none' , 'none'    )
     call s:hy ( 'UnderLine'    , 'none' , 'none' , 'none'    )
     call s:hy ( 'CursorColumn' , 'none' , 'none' , 'none'    )
     call s:hy ( 'Cursor'       , 'none' , 'none' , 'none'    )
     call s:hy ( 'QuickFixLine' , 'none' , 'none' , 'inverse' )
     call s:hy ( 'DiffChange'   , 'none' , 'none' , 'none'    )
-    call s:hy ( 'ColorColumn'  , 'none' , 'none' , 'none'    )
+    call s:hy ( 'CursorLine'   , 'none' , 'none' , 'none'    )
 
 "1       9{{{1
-    call s:hy ( 'Whitespace'  , 1 , 'none' , 'none' )
     call s:hy ( 'Error'       , 1 , 'none' , 'none' )
     call s:hy ( 'DiffDelete'  , 7 , 1      , 'none' )
     call s:hy ( 'SpellBad'    , 7 , 1      , 'none' )
@@ -123,11 +167,6 @@ endfunc
     call s:hy ( 'diffAdded'    , 2      , 0      , 'inverse' )
     call s:hy ( 'QShit'        , 2      , 'none' , 'none'    )
 
-    if &bg == "dark"
-        call s:hy ( 'Visual' , 15 , 0  , 'none' )
-    else
-        call s:hy ( 'Visual' , 0  , 15 , 'none' )
-    endif
 
 " 3      11{{{1
     call s:hy ( 'Directory'    , 3      , 'none' , 'none'              )
@@ -136,8 +175,6 @@ endfunc
     call s:hy ( 'Float'        , 11     , 'none' , 'bold'              )
     call s:hy ( 'WarningMsg'   , 3      , 'none' , 'inverse,bold'      )
     call s:hy ( 'Special'      , 3      , 'none' , 'none'              )
-    call s:hy ( 'Search'       , 'none' , 'none' , 'inverse'           )
-    call s:hy ( 'SearchC'      , 'none' , 'none' , 'underline,inverse' )
     call s:hy ( 'IncSearch'    , 0      , 3      , 'none'              )
     call s:hy ( 'Ignore'       , 3      , 'none' , 'none'              )
     call s:hy ( 'Delimeter'    , 3      , 'none' , 'none'              )
@@ -157,7 +194,6 @@ endfunc
     call s:hy ( 'Character'   , 5      , 'none' , 'none'         )
     call s:hy ( 'Identifier'  , 5      , 'none' , 'none'         )
     call s:hy ( 'SpecialChar' , 5      , 'none' , 'none'         )
-    call s:hy ( 'Title'       , 5      , 'none' , 'none'         )
     call s:hy ( 'diffSubname' , 5      , 'none' , 'none'         )
     call s:hy ( 'PreProc'     , 5      , 'none' , 'none'         )
     call s:hy ( 'MoreMsg'     , 5      , 0      , 'inverse'      )
@@ -174,23 +210,10 @@ endfunc
     call s:hy ( 'Question'     , 7  , 0      , 'inverse' )
     call s:hy ( 'Class'        , 7  , 'none' , 'none' )
 
-    if &bg=="dark"
-        call s:hy ( 'BraceChars'   , 15 , 'none' , 'none' )
-        call s:hy ( 'BracketChars' , 15 , 'none' , 'none' )
-        call s:hy ( 'ParenChars'   , 15 , 'none' , 'none' )
-        call s:hy ( 'Operator'     , 15 , 'none' , 'bold' )
-    else
-        call s:hy ( 'BraceChars'   , 0  , 'none' , 'none' )
-        call s:hy ( 'BracketChars' , 0  , 'none' , 'none' )
-        call s:hy ( 'ParenChars'   , 0  , 'none' , 'none' )
-        call s:hy ( 'Operator'     , 0  , 'none' , 'bold' )
-    endif
-
 " 0       8{{{1
-    call s:hy ( 'MatchParen' , 'none' , 7      , 'none' )
     call s:hy ( 'Conditonal' , 8      , 'none' , 'none' )
 
-" Dynamic x{{{1
+" Dynamic:x{{{1
     call s:hy ( 'Folded'        , 15                 , g:accentColor , 'none'         )
     call s:hy ( 'StatuslineNc'  , g:accentColorLight , 'none'        , 'none'         )
     call s:hy ( 'FoldColumn'    , g:accentColorLight , 'none'        , 'none'         )
@@ -203,26 +226,9 @@ endfunc
     call s:hy ( 'PMenuThumb'    , g:accentColor      , 'none'        , 'inverse'      )
     call s:hy ( 'LogicalBuffer' , 15                 , g:accentColor , 'bold'         )
 
-    if &bg=="light"
-        call s:hy ( 'CursorLineNr' , g:accentColor , 15 , 'bold' )
-        call s:hy ( 'CursorLine'   , 'none'        , 15 , 'none' )
-    else
-        call s:hy ( 'CursorLineNr' , g:accentColor , 0  , 'bold' )
-        call s:hy ( 'CursorLine'   , 'none'        , 0  , 'none' )
-    endif
-
-    if &bg=="light"
-        call s:hy ( 'Pmenu'    , g:accentColor , 253 , 'none'         )
-        call s:hy ( 'PmenuSel' , g:accentColor , 253 , 'inverse,bold' )
-        call s:hy ( 'Comment'  , 8             , 253 , 'none'         )
-    else
-        call s:hy ( 'Pmenu'    , g:accentColor , 0   , 'none'         )
-        call s:hy ( 'PmenuSel' , g:accentColor , 0   , 'inverse,bold' )
-        call s:hy ( 'Comment'  , 8             , 0   , 'none'         )
-    endif
-
-" Relink  >{{{1
+" Relink: >{{{1
     hi link vimCommentTitle Title
+    hi link vimCommentTitleLeader Title
     hi link vimIsCommand    Constant
     hi link vimHighlight    Member
     hi link vimUserFunc     UserFunction
