@@ -95,6 +95,9 @@ let g:colors_name = "restraint"
 let s:colorList['Search']     = '#cccc00'
 let s:colorList['SearchC']    = '#ffff00'
 
+let s:colorList['GrepSearch']     = s:colorList[3]
+let s:colorList['GrepSearchC']    = s:colorList[11]
+
 func! s:cterm(c)
     if a:c =~# '^\d\+$'
         if a:c < 16 && a:c > -1
@@ -125,24 +128,51 @@ endfunc
     call s:hy ( 'Operator'     , 'Operator'   , 'none'       , 'bold' )
 
     if &bg == "dark"
-        call s:hy ( 'ColorColumn'  , 'none'        , '0' , 'none'         )
-        call s:hy ( 'Whitespace'   , 1             , 0   , 'none'         )
-        call s:hy ( 'Visual'       , 0             , 15  , 'none'         )
-        call s:hy ( 'CursorLineNr' , g:accentColor , 0   , 'bold'         )
-        call s:hy ( 'CursorLine'   , 'none'        , 0   , 'none'         )
-        call s:hy ( 'Pmenu'        , g:accentColor , 0   , 'none'         )
-        call s:hy ( 'PmenuSel'     , g:accentColor , 0   , 'inverse,bold' )
-        call s:hy ( 'Comment'      , 8             , 0   , 'none'         )
-        call s:hy ( 'Title'        , 5             , 0   , 'none'         )
+        call s:hy ( 'ColorColumn'  , 'none'        , 0 , 'none'         )
+        call s:hy ( 'Whitespace'   , 1             , 0 , 'none'         )
+        call s:hy ( 'Visual'       , 0             , 15, 'none'         )
+        call s:hy ( 'CursorLineNr' , g:accentColor , 0 , 'bold'         )
+        call s:hy ( 'CursorLine'   , 'none'        , 0 , 'none'         )
+        call s:hy ( 'Pmenu'        , g:accentColor , 0 , 'none'         )
+        call s:hy ( 'PmenuSel'     , g:accentColor , 0 , 'inverse,bold' )
+        call s:hy ( 'Comment'      , 8             , 0 , 'none'         )
+        call s:hy ( 'Title'        , 5             , 0 , 'none'         )
+
+
+        call s:hy ( 'InnerScope'   , 'none'        , 0 , 'none'         )
+        call s:hy ( 'OuterScope'   , 'none'        , 0 , 'none'         )
+        call s:hy ( 'LinkScope'    , 'none'        , 0 , 'none'         )
+
+        call s:hy ( 'NormalMode'   , g:accentColor , 0 , 'bold'         )
+        call s:hy ( 'InsertMode'   , 14            , 0 , 'bold'         )
+        call s:hy ( 'VisualMode'   , 10            , 0 , 'bold'         )
+        call s:hy ( 'SelectMode'   , 7             , 0 , 'bold'         )
+        call s:hy ( 'CommandMode'  , 13            , 0 , 'bold'         )
+        call s:hy ( 'TerminalMode' , 12            , 0 , 'bold'         )
+        call s:hy ( 'OtherMode'    , 8             , 0 , 'bold'         )
+        call s:hy ( 'ReplaceMode'  , 1             , 0 , 'bold'         )
     else
-        call s:hy ( 'ColorColumn'  , 'none'        , '15' , 'none'         )
-        call s:hy ( 'Visual'       , 15            , 0    , 'none'         )
-        call s:hy ( 'Whitespace'   , 1             , 15   , 'none'         )
-        call s:hy ( 'CursorLineNr' , g:accentColor , 15   , 'bold'         )
-        call s:hy ( 'Pmenu'        , g:accentColor , 15   , 'none'         )
-        call s:hy ( 'PmenuSel'     , g:accentColor , 15   , 'inverse,bold' )
-        call s:hy ( 'Comment'      , 8             , 15   , 'none'         )
-        call s:hy ( 'Title'        , 5             , 15   , 'none'         )
+        call s:hy ( 'ColorColumn'  , 'none'        , 15 , 'none'         )
+        call s:hy ( 'Visual'       , 15            , 0  , 'none'         )
+        call s:hy ( 'Whitespace'   , 1             , 15 , 'none'         )
+        call s:hy ( 'CursorLineNr' , g:accentColor , 15 , 'bold'         )
+        call s:hy ( 'Pmenu'        , g:accentColor , 15 , 'none'         )
+        call s:hy ( 'PmenuSel'     , g:accentColor , 15 , 'inverse,bold' )
+        call s:hy ( 'Comment'      , 8             , 15 , 'none'         )
+        call s:hy ( 'Title'        , 5             , 15 , 'none'         )
+
+        call s:hy ( 'InnerScope'   , 'none'        , 15 , 'none'         )
+        call s:hy ( 'OuterScope'   , 'none'        , 15 , 'none'         )
+        call s:hy ( 'LinkScope'    , 'none'        , 15 , 'none'         )
+
+        call s:hy ( 'NormalMode'   , g:accentColor , 15 , 'bold'         )
+        call s:hy ( 'InsertMode'   , 14            , 15 , 'bold'         )
+        call s:hy ( 'VisualMode'   , 10            , 15 , 'bold'         )
+        call s:hy ( 'SelectMode'   , 7             , 15 , 'bold'         )
+        call s:hy ( 'CommandMode'  , 13            , 15 , 'bold'         )
+        call s:hy ( 'TerminalMode' , 12            , 15 , 'bold'         )
+        call s:hy ( 'OtherMode'    , 8             , 15 , 'bold'         )
+        call s:hy ( 'ReplaceMode'  , 1             , 15 , 'bold'         )
     endif
 
 " Nons:   -{{{1
@@ -179,7 +209,7 @@ endfunc
     call s:hy ( 'Float'        , 11     , 'none' , 'bold'              )
     call s:hy ( 'WarningMsg'   , 3      , 'none' , 'inverse,bold'      )
     call s:hy ( 'Special'      , 3      , 'none' , 'none'              )
-    call s:hy ( 'IncSearch'    , 0      , 3      , 'none'              )
+    call s:hy ( 'IncSearch'    , 0      , 3      , 'underline'         )
     call s:hy ( 'Ignore'       , 3      , 'none' , 'none'              )
     call s:hy ( 'Delimeter'    , 3      , 'none' , 'none'              )
 
@@ -241,6 +271,7 @@ endfunc
     hi link vimParenSep     Operator
     hi link vimExecute      Operator
     hi link csClass         Structure
+    hi link csType          Member
     hi link cConditional    Conditonal
     hi link cRepeat         Repeat
     hi link pythonDecoratorName Constant
@@ -261,27 +292,5 @@ for x in range(0,10)
     exec 'hi LogicalTab'.x.' cterm=bold,inverse ctermbg=7 ctermfg=' . s:colors[x % len(s:colors)]
 endfor
 
-hi GrepperCurrent ctermfg=0 ctermbg=2 cterm=none
-hi GrepperMatch   ctermfg=0 ctermbg=3 cterm=none
-
-" TODO
-if &bg == "dark"
-    hi InnerScope ctermbg=236 guibg=#000000
-    hi OuterScope ctermbg=239 guibg=#000000
-    hi LinkScope  ctermbg=242 guibg=#000000
-else
-    hi InnerScope ctermbg=255 guibg=#ffffff
-    hi OuterScope ctermbg=252 guibg=#ffffff
-    hi LinkScope  ctermbg=250 guibg=#ffffff
-endif
-
-hi link csType          Member
-
-call s:hy ( 'NormalMode'   , 15 , g:accentColor , 'bold' )
-call s:hy ( 'InsertMode'   , 15 , 14            , 'bold' )
-call s:hy ( 'VisualMode'   , 15 , 10            , 'bold' )
-call s:hy ( 'SelectMode'   , 15 , 7             , 'bold' )
-call s:hy ( 'CommandMode'  , 15 , 13            , 'bold' )
-call s:hy ( 'TerminalMode' , 15 , 12            , 'bold' )
-call s:hy ( 'OtherMode'    , 15 , 8             , 'bold' )
-call s:hy ( 'ReplaceMode'  , 15 , 1             , 'bold' )
+call s:hy('GrepperCurrent', 0, 'GrepSearchC', 'none')
+call s:hy('GrepperMatch'  , 0, 'GrepSearch' , 'none')
