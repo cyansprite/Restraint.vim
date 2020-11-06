@@ -128,7 +128,6 @@ endfunc
     call s:hy ( 'Operator'     , 'Operator'   , 'none'       , 'bold' )
 
     if &bg == "dark"
-        call s:hy ( 'ColorColumn'  , 'none'        , 0 , 'none'         )
         call s:hy ( 'Whitespace'   , 1             , 0 , 'none'         )
         call s:hy ( 'Visual'       , 0             , 15, 'none'         )
         call s:hy ( 'CursorLineNr' , g:accentColor , 0 , 'bold'         )
@@ -152,7 +151,6 @@ endfunc
         call s:hy ( 'OtherMode'    , 8             , 0 , 'bold'         )
         call s:hy ( 'ReplaceMode'  , 1             , 0 , 'bold'         )
     else
-        call s:hy ( 'ColorColumn'  , 'none'        , 15 , 'none'         )
         call s:hy ( 'Visual'       , 15            , 0  , 'none'         )
         call s:hy ( 'Whitespace'   , 1             , 15 , 'none'         )
         call s:hy ( 'CursorLineNr' , g:accentColor , 15 , 'bold'         )
@@ -184,6 +182,7 @@ endfunc
     call s:hy ( 'QuickFixLine' , 'none' , 'none' , 'inverse' )
     call s:hy ( 'DiffChange'   , 'none' , 'none' , 'none'    )
     call s:hy ( 'CursorLine'   , 'none' , 'none' , 'none'    )
+    call s:hy ( 'ColorColumn'  , 'none' , 'none' , 'none'    )
 
 "1       9{{{1
     call s:hy ( 'Error'       , 1 , 'none' , 'none' )
@@ -281,16 +280,18 @@ endfunc
 call s:hy ( 'GitGutterDelete '      , 1 , 'none' , 'none' )
 call s:hy ( 'GitGutterAdd    '      , 2 , 'none' , 'none' )
 call s:hy ( 'GitGutterChange '      , 4 , 'none' , 'none' )
-call s:hy ( 'GitGutterChangeDelete' , 3 , 'none' , 'none' )
+call s:hy ( 'GitGutterChangeDelete' , 11, 'none' , 'none' )
 
 let s:colors = [ 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 ]
-call reverse(s:colors)
-for x in range(0,10)
-    exec 'hi Logical'.x.' cterm=bold ctermfg=' . s:colors[x % len(s:colors)]
+for x in range(0, 9)
+    call s:hy ("Logical".string(x), s:colors[x], 15, 'bold')
 endfor
-for x in range(0,10)
-    exec 'hi LogicalTab'.x.' cterm=bold,inverse ctermbg=7 ctermfg=' . s:colors[x % len(s:colors)]
+for x in range(0, 9)
+    call s:hy ("Logical".string(x), s:colors[x], 15, 'bold')
 endfor
+
+" I'm not sure why I used User4 for the tabline fill... but I did
+call s:hy ("User4", 'none', 15, 'bold')
 
 call s:hy('GrepperCurrent', 0, 'GrepSearchC', 'none')
 call s:hy('GrepperMatch'  , 0, 'GrepSearch' , 'none')
