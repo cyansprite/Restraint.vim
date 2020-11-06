@@ -43,8 +43,8 @@ let s:colorList = {
             \ }
 
 let s:colorList_work = {
-            \ "fg"   : '#16130f',
-            \ "bg"   : '#eeeee3',
+            \ "fg"   : 'none',
+            \ "bg"   : 'none',
             \ 0      : '#2a2a2a',
             \ 8      : '#5a5a5a',
             \ 1      : '#824d4d',
@@ -79,17 +79,21 @@ if &bg == "dark"
     let temp = s:colorList['fg']
     let s:colorList['fg'] = s:colorList['bg']
     let s:colorList['bg'] = temp
+    let s:colorList['Operator']   = '#ffff00'
+    let s:colorList['MatchParen'] = '#cc00cc'
+    let s:colorList['ParenChars'] = '#cc00cc'
+else
+    let s:colorList['Operator']   = '#ffaa00'
+    let s:colorList['MatchParen'] = '#00aacc'
+    let s:colorList['ParenChars'] = '#00aacc'
 endif
 
 let g:accentColor = get(g:, "accentColor", 11)
 let g:accentColorLight = get(g:, "accentColorLight", 3)
 let g:colors_name = "restraint"
 
-let s:colorList['Search']     = '#aaaa00'
+let s:colorList['Search']     = '#cccc00'
 let s:colorList['SearchC']    = '#ffff00'
-let s:colorList['MatchParen'] = '#00aacc'
-let s:colorList['ParenChars'] = '#00aacc'
-let s:colorList['Operator']   = '#ffaa00'
 
 func! s:cterm(c)
     if a:c =~# '^\d\+$'
@@ -112,7 +116,7 @@ endfunc
 " EasyAlign*/,\|)/
 
 " Special:|{{{1
-    call s:hy ( 'Search'       , 15           , 'Search'     , 'none' )
+    call s:hy ( 'Search'       , 0            , 'Search'     , 'none' )
     call s:hy ( 'SearchC'      , 0            , 'SearchC'    , 'none' )
     call s:hy ( 'MatchParen'   , 15           , 'MatchParen' , 'none' )
     call s:hy ( 'BraceChars'   , 'ParenChars' , 'none'       , 'none' )
@@ -247,12 +251,6 @@ call s:hy ( 'GitGutterDelete '      , 1 , 'none' , 'none' )
 call s:hy ( 'GitGutterAdd    '      , 2 , 'none' , 'none' )
 call s:hy ( 'GitGutterChange '      , 4 , 'none' , 'none' )
 call s:hy ( 'GitGutterChangeDelete' , 3 , 'none' , 'none' )
-
-let g:gitgutter_sign_added              = '+'
-let g:gitgutter_sign_modified           = '~'
-let g:gitgutter_sign_removed            = '_'
-let g:gitgutter_sign_removed_first_line = '‾'
-let g:gitgutter_sign_modified_removed   = '~_'
 
 let s:colors = [ 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 ]
 call reverse(s:colors)
