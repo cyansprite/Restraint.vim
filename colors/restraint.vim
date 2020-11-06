@@ -114,7 +114,7 @@ endfunc
 " Special:|{{{1
     call s:hy ( 'Search'       , 15           , 'Search'     , 'none' )
     call s:hy ( 'SearchC'      , 0            , 'SearchC'    , 'none' )
-    call s:hy ( 'MatchParen'   , 'none'       , 'MatchParen' , 'none' )
+    call s:hy ( 'MatchParen'   , 15           , 'MatchParen' , 'none' )
     call s:hy ( 'BraceChars'   , 'ParenChars' , 'none'       , 'none' )
     call s:hy ( 'BracketChars' , 'ParenChars' , 'none'       , 'none' )
     call s:hy ( 'ParenChars'   , 'ParenChars' , 'none'       , 'none' )
@@ -183,7 +183,7 @@ endfunc
     call s:hy ( 'NonText'   , 4  , 'none' , 'none' )
     call s:hy ( 'PreCondit' , 4  , 'none' , 'none' )
     call s:hy ( 'Constant'  , 12 , 'none' , 'none' )
-    call s:hy ( 'DiffText'  , 0  , 4      , 'none' )
+    call s:hy ( 'DiffText'  , 15  , 4     , 'none' )
     call s:hy ( 'Keyword'   , 12 , 'none' , 'none' )
     call s:hy ( 'Statement' , 4  , 'none' , 'none' )
 
