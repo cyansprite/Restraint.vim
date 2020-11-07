@@ -222,7 +222,7 @@ endfunc
 
 " 5      13{{{1
     call s:hy ( 'TypeDef'     , 5      , 'none' , 'none'         )
-    call s:hy ( 'Label'       , 5      , 'none' , 'none'         )
+    call s:hy ( 'Label'       , 13     , 'none' , 'none'         )
     call s:hy ( 'Boolean'     , 5      , 'none' , 'none'         )
     call s:hy ( 'Character'   , 5      , 'none' , 'none'         )
     call s:hy ( 'Identifier'  , 5      , 'none' , 'none'         )
