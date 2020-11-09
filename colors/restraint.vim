@@ -81,7 +81,7 @@ if &bg == "dark"
     let s:colorList['bg'] = temp
     let s:colorList['Operator']   = '#ffff00'
     let s:colorList['MatchParen'] = '#cc00cc'
-    let s:colorList['ParenChars'] = '#cc00cc'
+    let s:colorList['ParenChars'] = '#ffffff'
 else
     let s:colorList['Operator']   = '#ffaa00'
     let s:colorList['MatchParen'] = '#00aacc'
@@ -127,7 +127,13 @@ endfunc
     call s:hy ( 'ParenChars'   , 'ParenChars' , 'none'       , 'none' )
     call s:hy ( 'Operator'     , 'Operator'   , 'none'       , 'bold' )
 
+    let s:colors = [ 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 ]
+
+
     if &bg == "dark"
+        " I'm not sure why I used User4 for the tabline fill... but I did
+        call s:hy ("User4", 'none', 0, 'bold')
+
         call s:hy ( 'Whitespace'   , 1             , 0 , 'none'         )
         call s:hy ( 'Visual'       , 0             , 15, 'none'         )
         call s:hy ( 'CursorLineNr' , g:accentColor , 0 , 'bold'         )
@@ -150,7 +156,18 @@ endfunc
         call s:hy ( 'TerminalMode' , 12            , 0 , 'bold'         )
         call s:hy ( 'OtherMode'    , 8             , 0 , 'bold'         )
         call s:hy ( 'ReplaceMode'  , 1             , 0 , 'bold'         )
+
+        for x in range(0, 9)
+            call s:hy ("Logical".string(x), s:colors[x], 0, 'bold')
+        endfor
+
+        for x in range(0, 9)
+            call s:hy ("Logical".string(x), s:colors[x], 0, 'bold')
+        endfor
     else
+        " I'm not sure why I used User4 for the tabline fill... but I did
+        call s:hy ("User4", 'none', 15, 'bold')
+
         call s:hy ( 'Visual'       , 15            , 0  , 'none'         )
         call s:hy ( 'Whitespace'   , 1             , 15 , 'none'         )
         call s:hy ( 'CursorLineNr' , g:accentColor , 15 , 'bold'         )
@@ -171,6 +188,14 @@ endfunc
         call s:hy ( 'TerminalMode' , 12            , 15 , 'bold'         )
         call s:hy ( 'OtherMode'    , 8             , 15 , 'bold'         )
         call s:hy ( 'ReplaceMode'  , 1             , 15 , 'bold'         )
+
+        for x in range(0, 9)
+            call s:hy ("Logical".string(x), s:colors[x], 15, 'bold')
+        endfor
+
+        for x in range(0, 9)
+            call s:hy ("Logical".string(x), s:colors[x], 15, 'bold')
+        endfor
     endif
 
 " Nons:   -{{{1
@@ -281,17 +306,6 @@ call s:hy ( 'GitGutterDelete '      , 1 , 'none' , 'none' )
 call s:hy ( 'GitGutterAdd    '      , 2 , 'none' , 'none' )
 call s:hy ( 'GitGutterChange '      , 4 , 'none' , 'none' )
 call s:hy ( 'GitGutterChangeDelete' , 11, 'none' , 'none' )
-
-let s:colors = [ 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 ]
-for x in range(0, 9)
-    call s:hy ("Logical".string(x), s:colors[x], 15, 'bold')
-endfor
-for x in range(0, 9)
-    call s:hy ("Logical".string(x), s:colors[x], 15, 'bold')
-endfor
-
-" I'm not sure why I used User4 for the tabline fill... but I did
-call s:hy ("User4", 'none', 15, 'bold')
 
 call s:hy('GrepperCurrent', 0, 'GrepSearchC', 'none')
 call s:hy('GrepperMatch'  , 0, 'GrepSearch' , 'none')
