@@ -302,10 +302,10 @@ endfunc
     hi link pythonBuiltin Label
 " }}}
 " Plugin: & {{{1
-call s:hy ( 'GitGutterDelete '      , 9 , 'none' , 'none' )
-call s:hy ( 'GitGutterAdd    '      , 10, 'none' , 'none' )
-call s:hy ( 'GitGutterChange '      , 12, 'none' , 'none' )
-call s:hy ( 'GitGutterChangeDelete' , 11, 'none' , 'none' )
+call s:hy ( 'GitGutterDelete '      , 9 , 'none' , 'underline' )
+call s:hy ( 'GitGutterAdd    '      , 10, 'none' , 'underline' )
+call s:hy ( 'GitGutterChange '      , 12, 'none' , 'underline' )
+call s:hy ( 'GitGutterChangeDelete' , 11, 'none' , 'underline' )
 
 call s:hy('GrepperCurrent', 0, 'GrepSearchC', 'none')
 call s:hy('GrepperMatch'  , 0, 'GrepSearch' , 'none')
