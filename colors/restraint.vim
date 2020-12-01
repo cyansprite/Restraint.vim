@@ -20,16 +20,16 @@ if exists("syntax_on")
 endif
 
 let s:colorList = {
-            \ "fg"   : '#181816',
+            \ "fg"   : '#0a0800',
             \ "bg"   : '#f2f2de',
-            \ 0      : '#121211',
+            \ 0      : '#1d1a14',
             \ 8      : '#808075',
             \ 1      : '#8c4646',
             \ 9      : '#ff4c96',
             \ 2      : '#1ba93e',
             \ 10     : '#6bce3e',
             \ 3      : '#acaa55',
-            \ 11     : '#df8243',
+            \ 11     : '#df6243',
             \ 4      : '#4b64bb',
             \ 12     : '#43a7de',
             \ 5      : '#af59b1',
@@ -79,7 +79,7 @@ if &bg == "dark"
     let temp = s:colorList['fg']
     let s:colorList['fg'] = s:colorList['bg']
     let s:colorList['bg'] = temp
-    let s:colorList['Operator']   = '#ffff00'
+    let s:colorList['Operator']   = '#ffcc00'
     let s:colorList['MatchParen'] = '#cc00cc'
     let s:colorList['ParenChars'] = '#ffffff'
 else
@@ -134,7 +134,8 @@ endfunc
         " I'm not sure why I used User4 for the tabline fill... but I did
         call s:hy ("User4", 'none', 0, 'bold')
 
-        call s:hy ( 'Whitespace'   , 1             , 0 , 'none'         )
+        call s:hy ( 'Folded'       , g:accentColor , 0 , 'none'         )
+        call s:hy ( 'Whitespace'   , 1             , 0 , 'inverse'      )
         call s:hy ( 'Visual'       , 0             , 15, 'none'         )
         call s:hy ( 'CursorLineNr' , g:accentColor , 0 , 'bold'         )
         call s:hy ( 'CursorLine'   , 'none'        , 0 , 'none'         )
@@ -168,8 +169,9 @@ endfunc
         " I'm not sure why I used User4 for the tabline fill... but I did
         call s:hy ("User4", 'none', 15, 'bold')
 
+        call s:hy ( 'Folded'       , g:accentColor , 15 , 'none'         )
         call s:hy ( 'Visual'       , 15            , 0  , 'none'         )
-        call s:hy ( 'Whitespace'   , 1             , 15 , 'none'         )
+        call s:hy ( 'Whitespace'   , 1             , 15 , 'inverse'      )
         call s:hy ( 'CursorLineNr' , g:accentColor , 15 , 'bold'         )
         call s:hy ( 'Pmenu'        , g:accentColor , 15 , 'none'         )
         call s:hy ( 'PmenuSel'     , g:accentColor , 15 , 'inverse,bold' )
@@ -228,10 +230,10 @@ endfunc
 
 " 3      11{{{1
     call s:hy ( 'Directory'    , 3      , 'none' , 'none'              )
-    call s:hy ( 'Todo'         , 11     , 'none' , 'inverse,bold'      )
+    call s:hy ( 'Todo'         , 'none' , 11     , 'bold'              )
     call s:hy ( 'Number'       , 11     , 'none' , 'bold'              )
     call s:hy ( 'Float'        , 11     , 'none' , 'bold'              )
-    call s:hy ( 'WarningMsg'   , 3      , 'none' , 'inverse,bold'      )
+    call s:hy ( 'WarningMsg'   , 15     , 11     , 'bold'              )
     call s:hy ( 'Special'      , 3      , 'none' , 'none'              )
     call s:hy ( 'IncSearch'    , 0      , 3      , 'underline'         )
     call s:hy ( 'Ignore'       , 3      , 'none' , 'none'              )
@@ -272,7 +274,6 @@ endfunc
     call s:hy ( 'Conditonal' , 8      , 'none' , 'none' )
 
 " Dynamic:x{{{1
-    call s:hy ( 'Folded'        , 15                 , g:accentColor , 'none'         )
     call s:hy ( 'StatuslineNc'  , g:accentColorLight , 'none'        , 'none'         )
     call s:hy ( 'FoldColumn'    , g:accentColorLight , 'none'        , 'none'         )
     call s:hy ( 'EndOfBuffer'   , g:accentColor      , 'none'        , 'bold'         )
@@ -298,14 +299,19 @@ endfunc
     hi link csType          Member
     hi link cConditional    Conditonal
     hi link cRepeat         Repeat
+    hi link StartifyPath    StorageClass
+    hi link cppSTLnamespace Label
+    hi link cCustomMemVar   Member
+    hi link cCustomClass    Class
+    hi link cRepeat         Repeat
     hi link pythonDecoratorName Constant
-    hi link pythonBuiltin Label
+    hi link pythonBuiltin       Label
 " }}}
 " Plugin: & {{{1
-call s:hy ( 'GitGutterDelete '      , 9 , 'none' , 'underline' )
-call s:hy ( 'GitGutterAdd    '      , 10, 'none' , 'underline' )
-call s:hy ( 'GitGutterChange '      , 12, 'none' , 'underline' )
-call s:hy ( 'GitGutterChangeDelete' , 11, 'none' , 'underline' )
+call s:hy ( 'GitGutterDelete '      , 9 , 'none' , 'none' )
+call s:hy ( 'GitGutterAdd    '      , 10, 'none' , 'none' )
+call s:hy ( 'GitGutterChangeDelete' , 11, 'none' , 'none' )
+call s:hy ( 'GitGutterChange '      , 12, 'none' , 'none' )
 
 call s:hy('GrepperCurrent', 0, 'GrepSearchC', 'none')
 call s:hy('GrepperMatch'  , 0, 'GrepSearch' , 'none')
