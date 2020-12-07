@@ -149,6 +149,10 @@ endfunc
         call s:hy ( 'OuterScope'   , 'none'        , 0 , 'none'         )
         call s:hy ( 'LinkScope'    , 'none'        , 0 , 'none'         )
 
+        call s:hy ( 'LspReferenceText'  , 'none' , 0 , 'bold' )
+        call s:hy ( 'LspReferenceRead'  , 'none' , 0 , 'bold' )
+        call s:hy ( 'LspReferenceWrite' , 'none' , 0 , 'bold' )
+
         call s:hy ( 'NormalMode'   , g:accentColor , 0 , 'bold'         )
         call s:hy ( 'InsertMode'   , 14            , 0 , 'bold'         )
         call s:hy ( 'VisualMode'   , 10            , 0 , 'bold'         )
@@ -181,6 +185,10 @@ endfunc
         call s:hy ( 'InnerScope'   , 'none'        , 15 , 'none'         )
         call s:hy ( 'OuterScope'   , 'none'        , 15 , 'none'         )
         call s:hy ( 'LinkScope'    , 'none'        , 15 , 'none'         )
+
+        call s:hy ( 'LspReferenceText'  , 'none' , 15 , 'bold' )
+        call s:hy ( 'LspReferenceRead'  , 'none' , 15 , 'bold' )
+        call s:hy ( 'LspReferenceWrite' , 'none' , 15 , 'bold' )
 
         call s:hy ( 'NormalMode'   , g:accentColor , 15 , 'bold'         )
         call s:hy ( 'InsertMode'   , 14            , 15 , 'bold'         )
@@ -215,7 +223,7 @@ endfunc
     call s:hy ( 'Error'       , 1 , 'none' , 'none' )
     call s:hy ( 'DiffDelete'  , 7 , 1      , 'none' )
     call s:hy ( 'SpellBad'    , 7 , 1      , 'none' )
-    call s:hy ( 'ErrorMsg'    , 15, 1      , 'none' )
+    call s:hy ( 'ErrorMsg'    , 15, 1      , 'bold' )
     call s:hy ( 'DiffRemoved' , 1 , 'none' , 'none' )
     call s:hy ( 'Function'    , 9 , 'none' , 'none' )
     call s:hy ( 'Member'      , 1 , 'none' , 'none' )
@@ -306,6 +314,23 @@ endfunc
     hi link cRepeat         Repeat
     hi link pythonDecoratorName Constant
     hi link pythonBuiltin       Label
+
+    hi link LspDiagnosticsError ErrorMsg
+    hi link LspDiagnosticsErrorSign ErrorMsg
+    hi link LspDiagnosticsErrorFloating ErrorMsg
+
+    hi link LspDiagnosticsWarning WarningMsg
+    hi link LspDiagnosticsWarningSign WarningMsg
+    hi link LspDiagnosticsWarningFloating WarningMsg
+
+    hi link LspDiagnosticsInformation MoreMsg
+    hi link LspDiagnosticsInformationSign MoreMsg
+    hi link LspDiagnosticsInformationFloating MoreMsg
+
+    hi link LspDiagnosticsHint Question
+    hi link LspDiagnosticsHintSign Question
+    hi link LspDiagnosticsHintFloating Question
+
 " }}}
 " Plugin: & {{{1
 call s:hy ( 'GitGutterDelete '      , 9 , 'none' , 'none' )
