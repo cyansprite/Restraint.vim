@@ -315,21 +315,10 @@ endfunc
     hi link pythonDecoratorName Constant
     hi link pythonBuiltin       Label
 
-    hi link LspDiagnosticsError ErrorMsg
-    hi link LspDiagnosticsErrorSign ErrorMsg
-    hi link LspDiagnosticsErrorFloating ErrorMsg
-
-    hi link LspDiagnosticsWarning WarningMsg
-    hi link LspDiagnosticsWarningSign WarningMsg
-    hi link LspDiagnosticsWarningFloating WarningMsg
-
-    hi link LspDiagnosticsInformation MoreMsg
-    hi link LspDiagnosticsInformationSign MoreMsg
-    hi link LspDiagnosticsInformationFloating MoreMsg
-
-    hi link LspDiagnosticsHint Question
-    hi link LspDiagnosticsHintSign Question
-    hi link LspDiagnosticsHintFloating Question
+    hi link LspDiagnosticsDefaultError ErrorMsg
+    hi link LspDiagnosticsDefaultWarning WarningMsg
+    hi link LspDiagnosticsDefaultInformation MoreMsg
+    hi link LspDiagnosticsDefaultHint Question
 
 " }}}
 " Plugin: & {{{1
