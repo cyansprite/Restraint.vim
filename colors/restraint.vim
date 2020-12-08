@@ -264,7 +264,7 @@ endfunc
     call s:hy ( 'SpecialChar' , 5      , 'none' , 'none'         )
     call s:hy ( 'diffSubname' , 5      , 'none' , 'none'         )
     call s:hy ( 'PreProc'     , 5      , 'none' , 'none'         )
-    call s:hy ( 'MoreMsg'     , 5      , 0      , 'inverse'      )
+    call s:hy ( 'MoreMsg'     , 15      , 5      , 'bold'        )
     call s:hy ( 'Repeat'      , 13     , 'none' , 'none'         )
     call s:hy ( 'UserFunction', 13     , 'none' , 'none'         )
     call s:hy ( 'SignColumn'  , 5      , 'none' , 'none'         )
