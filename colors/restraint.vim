@@ -63,10 +63,10 @@ let s:colorList_work = {
             \ }
 
 let s:colorList_new = {
-            \ "fg"   : '#000000',
-            \ "fg0"  : '#020100',
-            \ "bg"   : '#bbbbaa',
-            \ "bg0"  : '#999988',
+            \ "fg"   : '#16130f',
+            \ "fg0"  : '#13100c',
+            \ "bg"   : '#ffffe0',
+            \ "bg0"  : '#dfdfc8',
             \ '00'   : '#100f0a',
             \ '01'   : '#20201a',
             \ '02'   : '#2a2820',
@@ -97,10 +97,11 @@ let s:colorList_new = {
             \ '71'   : '#8A8A65',
             \ '72'   : '#9A9A75',
             \ 7      : '#8d8d8d',
-            \ 15     : '#ffffff',
+            \ 15     : '#dfdfd0',
+            \ '150'  : '#fffff0',
             \ 'none' : 'none',
-            \ 'Operator' : '#FF7A0a',
-            \ 'ParenChars' : '#ddffcc',
+            \ 'Operator' : '#ca8a00',
+            \ 'ParenChars' : '#6a9b07',
             \ 'MatchParen' : '#cc00cc'
             \ }
 
@@ -120,6 +121,8 @@ if &bg == "dark"
     let s:colorList['fg0'] = s:colorList['bg0']
     let s:colorList['bg'] = temp
     let s:colorList['bg0'] = temp0
+    let s:colorList[ 'ParenChars' ] =  '#ddffcc'
+    let s:colorList[ 'ParenChars' ] =  '#ff7a0a'
 else
 endif
 
@@ -176,6 +179,7 @@ endfunc
         call s:hy ( 'Whitespace'   , 1             , 'none', 'none'      )
         call s:hy ( 'Visual'       , 'none'        , 'none', 'reverse'         )
         call s:hy ( 'CursorLineNr' , g:accentColor , '00' , 'bold'         )
+        call s:hy ( 'EndOfBuffer'   , g:accentColorLight , '00'        , 'bold'         )
         call s:hy ( 'CursorLine'   , 'none'        , 'none' , 'none'         )
         call s:hy ( 'Pmenu'        , g:accentColor , 0 , 'none'         )
         call s:hy ( 'PmenuSel'     , g:accentColor , 0 , 'inverse,bold' )
@@ -221,45 +225,75 @@ endfunc
             call s:hy ("Logical".string(x), s:colors[x], 'none', 'bold')
         endfor
 
-        call s:hy ( 'GitGutterDelete '      , 9 , 'none' , 'none' )
-        call s:hy ( 'GitGutterAdd    '      , 10, 'none' , 'none' )
-        call s:hy ( 'GitGutterChangeDelete' , 11, 'none' , 'none' )
-        call s:hy ( 'GitGutterChange '      , 12, 'none' , 'none' )
-
+        call s:hy ( 'GitGutterDelete'             , 9  , 'none' , 'none' )
+        call s:hy ( 'GitGutterAdd'                , 10 , 'none' , 'none' )
+        call s:hy ( 'GitGutterChangeDelete'       , 11 , 'none' , 'none' )
+        call s:hy ( 'GitGutterChange'             , 12 , 'none' , 'none' )
+        call s:hy ( 'GitGutterDeleteLineNr'       , 9  , 'none' , 'none' )
+        call s:hy ( 'GitGutterAddLineNr'          , 10 , 'none' , 'none' )
+        call s:hy ( 'GitGutterChangeDeleteLineNr' , 11 , 'none' , 'none' )
+        call s:hy ( 'GitGutterChangeLineNr'       , 12 , 'none' , 'none' )
     else
         " I'm not sure why I used User4 for the tabline fill... but I did
-        call s:hy ("User4", 'none', 15, 'bold')
-
-        call s:hy ( 'Folded'       , g:accentColor , '151' , 'none'         )
-        call s:hy ( 'Visual'       , 15            , 0  , 'none'         )
-        call s:hy ( 'Whitespace'   , 1             , 15 , 'inverse'      )
-        call s:hy ( 'CursorLineNr' , g:accentColor , 15 , 'bold'         )
-        call s:hy ( 'CursorLine'   , 'none'        , 15 , 'none'         )
+        call s:hy ("User4", 'none', 'none', 'bold')
+        call s:hy ( 'Folded'       , g:accentColor , '150', 'none'         )
+        call s:hy ( 'EndOfBuffer'   , g:accentColorLight , '150'        , 'bold'         )
+        call s:hy ( 'Whitespace'   , 1             , 'none', 'none'      )
+        call s:hy ( 'Visual'       , 'none'        , 'none', 'reverse'         )
+        call s:hy ( 'CursorLineNr' , g:accentColor , '150' , 'bold'         )
+        call s:hy ( 'CursorLine'   , 'none'        , 'none' , 'none'         )
         call s:hy ( 'Pmenu'        , g:accentColor , 15 , 'none'         )
         call s:hy ( 'PmenuSel'     , g:accentColor , 15 , 'inverse,bold' )
-        call s:hy ( 'Comment'      , 8             , 15 , 'none'         )
+        call s:hy ( 'Comment'      , '03'          , 'none', 'none'       )
         call s:hy ( 'Title'        , 5             , 15 , 'bold'         )
 
-        call s:hy ( 'InnerScope'   , 'none'        , 15 , 'none'         )
-        call s:hy ( 'OuterScope'   , 'none'        , 15 , 'none'         )
-        call s:hy ( 'LinkScope'    , 'none'        , 15 , 'none'         )
+        call s:hy ( 'InnerScope'   , 'none'        , 'none' , 'none'         )
+        call s:hy ( 'OuterScope'   , 'none'        , 'none' , 'none'         )
+        call s:hy ( 'LinkScope'    , 'none'        , 'none' , 'none'         )
 
-        call s:hy ( 'LspReferenceText'  , 'none' , 15 , 'bold' )
-        call s:hy ( 'LspReferenceRead'  , 'none' , 15 , 'bold' )
-        call s:hy ( 'LspReferenceWrite' , 'none' , 15 , 'bold' )
+        call s:hy ( 'LspReferenceText'  , 'none' , '01' , 'bold' )
+        call s:hy ( 'LspReferenceRead'  , 'none' , '01' , 'bold' )
+        call s:hy ( 'LspReferenceWrite' , 'none' , '01' , 'bold' )
 
-        call s:hy ( 'NormalMode'   , g:accentColor , 'none' , 'bold'         )
-        call s:hy ( 'InsertMode'   , 14            , 'none' , 'bold'         )
+        call s:hy ( 'NormalMode'   , '71'          , 'none' , 'bold'         )
+        call s:hy ( 'InsertMode'   , 11            , 'none' , 'bold'         )
         call s:hy ( 'VisualMode'   , 10            , 'none' , 'bold'         )
-        call s:hy ( 'SelectMode'   , 7             , 'none' , 'bold'         )
-        call s:hy ( 'CommandMode'  , 13            , 'none' , 'bold'         )
+        call s:hy ( 'SelectMode'   , 15            , 'none' , 'bold'         )
+        call s:hy ( 'CommandMode'  , 9             , 'none' , 'bold'         )
         call s:hy ( 'TerminalMode' , 12            , 'none' , 'bold'         )
         call s:hy ( 'OtherMode'    , 8             , 'none' , 'bold'         )
         call s:hy ( 'ReplaceMode'  , 1             , 'none' , 'bold'         )
 
+        call s:hy ( 'NormalMode1'   , '71'          , 'none' , 'bold'         )
+        call s:hy ( 'InsertMode1'   , 11            , 'none' , 'bold'         )
+        call s:hy ( 'VisualMode1'   , 10            , 'none' , 'bold'         )
+        call s:hy ( 'SelectMode1'   , 15            , 'none' , 'bold'         )
+        call s:hy ( 'CommandMode1'  , 9             , 'none' , 'bold'         )
+        call s:hy ( 'TerminalMode1' , 12            , 'none' , 'bold'         )
+        call s:hy ( 'OtherMode1'    , 8             , 'none' , 'bold'         )
+        call s:hy ( 'ReplaceMode1'  , 1             , 'none' , 'bold'         )
+
+        call s:hy ( 'NormalMode2'   , '71'          , 'none' , 'bold'         )
+        call s:hy ( 'InsertMode2'   , 11            , 'none' , 'bold'         )
+        call s:hy ( 'VisualMode2'   , 10            , 'none' , 'bold'         )
+        call s:hy ( 'SelectMode2'   , 15            , 'none' , 'bold'         )
+        call s:hy ( 'CommandMode2'  , 9             , 'none' , 'bold'         )
+        call s:hy ( 'TerminalMode2' , 12            , 'none' , 'bold'         )
+        call s:hy ( 'OtherMode2'    , 8             , 'none' , 'bold'         )
+        call s:hy ( 'ReplaceMode2'  , 1             , 'none' , 'bold'         )
+
         for x in range(0, 9)
             call s:hy ("Logical".string(x), s:colors[x], 'none', 'bold')
         endfor
+
+        call s:hy ( 'GitGutterDelete'             , 9  , 'none' , 'none' )
+        call s:hy ( 'GitGutterAdd'                , 10 , 'none' , 'none' )
+        call s:hy ( 'GitGutterChangeDelete'       , 11 , 'none' , 'none' )
+        call s:hy ( 'GitGutterChange'             , 12 , 'none' , 'none' )
+        call s:hy ( 'GitGutterDeleteLineNr'       , 9  , 'none' , 'none' )
+        call s:hy ( 'GitGutterAddLineNr'          , 10 , 'none' , 'none' )
+        call s:hy ( 'GitGutterChangeDeleteLineNr' , 11 , 'none' , 'none' )
+        call s:hy ( 'GitGutterChangeLineNr'       , 12 , 'none' , 'none' )
     endif
 
 " Nons:   -{{{1
@@ -289,8 +323,8 @@ endfunc
     call s:hy ( 'StorageClass' , 10     , 'none' , 'none'    )
     call s:hy ( 'Parameter'    , '101'  , 'none' , 'none'         )
     call s:hy ( 'String'       , 2      , 'none' , 'none'    )
-    call s:hy ( 'DiffAdd'      , 2      , 0      , 'inverse' )
-    call s:hy ( 'diffAdded'    , 2      , 0      , 'inverse' )
+    call s:hy ( 'DiffAdd'      , 0      , 2      , 'none' )
+    call s:hy ( 'diffAdded'    , 0      , 2      , 'none' )
     call s:hy ( 'QShit'        , 2      , 'none' , 'none'    )
 
 
@@ -342,12 +376,11 @@ endfunc
 
 " Dynamic:x{{{1
     call s:hy ( 'FoldColumn'    , g:accentColorLight , 'none'        , 'none'         )
-    call s:hy ( 'EndOfBuffer'   , g:accentColorLight , '00'        , 'bold'         )
     call s:hy ( 'StatusLine'    , g:accentColor      , 'none'        , 'none'         )
     call s:hy ( 'ModeMsg'       , g:accentColor      , 'none'        , 'inverse,bold' )
     call s:hy ( 'PmenuSbar'     , g:accentColor      , 'none'        , 'inverse'      )
     call s:hy ( 'PMenuThumb'    , g:accentColor      , 'none'        , 'inverse'      )
-    call s:hy ( 'LogicalBuffer' , g:accentColorLight , 'none'          , 'bold'         )
+    call s:hy ( 'LogicalBuffer' , 0 , g:accentColorLight, 'bold'         )
 
 " Relink: >{{{1
     hi link Exception Error
