@@ -108,8 +108,8 @@ let s:colorList_new = {
 if hostname() == "cinder"
     let s:colorList = s:colorList_new
     let g:accentColorLight = 1
-elseif hostname() == "mojajojo"
-    let s:colorList = s:colorList_work
+elseif hostname() == "mojojojo2"
+    let s:colorList = s:colorList_new
     let g:accentColorLight = 5
     let g:accentColor = 13
 endif
@@ -309,7 +309,7 @@ endfunc
 
 "1       9{{{1
     call s:hy ( 'Error'       , 1 , 'none' , 'none' )
-    call s:hy ( 'DiffDelete'  , 7 , 1      , 'none' )
+    call s:hy ( 'DiffDelete'  , 15 , 1      , 'none' )
     call s:hy ( 'SpellBad'    , 7 , 1      , 'none' )
     call s:hy ( 'ErrorMsg'    , 15, 1      , 'bold' )
     call s:hy ( 'DiffRemoved' , 1 , 'none' , 'none' )
@@ -323,8 +323,8 @@ endfunc
     call s:hy ( 'StorageClass' , 10     , 'none' , 'none'    )
     call s:hy ( 'Parameter'    , '101'  , 'none' , 'none'         )
     call s:hy ( 'String'       , 2      , 'none' , 'none'    )
-    call s:hy ( 'DiffAdd'      , 0      , 2      , 'none' )
-    call s:hy ( 'diffAdded'    , 0      , 2      , 'none' )
+    call s:hy ( 'DiffAdd'      , 15      , 2      , 'none' )
+    call s:hy ( 'diffAdded'    , 15      , 2      , 'none' )
     call s:hy ( 'QShit'        , 2      , 'none' , 'none'    )
 
 
