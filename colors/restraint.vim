@@ -63,47 +63,49 @@ let s:colorList_work = {
             \ }
 
 let s:colorList_new = {
-            \ "fg"   : '#16130f',
-            \ "fg0"  : '#13100c',
-            \ "bg"   : '#f8f8f0',
-            \ "bg0"  : '#f0f0ef',
+            \ "fg"   : 'none',
+            \ "fg0"  : 'none',
+            \ "bg"   : '#78A98E',
+            \ "bg0"  : '#24332B',
             \ '00'   : '#100f0a',
             \ '01'   : '#20201a',
             \ '02'   : '#2a2820',
             \ '03'   : '#4a4440',
-            \ 0      : '#2C282E',
-            \ 8      : '#373F41',
+            \ 0      : '#121212',
+            \ 8      : '#5F5959',
             \ '011'  : '#f75f5f',
-            \ 1      : '#C16262',
-            \ '91'   : '#ac0050',
+            \ 1      : '#E16262',
+            \ '91'   : '#cc2070',
             \ 9      : '#D73B60',
-            \ 2      : '#5CA12C',
+            \ 2      : '#009C2C',
             \ '101'  : '#93BA34',
-            \ 10     : '#8CA440',
+            \ 10     : '#8CC440',
             \ '30'   : '#8f4000',
-            \ '31'   : '#a7a24d',
             \ '32'   : '#b7b24d',
             \ 3      : '#E69258',
             \ 11     : '#CAA543',
             \ 4      : '#5B90B7',
-            \ 12     : '#8DBFDA',
-            \ '51'   : '#922E92',
-            \ '52'   : '#A000A0',
-            \ 5      : '#CD61B5',
+            \ 12     : '#6DAFCA',
+            \ '51'   : '#F22EF2',
+            \ '52'   : '#C000C0',
+            \ '53'   : '#4F4AF4',
+            \ '54'   : '#9000D0',
+            \ 5      : '#2F4A74',
             \ 13     : '#C49DCF',
             \ '61'   : '#05886A',
-            \ 6      : '#6CA99B',
-            \ 14     : '#5FBCBC',
-            \ '71'   : '#8A8A65',
+            \ 6      : '#04F5C0',
+            \ 14     : '#0ABF5F',
+            \ '71'   : '#BBA14F',
             \ '72'   : '#9A9A75',
             \ 7      : '#9A9687',
             \ 15     : '#E6E4D6',
             \ '150'  : '#fdfdf3',
             \ '151'  : '#ffffe5',
             \ 'none' : 'none',
-            \ 'Operator' : '#ca8a30',
-            \ 'ParenChars' : '#6a9b07',
-            \ 'MatchParen' : '#cc00cc'
+            \ 'Operator' : '#BBA14F',
+            \ 'ParenChars' : '#BBA14F',
+            \ 'MatchParen' : '#BBA14F',
+            \ 'CC' : '#ffe0e0'
             \ }
 
 let s:colorList = s:colorList_new
@@ -115,8 +117,7 @@ if &bg == "dark"
     let s:colorList['fg0'] = s:colorList['bg0']
     let s:colorList['bg'] = temp
     let s:colorList['bg0'] = temp0
-    let s:colorList[ 'ParenChars' ] =  '#ddffcc'
-    let s:colorList[ 'ParenChars' ] =  '#ff7a0a'
+    let s:colorList[ 'CC' ] =  '#610030'
 else
 endif
 
@@ -159,26 +160,26 @@ endfunc
     call s:hy ( 'Search'       , 0            , 'Search'     , 'none' )
     call s:hy ( 'SearchC'      , 0            , 'SearchC'    , 'none' )
     call s:hy ( 'MatchParen'   , 15           , 'MatchParen' , 'none' )
-    call s:hy ( 'BraceChars'   , 'ParenChars' , 'none'       , 'none' )
-    call s:hy ( 'BracketChars' , 'ParenChars' , 'none'       , 'none' )
-    call s:hy ( 'ParenChars'   , 'ParenChars' , 'none'       , 'none' )
+    call s:hy ( 'BraceChars'   , 'ParenChars' , 'none'       , 'bold' )
+    call s:hy ( 'BracketChars' , 'ParenChars' , 'none'       , 'bold' )
+    call s:hy ( 'ParenChars'   , 'ParenChars' , 'none'       , 'bold' )
     call s:hy ( 'Operator'     , 'Operator'   , 'none'       , 'bold' )
 
     let s:colors = [ 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 ]
 
+    " TODO clean this up
     if &bg == "dark"
         " I'm not sure why I used User4 for the tabline fill... but I did
         call s:hy ("User4", 'none', 'none', 'bold')
         call s:hy ( 'Folded'       , g:accentColor , 'none', 'none'         )
         call s:hy ( 'Whitespace'   , 1             , 'none', 'none'      )
         call s:hy ( 'Visual'       , 'none'        , 'none', 'reverse'         )
-        call s:hy ( 'CursorLineNr' , g:accentColor , '00' , 'bold'         )
-        call s:hy ( 'EndOfBuffer'   , g:accentColorLight , '00'        , 'bold'         )
-        call s:hy ( 'CursorLine'   , 'none'        , 'none' , 'none'         )
-        call s:hy ( 'Pmenu'        , g:accentColor , 0 , 'none'         )
-        call s:hy ( 'PmenuSel'     , g:accentColor , 0 , 'inverse,bold' )
+        call s:hy ( 'CursorLineNr' , g:accentColor , 'fg0' , 'bold'         )
+        call s:hy ( 'EndOfBuffer'   , g:accentColorLight , 'fg0'        , 'bold'         )
+        call s:hy ( 'CursorLine'   , 'none'        , 'fg0' , 'none'         )
+        call s:hy ( 'Pmenu'        , g:accentColor , 'fg0' , 'none'         )
+        call s:hy ( 'PmenuSel'     , g:accentColor , 'fg0' , 'inverse,bold' )
         call s:hy ( 'Comment'      , '8'          , 'none', 'none'       )
-        call s:hy ( 'Title'        , 5             , 0 , 'bold'         )
 
         call s:hy ( 'InnerScope'   , 'none'        , 'none' , 'none'         )
         call s:hy ( 'OuterScope'   , 'none'        , 'none' , 'none'         )
@@ -219,14 +220,14 @@ endfunc
             call s:hy ("Logical".string(x), s:colors[x], 'none', 'bold')
         endfor
 
-        call s:hy ( 'GitGutterDelete'             , 9  , 'none' , 'none' )
-        call s:hy ( 'GitGutterAdd'                , 10 , 'none' , 'none' )
-        call s:hy ( 'GitGutterChangeDelete'       , 11 , 'none' , 'none' )
-        call s:hy ( 'GitGutterChange'             , 12 , 'none' , 'none' )
-        call s:hy ( 'GitGutterDeleteLineNr'       , 9  , 'none' , 'none' )
-        call s:hy ( 'GitGutterAddLineNr'          , 10 , 'none' , 'none' )
-        call s:hy ( 'GitGutterChangeDeleteLineNr' , 11 , 'none' , 'none' )
-        call s:hy ( 'GitGutterChangeLineNr'       , 12 , 'none' , 'none' )
+        call s:hy ( 'GitGutterDelete'             , 'fg0' , 1  , 'bold' )
+        call s:hy ( 'GitGutterAdd'                , 'fg0' , 2 , 'bold' )
+        call s:hy ( 'GitGutterChangeDelete'       , 'fg0' , 3 , 'bold' )
+        call s:hy ( 'GitGutterChange'             , 'fg0' , 4 , 'bold' )
+        call s:hy ( 'GitGutterDeleteLineNr'       , 'fg0' , 1  , 'bold' )
+        call s:hy ( 'GitGutterAddLineNr'          , 'fg0' , 2 , 'bold' )
+        call s:hy ( 'GitGutterChangeDeleteLineNr' , 'fg0' , 3 , 'bold' )
+        call s:hy ( 'GitGutterChangeLineNr'       , 'fg0' , 4 , 'bold' )
     else
         " I'm not sure why I used User4 for the tabline fill... but I did
         call s:hy ("User4", 'none', 'none', 'bold')
@@ -239,7 +240,6 @@ endfunc
         call s:hy ( 'Pmenu'        , g:accentColor , 15 , 'none'         )
         call s:hy ( 'PmenuSel'     , g:accentColor , 15 , 'inverse,bold' )
         call s:hy ( 'Comment'      , '8'          , '150', 'none'       )
-        call s:hy ( 'Title'        , 5             , 15 , 'bold'         )
 
         call s:hy ( 'InnerScope'   , 'none'        , 'none' , 'none'         )
         call s:hy ( 'OuterScope'   , 'none'        , 'none' , 'none'         )
@@ -280,33 +280,33 @@ endfunc
             call s:hy ("Logical".string(x), s:colors[x], 'none', 'bold')
         endfor
 
-        call s:hy ( 'GitGutterDelete'             , 9  , '150' , 'none' )
-        call s:hy ( 'GitGutterAdd'                , 10 , '150' , 'none' )
-        call s:hy ( 'GitGutterChangeDelete'       , 11 , '150' , 'none' )
-        call s:hy ( 'GitGutterChange'             , 12 , '150' , 'none' )
-        call s:hy ( 'GitGutterDeleteLineNr'       , 9  , '150' , 'none' )
-        call s:hy ( 'GitGutterAddLineNr'          , 10 , '150' , 'none' )
-        call s:hy ( 'GitGutterChangeDeleteLineNr' , 11 , '150' , 'none' )
-        call s:hy ( 'GitGutterChangeLineNr'       , 12 , '150' , 'none' )
+        call s:hy ( 'GitGutterDelete'             , 9  , '150' , 'bold' )
+        call s:hy ( 'GitGutterAdd'                , 10 , '150' , 'bold' )
+        call s:hy ( 'GitGutterChangeDelete'       , 11 , '150' , 'bold' )
+        call s:hy ( 'GitGutterChange'             , 12 , '150' , 'bold' )
+        call s:hy ( 'GitGutterDeleteLineNr'       , 9  , '150' , 'bold' )
+        call s:hy ( 'GitGutterAddLineNr'          , 10 , '150' , 'bold' )
+        call s:hy ( 'GitGutterChangeDeleteLineNr' , 11 , '150' , 'bold' )
+        call s:hy ( 'GitGutterChangeLineNr'       , 12 , '150' , 'bold' )
     endif
 
 " Nons:   -{{{1
     call s:hy ( 'Normal'       , 'fg'   , 'none'   , 'none'    )
-    call s:hy ( 'NormalNC'     , 'none'  , 'none'  , 'none'    )
+    call s:hy ( 'NormalNC'     , 'none'  , 'bg0'  , 'none'    )
     call s:hy ( 'UnderLine'    , 'none' , 'none' , 'none'    )
     call s:hy ( 'CursorColumn' , 'none' , 'none' , 'none'    )
     call s:hy ( 'Cursor'       , 'none' , 'none' , 'inverse' )
     call s:hy ( 'QuickFixLine' , 'none' , 'none' , 'inverse' )
     call s:hy ( 'DiffChange'   , 'none' , 'none' , 'none'    )
-    call s:hy ( 'ColorColumn'  , 'none' , '150'   , 'none'    )
+    call s:hy ( 'ColorColumn'  , 'none' , 'CC'   , 'none'    )
     call s:hy ( 'Bold'         , 'none' , 'none' , 'bold'    )
 
 "1       9{{{1
     call s:hy ( 'Error'       , 1 , 'none' , 'none' )
-    call s:hy ( 'DiffDelete'  , 15 , 1      , 'none' )
-    call s:hy ( 'SpellBad'    , 7 , 1      , 'none' )
+    call s:hy ( 'DiffDelete'  , 1 , '0'      , 'none' )
+    call s:hy ( 'SpellBad'    , 15 , 1      , 'none' )
     call s:hy ( 'ErrorMsg'    , 15, 1      , 'bold' )
-    call s:hy ( 'DiffRemoved' , 1 , 'none' , 'none' )
+    call s:hy ( 'DiffRemoved' , 1 , '0' , 'none' )
     call s:hy ( 'Function'    , 9 , 'none' , 'none' )
     call s:hy ( 'UserFunction', '91', 'none' , 'none'         )
     call s:hy ( 'Member'      , 1 , 'none' , 'none' )
@@ -317,43 +317,44 @@ endfunc
     call s:hy ( 'StorageClass' , 10     , 'none' , 'none'    )
     call s:hy ( 'Parameter'    , '101'  , 'none' , 'none'         )
     call s:hy ( 'String'       , 2      , 'none' , 'none'    )
-    call s:hy ( 'DiffAdd'      , 15      , 2      , 'none' )
-    call s:hy ( 'diffAdded'    , 15      , 2      , 'none' )
+    call s:hy ( 'DiffAdd'      , 2      , '0'      , 'none' )
+    call s:hy ( 'diffAdded'    , 2      , '0'      , 'none' )
     call s:hy ( 'QShit'        , 2      , 'none' , 'none'    )
 
 
 " 3      11{{{1
     call s:hy ( 'Directory'    , 3      , 'none' , 'none'              )
-    call s:hy ( 'Todo'         , 'none' , 11     , 'bold'              )
+    call s:hy ( 'Title'        , 3             , 'fg0' , 'bold'         )
+    call s:hy ( 'Todo'         , 'fg0' , 11     , 'bold'              )
     call s:hy ( 'WarningMsg'   , 15     , 11     , 'bold'              )
     call s:hy ( 'Special'      , 11      , 'none' , 'none'              )
     call s:hy ( 'IncSearch'    , 0      , 3      , 'underline'         )
-    call s:hy ( 'Conditonal'  , 3      , 'none' , 'none' )
     call s:hy ( 'Ignore'       , 3      , 'none' , 'none'              )
     call s:hy ( 'Delimeter'    , 3      , 'none' , 'none'              )
-    call s:hy ( 'Statement' , '31'  , 'none' , 'none' )
-    call s:hy ( 'Label'       , '32'     , 'none' , 'none'         )
 
 " 4      12{{{1
     call s:hy ( 'NonText'   , 4  , 'none' , 'none' )
     call s:hy ( 'PreCondit' , 4  , 'none' , 'none' )
     call s:hy ( 'Constant'  , 12 , 'none' , 'none' )
-    call s:hy ( 'DiffText'  , 15  , 4     , 'none' )
+    call s:hy ( 'DiffText'  , 4  , '0'     , 'none' )
     call s:hy ( 'Keyword'   , 12 , 'none' , 'none' )
 
 " 5      13{{{1
+    call s:hy ( 'Statement' , '53'  , 'none' , 'none' )
     call s:hy ( 'TypeDef'     , '52'   , 'none' , 'none'         )
-    call s:hy ( 'Boolean'     , 5      , 'none' , 'none'         )
+    call s:hy ( 'Boolean'     , '54'   , 'none' , 'none'         )
     call s:hy ( 'Character'   , 5      , 'none' , 'none'         )
     call s:hy ( 'SpecialChar' , 5      , 'none' , 'none'         )
-    call s:hy ( 'diffSubname' , 5      , 'none' , 'none'         )
+    call s:hy ( 'diffSubname' , 5      , '0' , 'none'         )
     call s:hy ( 'PreProc'     , 5      , 'none' , 'none'         )
     call s:hy ( 'MoreMsg'     , 15     , 5      , 'bold'        )
+    call s:hy ( 'Conditonal'  , '51'      , 'none' , 'none' )
     call s:hy ( 'Repeat'      , 13     , 'none' , 'none'         )
     call s:hy ( 'SignColumn'  , 5      , 'none' , 'none'         )
     call s:hy ( 'WildMenu'    , 'none' , 'none' , 'bold,inverse' )
 
 " 6      14{{{1
+    call s:hy ( 'Label'       , '14'     , 'none' , 'none'         )
     call s:hy ( 'Type'       , '61'  , 'none' , 'none' )
     call s:hy ( 'SpecialKey' , 6  , 'none' , 'none' )
     call s:hy ( 'Identifier' , 14      , 'none' , 'none'         )
@@ -363,14 +364,14 @@ endfunc
     call s:hy ( 'Class'        , 7  , 'none' , 'none' )
 
 " 0       8{{{1
-    call s:hy ( 'StatuslineNc'  , g:accentColor               , 'none'        , 'none'         )
+    call s:hy ( 'StatuslineNc'  , g:accentColor               , 'fg0'        , 'none'         )
     call s:hy ( 'VertSplit'     , g:accentColor               , 'none'          , 'bold'         )
-    call s:hy ( 'LineNr'        , g:accentColor               , 'bg0'          , 'none'         )
+    call s:hy ( 'LineNr'        , g:accentColor               , 'fg0'          , 'none'         )
 
 
 " Dynamic:x{{{1
     call s:hy ( 'FoldColumn'    , g:accentColorLight , 'none'        , 'none'         )
-    call s:hy ( 'StatusLine'    , g:accentColor      , 'none'        , 'none'         )
+    call s:hy ( 'StatusLine'    , g:accentColor      , 'fg0'        , 'none'         )
     call s:hy ( 'ModeMsg'       , g:accentColor      , 'none'        , 'inverse,bold' )
     call s:hy ( 'PmenuSbar'     , g:accentColor      , 'none'        , 'inverse'      )
     call s:hy ( 'PMenuThumb'    , g:accentColor      , 'none'        , 'inverse'      )
@@ -392,6 +393,8 @@ endfunc
 
     hi link helpExample     Title
 
+    hi link gitCommitSummary Title
+
     hi link csClass         Structure
     hi link csType          Member
 
@@ -407,6 +410,8 @@ endfunc
     hi link pythonBuiltin       Label
 
     hi link jsonKeyword       Function
+    hi link jsonQuote         Repeat
+    hi link jsonKeywordMatch  Operator
 
     hi link builtInLibrary    Macro
 
