@@ -9,8 +9,8 @@
 "               selected.
 
 set termguicolors
-let &pumblend=20
-let &winblend=20
+let &pumblend=0
+let &winblend=0
 
 " Setup:  +{{{1
 hi clear
@@ -65,34 +65,37 @@ let s:colorList_work = {
 let s:colorList_new = {
             \ "fg"   : 'none',
             \ "fg0"  : 'none',
-            \ "bg"   : '#78A98E',
+            \ "bg"   : 'none',
             \ "bg0"  : '#24332B',
-            \ '00'   : '#100f0a',
-            \ '01'   : '#20201a',
-            \ '02'   : '#2a2820',
-            \ '03'   : '#4a4440',
+            \ '00'   : '#2A2A2A',
+            \ '01'   : '#2A1111',
+            \ '02'   : '#112A11',
+            \ '03'   : '#2A2A11',
+            \ '04'   : '#11112A',
             \ 0      : '#121212',
             \ 8      : '#5F5959',
             \ '011'  : '#f75f5f',
-            \ 1      : '#E16262',
+            \ 1      : '#E16232',
             \ '91'   : '#cc2070',
-            \ 9      : '#D73B60',
-            \ 2      : '#009C2C',
-            \ '101'  : '#93BA34',
-            \ 10     : '#8CC440',
+            \ 9      : '#F9015A',
+            \ 2      : '#00AA00',
+            \ '101'  : '#6CC400',
+            \ 10     : '#00BF36',
             \ '30'   : '#8f4000',
             \ '32'   : '#b7b24d',
-            \ 3      : '#E69258',
-            \ 11     : '#CAA543',
+            \ 3      : '#C67228',
+            \ 11     : '#B89D0C',
+            \ '111'  : '#D89D3C',
             \ 4      : '#5B90B7',
-            \ 12     : '#6DAFCA',
+            \ 12     : '#7D4FFA',
+            \ '121'  : '#7950C3',
             \ '51'   : '#F22EF2',
             \ '52'   : '#C000C0',
-            \ '53'   : '#4F4AF4',
             \ '54'   : '#9000D0',
-            \ 5      : '#2F4A74',
-            \ 13     : '#C49DCF',
-            \ '61'   : '#05886A',
+            \ 5      : '#2F5A94',
+            \ 13     : '#E44DFF',
+            \ '61'   : '#05B87A',
+            \ '62'   : '#00FFFF',
             \ 6      : '#04F5C0',
             \ 14     : '#0ABF5F',
             \ '71'   : '#BBA14F',
@@ -102,9 +105,9 @@ let s:colorList_new = {
             \ '150'  : '#fdfdf3',
             \ '151'  : '#ffffe5',
             \ 'none' : 'none',
-            \ 'Operator' : '#BBA14F',
-            \ 'ParenChars' : '#BBA14F',
-            \ 'MatchParen' : '#BBA14F',
+            \ 'Operator' : '#CBF1FF',
+            \ 'ParenChars' : '#CBA14F',
+            \ 'MatchParen' : '#CBA14F',
             \ 'CC' : '#ffe0e0'
             \ }
 
@@ -121,12 +124,6 @@ if &bg == "dark"
 else
 endif
 
-" unlet g:accentColor
-"let g:accentColor = get(g:, "accentColor", luaeval('math.random (9, 14)'))
-" let g:accentColor = luaeval('math.random (9, 14)')
-"let g:accentColorLight = g:accentColor - 8
-" let g:accentColorLight = luaeval('math.random (1, 6)')
-" let g:accentColorLight = get(g:, "accentColorLight", 3)
 let g:accentColor = '71'
 let g:accentColorLight = '71'
 let g:colors_name = "restraint"
@@ -159,13 +156,26 @@ endfunc
 " Special:|{{{1
     call s:hy ( 'Search'       , 0            , 'Search'     , 'none' )
     call s:hy ( 'SearchC'      , 0            , 'SearchC'    , 'none' )
-    call s:hy ( 'MatchParen'   , 15           , 'MatchParen' , 'none' )
+    call s:hy ( 'MatchParen'   , 'none'       , 'none'       , 'underline' )
     call s:hy ( 'BraceChars'   , 'ParenChars' , 'none'       , 'bold' )
     call s:hy ( 'BracketChars' , 'ParenChars' , 'none'       , 'bold' )
     call s:hy ( 'ParenChars'   , 'ParenChars' , 'none'       , 'bold' )
     call s:hy ( 'Operator'     , 'Operator'   , 'none'       , 'bold' )
 
-    let s:colors = [ 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 ]
+    let s:colors = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    if get(s:, 'timer', 0) != 0
+       call timer_stop(s:timer)
+    endif
+
+    try
+        func! AccentHandler(timer)
+            let g:accentColor = luaeval('math.random (1, 15)')
+            let g:accentColorLight = luaeval('math.random (1, 15)')
+            colo restraint
+        endfunc
+    catch /.*/
+    endtry
+    " let s:timer = timer_start(5000, 'AccentHandler', {'repeat': -1})
 
     " TODO clean this up
     if &bg == "dark"
@@ -174,20 +184,20 @@ endfunc
         call s:hy ( 'Folded'       , g:accentColor , 'none', 'none'         )
         call s:hy ( 'Whitespace'   , 1             , 'none', 'none'      )
         call s:hy ( 'Visual'       , 'none'        , 'none', 'reverse'         )
-        call s:hy ( 'CursorLineNr' , g:accentColor , 'fg0' , 'bold'         )
-        call s:hy ( 'EndOfBuffer'   , g:accentColorLight , 'fg0'        , 'bold'         )
-        call s:hy ( 'CursorLine'   , 'none'        , 'fg0' , 'none'         )
-        call s:hy ( 'Pmenu'        , g:accentColor , 'fg0' , 'none'         )
-        call s:hy ( 'PmenuSel'     , g:accentColor , 'fg0' , 'inverse,bold' )
+        call s:hy ( 'CursorLineNr' , g:accentColor , 'none' , 'bold'         )
+        call s:hy ( 'EndOfBuffer'   , g:accentColorLight , 'none'        , 'bold'         )
+        call s:hy ( 'CursorLine'   , 'none'        , 'none' , 'none'         )
+        call s:hy ( 'Pmenu'        , g:accentColor , 'none' , 'none'         )
+        call s:hy ( 'PmenuSel'     , g:accentColor , 'none' , 'inverse,bold' )
         call s:hy ( 'Comment'      , '8'          , 'none', 'none'       )
 
         call s:hy ( 'InnerScope'   , 'none'        , 'none' , 'none'         )
         call s:hy ( 'OuterScope'   , 'none'        , 'none' , 'none'         )
         call s:hy ( 'LinkScope'    , 'none'        , 'none' , 'none'         )
 
-        call s:hy ( 'LspReferenceText'  , 'none' , '01' , 'bold' )
-        call s:hy ( 'LspReferenceRead'  , 'none' , '01' , 'bold' )
-        call s:hy ( 'LspReferenceWrite' , 'none' , '01' , 'bold' )
+        " call s:hy ( 'LspReferenceText'  , 'none' , '01' , 'bold' )
+        " call s:hy ( 'LspReferenceRead'  , 'none' , '01' , 'bold' )
+        " call s:hy ( 'LspReferenceWrite' , 'none' , '01' , 'bold' )
 
         call s:hy ( 'NormalMode'   , '71'          , 'none' , 'bold'         )
         call s:hy ( 'InsertMode'   , 11            , 'none' , 'bold'         )
@@ -216,18 +226,18 @@ endfunc
         call s:hy ( 'OtherMode2'    , 8             , 'none' , 'bold'         )
         call s:hy ( 'ReplaceMode2'  , 1             , 'none' , 'bold'         )
 
-        for x in range(0, 9)
+        for x in range(0, len(s:colors) - 1)
             call s:hy ("Logical".string(x), s:colors[x], 'none', 'bold')
         endfor
 
-        call s:hy ( 'GitGutterDelete'             , 'fg0' , 1  , 'bold' )
-        call s:hy ( 'GitGutterAdd'                , 'fg0' , 2 , 'bold' )
-        call s:hy ( 'GitGutterChangeDelete'       , 'fg0' , 3 , 'bold' )
-        call s:hy ( 'GitGutterChange'             , 'fg0' , 4 , 'bold' )
-        call s:hy ( 'GitGutterDeleteLineNr'       , 'fg0' , 1  , 'bold' )
-        call s:hy ( 'GitGutterAddLineNr'          , 'fg0' , 2 , 'bold' )
-        call s:hy ( 'GitGutterChangeDeleteLineNr' , 'fg0' , 3 , 'bold' )
-        call s:hy ( 'GitGutterChangeLineNr'       , 'fg0' , 4 , 'bold' )
+        call s:hy ( 'GitGutterDelete'             , '01' , 1  , 'bold' )
+        call s:hy ( 'GitGutterAdd'                , '02' , 2 , 'bold' )
+        call s:hy ( 'GitGutterChangeDelete'       , '03' , 3 , 'bold' )
+        call s:hy ( 'GitGutterChange'             , '04' , 4 , 'bold' )
+        call s:hy ( 'GitGutterDeleteLineNr'       ,  1 ,   '01' , 'bold' )
+        call s:hy ( 'GitGutterAddLineNr'          ,  2 ,   '02' , 'bold' )
+        call s:hy ( 'GitGutterChangeDeleteLineNr' ,  3 ,   '03' , 'bold' )
+        call s:hy ( 'GitGutterChangeLineNr'       ,  4 ,   '04' , 'bold' )
     else
         " I'm not sure why I used User4 for the tabline fill... but I did
         call s:hy ("User4", 'none', 'none', 'bold')
@@ -276,7 +286,7 @@ endfunc
         call s:hy ( 'OtherMode2'    , 8             , 'none' , 'bold'         )
         call s:hy ( 'ReplaceMode2'  , 1             , 'none' , 'bold'         )
 
-        for x in range(0, 9)
+        for x in range(0, len(s:colors) - 1)
             call s:hy ("Logical".string(x), s:colors[x], 'none', 'bold')
         endfor
 
@@ -307,15 +317,14 @@ endfunc
     call s:hy ( 'SpellBad'    , 15 , 1      , 'none' )
     call s:hy ( 'ErrorMsg'    , 15, 1      , 'bold' )
     call s:hy ( 'DiffRemoved' , 1 , '0' , 'none' )
-    call s:hy ( 'Function'    , 9 , 'none' , 'none' )
-    call s:hy ( 'UserFunction', '91', 'none' , 'none'         )
+    call s:hy ( 'Function'    , '91' , 'none' , 'none' )
+    call s:hy ( 'UserFunction', '9', 'none' , 'none'         )
     call s:hy ( 'Member'      , 1 , 'none' , 'none' )
     call s:hy ( 'Number'      , 1   , 'none' , 'none')
     call s:hy ( 'Float'       , 1   , 'none' , 'none')
 
 " 2      10{{{1
     call s:hy ( 'StorageClass' , 10     , 'none' , 'none'    )
-    call s:hy ( 'Parameter'    , '101'  , 'none' , 'none'         )
     call s:hy ( 'String'       , 2      , 'none' , 'none'    )
     call s:hy ( 'DiffAdd'      , 2      , '0'      , 'none' )
     call s:hy ( 'diffAdded'    , 2      , '0'      , 'none' )
@@ -323,32 +332,34 @@ endfunc
 
 
 " 3      11{{{1
+    call s:hy ( 'Parameter'    , '111'  , 'none' , 'none'         )
     call s:hy ( 'Directory'    , 3      , 'none' , 'none'              )
     call s:hy ( 'Title'        , 3             , 'fg0' , 'bold'         )
+    call s:hy ( 'Macro'        , 3             , 'none' , 'bold'         )
     call s:hy ( 'Todo'         , 'fg0' , 11     , 'bold'              )
     call s:hy ( 'WarningMsg'   , 15     , 11     , 'bold'              )
     call s:hy ( 'Special'      , 11      , 'none' , 'none'              )
     call s:hy ( 'IncSearch'    , 0      , 3      , 'underline'         )
     call s:hy ( 'Ignore'       , 3      , 'none' , 'none'              )
     call s:hy ( 'Delimeter'    , 3      , 'none' , 'none'              )
+    call s:hy ( 'Statement'  , '11'  , 'none' , 'none' )
 
+    call s:hy ( 'Identifier' , 3      , 'none' , 'none'         )
 " 4      12{{{1
     call s:hy ( 'NonText'   , 4  , 'none' , 'none' )
     call s:hy ( 'PreCondit' , 4  , 'none' , 'none' )
     call s:hy ( 'Constant'  , 12 , 'none' , 'none' )
     call s:hy ( 'DiffText'  , 4  , '0'     , 'none' )
-    call s:hy ( 'Keyword'   , 12 , 'none' , 'none' )
 
 " 5      13{{{1
-    call s:hy ( 'Statement' , '53'  , 'none' , 'none' )
     call s:hy ( 'TypeDef'     , '52'   , 'none' , 'none'         )
     call s:hy ( 'Boolean'     , '54'   , 'none' , 'none'         )
+    call s:hy ( 'Conditonal'  , '51'      , 'none' , 'none' )
     call s:hy ( 'Character'   , 5      , 'none' , 'none'         )
     call s:hy ( 'SpecialChar' , 5      , 'none' , 'none'         )
     call s:hy ( 'diffSubname' , 5      , '0' , 'none'         )
     call s:hy ( 'PreProc'     , 5      , 'none' , 'none'         )
     call s:hy ( 'MoreMsg'     , 15     , 5      , 'bold'        )
-    call s:hy ( 'Conditonal'  , '51'      , 'none' , 'none' )
     call s:hy ( 'Repeat'      , 13     , 'none' , 'none'         )
     call s:hy ( 'SignColumn'  , 5      , 'none' , 'none'         )
     call s:hy ( 'WildMenu'    , 'none' , 'none' , 'bold,inverse' )
@@ -357,7 +368,7 @@ endfunc
     call s:hy ( 'Label'       , '14'     , 'none' , 'none'         )
     call s:hy ( 'Type'       , '61'  , 'none' , 'none' )
     call s:hy ( 'SpecialKey' , 6  , 'none' , 'none' )
-    call s:hy ( 'Identifier' , 14      , 'none' , 'none'         )
+    call s:hy ( 'Keyword'   , '62', 'none' , 'none' )
 
 " 7      15{{{1
     call s:hy ( 'Question'     , 7  , 0      , 'inverse' )
@@ -366,18 +377,20 @@ endfunc
 " 0       8{{{1
     call s:hy ( 'StatuslineNc'  , g:accentColor               , 'fg0'        , 'none'         )
     call s:hy ( 'VertSplit'     , g:accentColor               , 'none'          , 'bold'         )
-    call s:hy ( 'LineNr'        , g:accentColor               , 'fg0'          , 'none'         )
+    call s:hy ( 'LineNr'        , g:accentColor               , 'none'          , 'none'         )
 
 
 " Dynamic:x{{{1
     call s:hy ( 'FoldColumn'    , g:accentColorLight , 'none'        , 'none'         )
-    call s:hy ( 'StatusLine'    , g:accentColor      , 'fg0'        , 'none'         )
+    call s:hy ( 'StatusLine'    , g:accentColor      , 'none'        , 'none'         )
     call s:hy ( 'ModeMsg'       , g:accentColor      , 'none'        , 'inverse,bold' )
     call s:hy ( 'PmenuSbar'     , g:accentColor      , 'none'        , 'inverse'      )
     call s:hy ( 'PMenuThumb'    , g:accentColor      , 'none'        , 'inverse'      )
     call s:hy ( 'LogicalBuffer' , 0 , g:accentColorLight, 'bold'         )
 
 " Relink: >{{{1
+    hi link luaTable BraceChars
+    hi link luaParen ParenChars
     hi link Exception Error
 
     hi link vimCommentTitle       Title
@@ -409,8 +422,10 @@ endfunc
     hi link pythonDecoratorName Constant
     hi link pythonBuiltin       Label
 
+    hi link javaConditional   Conditional
+
     hi link jsonKeyword       Function
-    hi link jsonQuote         Repeat
+    hi link jsonQuote         ParenChars
     hi link jsonKeywordMatch  Operator
 
     hi link builtInLibrary    Macro
@@ -418,21 +433,32 @@ endfunc
     hi link typescriptMember Member
     hi link typescriptBraces BraceChars
 
+    hi link TSAttribute        Macro
     hi link TSConstBuiltIn     Macro
-    hi link TSConstuctor       StorageClass
+    hi link TSConstructor      StorageClass
     hi link TSEmphasis         bold
     hi link TSFuncBuiltIn      Function
     hi link TSFunction         UserFunction
+    hi link TSKeywordFunction  Function
+    hi link TSKeywordReturn    Statement
+    hi link TSKeyword          Keyword
     hi link TSParameter        Parameter
     hi link TSProperty         Identifier
     hi link TSPunctBracket     BracketChars
     hi link TSPunctSpecial     Special
     hi link TSVariableBuiltIn  TypeDef
 
+    hi link OperatorChars     Operator
+
     hi link LspDiagnosticsDefaultError ErrorMsg
     hi link LspDiagnosticsDefaultWarning WarningMsg
     hi link LspDiagnosticsDefaultInformation MoreMsg
     hi link LspDiagnosticsDefaultHint Question
+
+    hi link tapTestResultsOKRegion GitGutterAdd
+    hi link tapTestResultsNotOKRegion GitGutterDiff
+
+    hi link tapTest Title
 
 " }}}
 " Plugin: & {{{1
