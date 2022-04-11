@@ -72,9 +72,12 @@ let s:colorList_new = {
             \ '02'   : '#112A11',
             \ '03'   : '#2A2A11',
             \ '04'   : '#11112A',
+            \ '011'  : '#3A1111',
+            \ '022'  : '#113A11',
+            \ '033'  : '#3A3A11',
+            \ '044'  : '#11113A',
             \ 0      : '#121212',
             \ 8      : '#5F5959',
-            \ '011'  : '#f75f5f',
             \ 1      : '#E16232',
             \ '91'   : '#cc2070',
             \ 9      : '#F9015A',
@@ -94,6 +97,7 @@ let s:colorList_new = {
             \ '54'   : '#9000D0',
             \ 5      : '#2F5A94',
             \ 13     : '#E44DFF',
+            \ '131'  : '#bca0ff',
             \ '61'   : '#05B87A',
             \ '62'   : '#00FFFF',
             \ 6      : '#04F5C0',
@@ -105,9 +109,9 @@ let s:colorList_new = {
             \ '150'  : '#fdfdf3',
             \ '151'  : '#ffffe5',
             \ 'none' : 'none',
-            \ 'Operator' : '#CBF1FF',
+            \ 'Operator' : '#38FFAF',
             \ 'ParenChars' : '#CBA14F',
-            \ 'MatchParen' : '#CBA14F',
+            \ 'MatchParen' : '#FF00FF',
             \ 'CC' : '#ffe0e0'
             \ }
 
@@ -124,8 +128,8 @@ if &bg == "dark"
 else
 endif
 
-let g:accentColor = '71'
-let g:accentColorLight = '71'
+let g:accentColor = 'none'
+let g:accentColorLight = 'none'
 let g:colors_name = "restraint"
 
 let s:colorList['Search']      = '#aaaa00'
@@ -156,7 +160,7 @@ endfunc
 " Special:|{{{1
     call s:hy ( 'Search'       , 0            , 'Search'     , 'none' )
     call s:hy ( 'SearchC'      , 0            , 'SearchC'    , 'none' )
-    call s:hy ( 'MatchParen'   , 'none'       , 'none'       , 'underline' )
+    call s:hy ( 'MatchParen'   , 'MatchParen' , '0'         , 'none'  )
     call s:hy ( 'BraceChars'   , 'ParenChars' , 'none'       , 'bold' )
     call s:hy ( 'BracketChars' , 'ParenChars' , 'none'       , 'bold' )
     call s:hy ( 'ParenChars'   , 'ParenChars' , 'none'       , 'bold' )
@@ -187,8 +191,8 @@ endfunc
         call s:hy ( 'CursorLineNr' , g:accentColor , 'none' , 'bold'         )
         call s:hy ( 'EndOfBuffer'   , g:accentColorLight , 'none'        , 'bold'         )
         call s:hy ( 'CursorLine'   , 'none'        , 'none' , 'none'         )
-        call s:hy ( 'Pmenu'        , g:accentColor , 'none' , 'none'         )
-        call s:hy ( 'PmenuSel'     , g:accentColor , 'none' , 'inverse,bold' )
+        call s:hy ( 'Pmenu'        , "fg" , 'none' , 'none'         )
+        call s:hy ( 'PmenuSel'     , "fg"   , 'none' , 'inverse,bold' )
         call s:hy ( 'Comment'      , '8'          , 'none', 'none'       )
 
         call s:hy ( 'InnerScope'   , 'none'        , 'none' , 'none'         )
@@ -199,8 +203,8 @@ endfunc
         " call s:hy ( 'LspReferenceRead'  , 'none' , '01' , 'bold' )
         " call s:hy ( 'LspReferenceWrite' , 'none' , '01' , 'bold' )
 
-        call s:hy ( 'NormalMode'   , '71'          , 'none' , 'bold'         )
-        call s:hy ( 'InsertMode'   , 11            , 'none' , 'bold'         )
+        call s:hy ( 'NormalMode'   , g:accentColor , 'none' , 'bold'         )
+        call s:hy ( 'InsertMode'   , 14            , 'none' , 'bold'         )
         call s:hy ( 'VisualMode'   , 10            , 'none' , 'bold'         )
         call s:hy ( 'SelectMode'   , 15            , 'none' , 'bold'         )
         call s:hy ( 'CommandMode'  , 9             , 'none' , 'bold'         )
@@ -208,7 +212,7 @@ endfunc
         call s:hy ( 'OtherMode'    , 8             , 'none' , 'bold'         )
         call s:hy ( 'ReplaceMode'  , 1             , 'none' , 'bold'         )
 
-        call s:hy ( 'NormalMode1'   , '71'          , 'none' , 'bold'         )
+        call s:hy ( 'NormalMode1'   , g:accentColor , 'none' , 'bold'         )
         call s:hy ( 'InsertMode1'   , 11            , 'none' , 'bold'         )
         call s:hy ( 'VisualMode1'   , 10            , 'none' , 'bold'         )
         call s:hy ( 'SelectMode1'   , 15            , 'none' , 'bold'         )
@@ -217,7 +221,7 @@ endfunc
         call s:hy ( 'OtherMode1'    , 8             , 'none' , 'bold'         )
         call s:hy ( 'ReplaceMode1'  , 1             , 'none' , 'bold'         )
 
-        call s:hy ( 'NormalMode2'   , '71'          , 'none' , 'bold'         )
+        call s:hy ( 'NormalMode2'   , g:accentColor , 'none' , 'bold'         )
         call s:hy ( 'InsertMode2'   , 11            , 'none' , 'bold'         )
         call s:hy ( 'VisualMode2'   , 10            , 'none' , 'bold'         )
         call s:hy ( 'SelectMode2'   , 15            , 'none' , 'bold'         )
@@ -230,10 +234,10 @@ endfunc
             call s:hy ("Logical".string(x), s:colors[x], 'none', 'bold')
         endfor
 
-        call s:hy ( 'GitGutterDelete'             , '01' , 1  , 'bold' )
-        call s:hy ( 'GitGutterAdd'                , '02' , 2 , 'bold' )
-        call s:hy ( 'GitGutterChangeDelete'       , '03' , 3 , 'bold' )
-        call s:hy ( 'GitGutterChange'             , '04' , 4 , 'bold' )
+        call s:hy ( 'GitGutterDelete'       ,  '01' ,   '011' , 'bold' )
+        call s:hy ( 'GitGutterAdd'          ,  '02' ,   '022' , 'bold' )
+        call s:hy ( 'GitGutterChangeDelete' ,  '03' ,   '033' , 'bold' )
+        call s:hy ( 'GitGutterChange'       ,  '04' ,   '044' , 'bold' )
         call s:hy ( 'GitGutterDeleteLineNr'       ,  1 ,   '01' , 'bold' )
         call s:hy ( 'GitGutterAddLineNr'          ,  2 ,   '02' , 'bold' )
         call s:hy ( 'GitGutterChangeDeleteLineNr' ,  3 ,   '03' , 'bold' )
@@ -320,7 +324,7 @@ endfunc
     call s:hy ( 'Function'    , '91' , 'none' , 'none' )
     call s:hy ( 'UserFunction', '9', 'none' , 'none'         )
     call s:hy ( 'Member'      , 1 , 'none' , 'none' )
-    call s:hy ( 'Number'      , 1   , 'none' , 'none')
+    call s:hy ( 'Number'      , '131'   , 'none' , 'none')
     call s:hy ( 'Float'       , 1   , 'none' , 'none')
 
 " 2      10{{{1
@@ -386,7 +390,7 @@ endfunc
     call s:hy ( 'ModeMsg'       , g:accentColor      , 'none'        , 'inverse,bold' )
     call s:hy ( 'PmenuSbar'     , g:accentColor      , 'none'        , 'inverse'      )
     call s:hy ( 'PMenuThumb'    , g:accentColor      , 'none'        , 'inverse'      )
-    call s:hy ( 'LogicalBuffer' , 0 , g:accentColorLight, 'bold'         )
+    call s:hy ( 'LogicalBuffer' , 0 , "71", 'bold'         )
 
 " Relink: >{{{1
     hi link luaTable BraceChars
@@ -432,6 +436,7 @@ endfunc
 
     hi link typescriptMember Member
     hi link typescriptBraces BraceChars
+    hi link typescriptVariable Keyword
 
     hi link TSAttribute        Macro
     hi link TSConstBuiltIn     Macro
