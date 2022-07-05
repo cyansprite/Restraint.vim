@@ -72,6 +72,7 @@ let s:colorList_new = {
             \ '02'   : '#112A11',
             \ '03'   : '#2A2A11',
             \ '04'   : '#11112A',
+            \ '05'   : '#2A112A',
             \ '011'  : '#3A1111',
             \ '022'  : '#113A11',
             \ '033'  : '#3A3A11',
@@ -110,7 +111,7 @@ let s:colorList_new = {
             \ '151'  : '#ffffe5',
             \ 'none' : 'none',
             \ 'Operator' : '#38FFAF',
-            \ 'ParenChars' : '#CBA14F',
+            \ 'ParenChars' : '#6BF19F',
             \ 'MatchParen' : '#FF00FF',
             \ 'CC' : '#ffe0e0'
             \ }
@@ -311,16 +312,16 @@ endfunc
     call s:hy ( 'CursorColumn' , 'none' , 'none' , 'none'    )
     call s:hy ( 'Cursor'       , 'none' , 'none' , 'inverse' )
     call s:hy ( 'QuickFixLine' , 'none' , 'none' , 'inverse' )
-    call s:hy ( 'DiffChange'   , 'none' , 'none' , 'none'    )
+    call s:hy ( 'DiffChange'   , 'none' , '0' , 'none'    )
     call s:hy ( 'ColorColumn'  , 'none' , 'CC'   , 'none'    )
     call s:hy ( 'Bold'         , 'none' , 'none' , 'bold'    )
 
 "1       9{{{1
     call s:hy ( 'Error'       , 1 , 'none' , 'none' )
-    call s:hy ( 'DiffDelete'  , 1 , '0'      , 'none' )
+    call s:hy ( 'DiffDelete'  , 1 , '01'      , 'none' )
     call s:hy ( 'SpellBad'    , 15 , 1      , 'none' )
     call s:hy ( 'ErrorMsg'    , 15, 1      , 'bold' )
-    call s:hy ( 'DiffRemoved' , 1 , '0' , 'none' )
+    call s:hy ( 'DiffRemoved' , 1 , '01' , 'none' )
     call s:hy ( 'Function'    , '91' , 'none' , 'none' )
     call s:hy ( 'UserFunction', '9', 'none' , 'none'         )
     call s:hy ( 'Member'      , 1 , 'none' , 'none' )
@@ -330,8 +331,8 @@ endfunc
 " 2      10{{{1
     call s:hy ( 'StorageClass' , 10     , 'none' , 'none'    )
     call s:hy ( 'String'       , 2      , 'none' , 'none'    )
-    call s:hy ( 'DiffAdd'      , 2      , '0'      , 'none' )
-    call s:hy ( 'diffAdded'    , 2      , '0'      , 'none' )
+    call s:hy ( 'DiffAdd'      , 2      , '02'      , 'none' )
+    call s:hy ( 'diffAdded'    , 2      , '02'      , 'none' )
     call s:hy ( 'QShit'        , 2      , 'none' , 'none'    )
 
 
@@ -353,7 +354,7 @@ endfunc
     call s:hy ( 'NonText'   , 4  , 'none' , 'none' )
     call s:hy ( 'PreCondit' , 4  , 'none' , 'none' )
     call s:hy ( 'Constant'  , 12 , 'none' , 'none' )
-    call s:hy ( 'DiffText'  , 4  , '0'     , 'none' )
+    call s:hy ( 'DiffText'  , 4  , '04'     , 'none' )
 
 " 5      13{{{1
     call s:hy ( 'TypeDef'     , '52'   , 'none' , 'none'         )
@@ -361,7 +362,7 @@ endfunc
     call s:hy ( 'Conditonal'  , '51'      , 'none' , 'none' )
     call s:hy ( 'Character'   , 5      , 'none' , 'none'         )
     call s:hy ( 'SpecialChar' , 5      , 'none' , 'none'         )
-    call s:hy ( 'diffSubname' , 5      , '0' , 'none'         )
+    call s:hy ( 'diffSubname' , 5      , '05' , 'none'         )
     call s:hy ( 'PreProc'     , 5      , 'none' , 'none'         )
     call s:hy ( 'MoreMsg'     , 15     , 5      , 'bold'        )
     call s:hy ( 'Repeat'      , 13     , 'none' , 'none'         )
