@@ -66,7 +66,7 @@ let s:colorList_new = {
             \ "fg"   : 'none',
             \ "fg0"  : 'none',
             \ "bg"   : 'none',
-            \ "bg0"  : '#24332B',
+            \ "bg0"  : 'none',
             \ '00'   : '#2A2A2A',
             \ '01'   : '#2A1111',
             \ '02'   : '#112A11',
@@ -80,9 +80,10 @@ let s:colorList_new = {
             \ 0      : '#121212',
             \ 8      : '#5F5959',
             \ 1      : '#E16232',
+            \ '19'   : '#FF2244',
             \ '91'   : '#cc2070',
             \ 9      : '#F9015A',
-            \ 2      : '#00AA00',
+            \ 2      : '#00CC00',
             \ '101'  : '#6CC400',
             \ 10     : '#00BF36',
             \ '30'   : '#8f4000',
@@ -91,15 +92,14 @@ let s:colorList_new = {
             \ 11     : '#B89D0C',
             \ '111'  : '#D89D3C',
             \ 4      : '#5B90B7',
-            \ 12     : '#7D4FFA',
+            \ 12     : '#5D4FFA',
             \ '121'  : '#7950C3',
             \ '51'   : '#F22EF2',
             \ '52'   : '#C000C0',
             \ '54'   : '#9000D0',
             \ 5      : '#2F5A94',
             \ 13     : '#E44DFF',
-            \ '131'  : '#bca0ff',
-            \ '61'   : '#05B87A',
+            \ '61'   : '#05C88A',
             \ '62'   : '#00FFFF',
             \ 6      : '#04F5C0',
             \ 14     : '#0ABF5F',
@@ -107,6 +107,7 @@ let s:colorList_new = {
             \ '72'   : '#9A9A75',
             \ 7      : '#9A9687',
             \ 15     : '#E6E4D6',
+            \ 83     : '#83733E',
             \ '150'  : '#fdfdf3',
             \ '151'  : '#ffffe5',
             \ 'none' : 'none',
@@ -194,7 +195,7 @@ endfunc
         call s:hy ( 'CursorLine'   , 'none'        , 'none' , 'none'         )
         call s:hy ( 'Pmenu'        , "fg" , 'none' , 'none'         )
         call s:hy ( 'PmenuSel'     , "fg"   , 'none' , 'inverse,bold' )
-        call s:hy ( 'Comment'      , '8'          , 'none', 'none'       )
+        call s:hy ( 'Comment'      , '83'          , 'none', 'none'       )
 
         call s:hy ( 'InnerScope'   , 'none'        , 'none' , 'none'         )
         call s:hy ( 'OuterScope'   , 'none'        , 'none' , 'none'         )
@@ -307,7 +308,7 @@ endfunc
 
 " Nons:   -{{{1
     call s:hy ( 'Normal'       , 'fg'   , 'none'   , 'none'    )
-    call s:hy ( 'NormalNC'     , 'none'  , 'bg0'  , 'none'    )
+    call s:hy ( 'NormalNC'     , 'fg0'  , 'bg0'  , 'none'    )
     call s:hy ( 'UnderLine'    , 'none' , 'none' , 'none'    )
     call s:hy ( 'CursorColumn' , 'none' , 'none' , 'none'    )
     call s:hy ( 'Cursor'       , 'none' , 'none' , 'inverse' )
@@ -325,7 +326,7 @@ endfunc
     call s:hy ( 'Function'    , '91' , 'none' , 'none' )
     call s:hy ( 'UserFunction', '9', 'none' , 'none'         )
     call s:hy ( 'Member'      , 1 , 'none' , 'none' )
-    call s:hy ( 'Number'      , '131'   , 'none' , 'none')
+    call s:hy ( 'Number'      , '19'   , 'none' , 'none')
     call s:hy ( 'Float'       , 1   , 'none' , 'none')
 
 " 2      10{{{1
@@ -341,24 +342,25 @@ endfunc
     call s:hy ( 'Directory'    , 3      , 'none' , 'none'              )
     call s:hy ( 'Title'        , 3             , 'fg0' , 'bold'         )
     call s:hy ( 'Macro'        , 3             , 'none' , 'bold'         )
-    call s:hy ( 'Todo'         , 'fg0' , 11     , 'bold'              )
+    call s:hy ( 'Todo'         , '0' , 11     , 'bold'              )
     call s:hy ( 'WarningMsg'   , 15     , 11     , 'bold'              )
     call s:hy ( 'Special'      , 11      , 'none' , 'none'              )
     call s:hy ( 'IncSearch'    , 0      , 3      , 'underline'         )
     call s:hy ( 'Ignore'       , 3      , 'none' , 'none'              )
     call s:hy ( 'Delimeter'    , 3      , 'none' , 'none'              )
-    call s:hy ( 'Statement'  , '11'  , 'none' , 'none' )
 
     call s:hy ( 'Identifier' , 3      , 'none' , 'none'         )
 " 4      12{{{1
     call s:hy ( 'NonText'   , 4  , 'none' , 'none' )
     call s:hy ( 'PreCondit' , 4  , 'none' , 'none' )
     call s:hy ( 'Constant'  , 12 , 'none' , 'none' )
-    call s:hy ( 'DiffText'  , 4  , '04'     , 'none' )
+    call s:hy ( 'Modifier'  , 12 , 'none' , 'bold' )
+    call s:hy ( 'DiffText'  , 4  , '0'    , 'none' )
 
 " 5      13{{{1
     call s:hy ( 'TypeDef'     , '52'   , 'none' , 'none'         )
     call s:hy ( 'Boolean'     , '54'   , 'none' , 'none'         )
+    call s:hy ( 'Property'    , '71'   , 'none' , 'none'         )
     call s:hy ( 'Conditonal'  , '51'      , 'none' , 'none' )
     call s:hy ( 'Character'   , 5      , 'none' , 'none'         )
     call s:hy ( 'SpecialChar' , 5      , 'none' , 'none'         )
@@ -370,14 +372,15 @@ endfunc
     call s:hy ( 'WildMenu'    , 'none' , 'none' , 'bold,inverse' )
 
 " 6      14{{{1
+    call s:hy ( 'Class'        , 14  , 'none' , 'none' )
     call s:hy ( 'Label'       , '14'     , 'none' , 'none'         )
     call s:hy ( 'Type'       , '61'  , 'none' , 'none' )
     call s:hy ( 'SpecialKey' , 6  , 'none' , 'none' )
     call s:hy ( 'Keyword'   , '62', 'none' , 'none' )
+    call s:hy ( 'Statement' , 14 , 'none' , 'none')
 
 " 7      15{{{1
     call s:hy ( 'Question'     , 7  , 0      , 'inverse' )
-    call s:hy ( 'Class'        , 7  , 'none' , 'none' )
 
 " 0       8{{{1
     call s:hy ( 'StatuslineNc'  , g:accentColor               , 'fg0'        , 'none'         )
@@ -413,6 +416,10 @@ endfunc
 
     hi link gitCommitSummary Title
 
+    hi link cocSemClass     Class
+    hi link cocSemModifier  Modifier
+    hi link cocSemProperty  Property
+
     hi link csClass         Structure
     hi link csType          Member
 
@@ -428,6 +435,10 @@ endfunc
     hi link pythonBuiltin       Label
 
     hi link javaConditional   Conditional
+    hi link javaExternal   Macro
+    hi link javaExternal   Macro
+
+    hi link javaScriptConditional Conditional
 
     hi link jsonKeyword       Function
     hi link jsonQuote         ParenChars
