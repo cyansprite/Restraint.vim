@@ -111,7 +111,7 @@ let s:colorlist_light = {
             \ '32'   : '#b7b24d',
             \ 3      : '#917D12',
             \ 11     : '#917D12',
-            \ '111'  : '#D89D3C',
+            \ '111'  : '#B87D1C',
             \ 4      : '#4F9BB6',
             \ 12     : '#2F5A94',
             \ '121'  : '#7950C3',
@@ -124,12 +124,12 @@ let s:colorlist_light = {
             \ '62'   : '#009A9A',
             \ 6      : '#199E7F',
             \ 14     : '#2D9960',
-            \ '71'   : '#ABA12F',
-            \ '72'   : '#9A9A75',
-            \ 7      : '#B8B0A9',
+            \ '71'   : '#9B811F',
+            \ '72'   : '#BAAA55',
+            \ 7      : '#989089',
             \ 15     : '#FFFFF7',
-            \ 83     : '#AA9A6A',
-            \ 831    : '#DFDCDA',
+            \ 83     : '#9A8AAA',
+            \ 831    : '#EFECEA',
             \ '150'  : '#fdfdf3',
             \ '151'  : '#ffffe5',
             \ 'none' : 'none',
@@ -159,8 +159,8 @@ if &bg == "dark"
 else
 endif
 
-let g:accentColor = 'none'
-let g:accentColorLight = 'none'
+let g:accentColor = '71'
+let g:accentColorLight = '72'
 let g:colors_name = "restraint"
 
 let s:colorList['GrepSearch']  = '#886800'
@@ -197,16 +197,16 @@ endfunc
     call s:hy ( 'Operator'     , 'Operator'   , 'none'    , 'bold'           )
 
     " I'm not sure why I used User4 for the tabline fill... but I did
-    call s:hy ( 'User4'        , 'none'             , 'none'   , 'bold'         )
-    call s:hy ( 'Folded'       , g:accentColor      , 'none'   , 'none'         )
-    call s:hy ( 'Whitespace'   , 1                  , 'none'   , 'none'         )
-    call s:hy ( 'Visual'       , 'none'             , 'Visual' , 'none'         )
-    call s:hy ( 'CursorLineNr' , g:accentColor      , '831'    , 'bold'         )
-    call s:hy ( 'EndOfBuffer'  , g:accentColorLight , 'none'   , 'bold'         )
-    call s:hy ( 'CursorLine'   , 'none'             , 'none'   , 'none'         )
-    call s:hy ( 'Pmenu'        , "fg"               , 'none'   , 'none'         )
-    call s:hy ( 'PmenuSel'     , "fg"               , 'none'   , 'inverse,bold' )
-    call s:hy ( 'Comment'      , '83'               , 'none'   , 'none'         )
+    call s:hy ( 'User4'        , 'none'             , 'none'   , 'bold' )
+    call s:hy ( 'Folded'       , g:accentColor      , 'none'   , 'none' )
+    call s:hy ( 'Whitespace'   , 1                  , 'none'   , 'none' )
+    call s:hy ( 'Visual'       , 'none'             , 'Visual' , 'none' )
+    call s:hy ( 'CursorLineNr' , 'none'             , '831'    , 'bold' )
+    call s:hy ( 'EndOfBuffer'  , g:accentColorLight , 'none'   , 'bold' )
+    call s:hy ( 'CursorLine'   , 'none'             , 'none'   , 'none' )
+    call s:hy ( 'Pmenu'        , "71"               , 'TermBG' , 'none' )
+    call s:hy ( 'PmenuSel'     , "none"             , '831'    , 'bold' )
+    call s:hy ( 'Comment'      , '83'               , 'none'   , 'none' )
 
     call s:hy ( 'InnerScope'    , 'none'             , 'none' , 'none'         )
     call s:hy ( 'OuterScope'    , 'none'             , 'none' , 'none'         )
@@ -269,6 +269,7 @@ endfunc
     call s:hy ( 'UserFunction' , '9'    , 'none' , 'none' )
     call s:hy ( 'Member'       , 1      , 'none' , 'none' )
     call s:hy ( 'Number'       , '19'   , 'none' , 'none' )
+    call s:hy ( 'CocInfoSign'  , 15     , 19     , 'none' )
     call s:hy ( 'Float'        , 1      , 'none' , 'none' )
 
 " 2      10{{{1
@@ -324,12 +325,16 @@ endfunc
     call s:hy ( 'Property'      , '71'   , 'none' , 'none'         )
     call s:hy ( 'LogicalBuffer' , 'none' , "15"   , 'inverse,bold' )
     call s:hy ( 'Logical7'      , '71'   , "TermBG"   , 'bold'         )
+
     for x in range(9, 15)
         call s:hy ("Logical".string(x-9), x, 'TermBG', 'bold')
     endfor
     for x in range(1, 7)
         call s:hy ("Logical".string(x+7), x, 'TermBG', 'bold')
     endfor
+
+    call s:hy ( 'CocCodeLens'  , 7 , 'none' , 'none' )
+    call s:hy ( 'LspCodeLens'  , 7 , 'none' , 'none' )
 
 " 0       8{{{1
     call s:hy ( 'StatuslineNc' , g:accentColor , 'fg0'  , 'none' )
@@ -368,6 +373,7 @@ endfunc
     hi link cocSemClass     Class
     hi link cocSemModifier  Modifier
     hi link cocSemProperty  Property
+    hi link cocSemParameter Parameter
 
     hi link csClass         Structure
     hi link csType          Member
@@ -420,6 +426,7 @@ endfunc
     hi link LspDiagnosticsDefaultWarning WarningMsg
     hi link LspDiagnosticsDefaultInformation MoreMsg
     hi link LspDiagnosticsDefaultHint Question
+    hi link FgCocInfoFloatBgNormal None
 
     hi link tapTestResultsOKRegion GitGutterAdd
     hi link tapTestResultsNotOKRegion GitGutterDiff
