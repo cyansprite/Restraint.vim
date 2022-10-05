@@ -323,7 +323,7 @@ endfunc
 " 7      15{{{1
     call s:hy ( 'Question'      , 7      , 0      , 'inverse'      )
     call s:hy ( 'Property'      , '71'   , 'none' , 'none'         )
-    call s:hy ( 'LogicalBuffer' , 'none' , "15"   , 'inverse,bold' )
+    call s:hy ( 'LogicalBuffer' , '15' , "0"   , 'inverse,bold' )
     call s:hy ( 'Logical7'      , '71'   , "TermBG"   , 'bold'         )
 
     for x in range(9, 15)
@@ -427,6 +427,7 @@ endfunc
     hi link LspDiagnosticsDefaultInformation MoreMsg
     hi link LspDiagnosticsDefaultHint Question
     hi link FgCocInfoFloatBgNormal None
+    hi link FgCocWarningFloatBgNormal Ignore
 
     hi link tapTestResultsOKRegion GitGutterAdd
     hi link tapTestResultsNotOKRegion GitGutterDiff
