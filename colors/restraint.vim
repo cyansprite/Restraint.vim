@@ -1,3 +1,4 @@
+" vi: foldmethod=marker
 " Vim:          Color file
 " Maintainer:   Jojo Brandon Coffman <https://github.com/cyansprite>
 " Title:        Restraint - WIP
@@ -25,6 +26,7 @@ let s:colorlist_dark = {
             \ "fg0"  : 'none',
             \ "bg"   : 'none',
             \ "bg0"  : 'none',
+            \ '000'  : '#4A4A4A',
             \ '00'   : '#2A2A2A',
             \ '01'   : '#2A1111',
             \ '02'   : '#112A11',
@@ -39,45 +41,52 @@ let s:colorlist_dark = {
             \ 0      : '#121212',
             \ 8      : '#5F5959',
             \ 1      : '#E16232',
-            \ '19'   : '#FF7F00',
-            \ '91'   : '#cc2070',
+            \ '19'   : '#FF9F00',
+            \ '91'   : '#dc0070',
             \ 9      : '#F9015A',
-            \ 2      : '#00CC00',
-            \ '101'  : '#6CC400',
+            \ 2      : '#00BC00',
+            \ '21'   : '#55CC00',
+            \ '101'  : '#5CF400',
             \ 10     : '#00BF36',
             \ '30'   : '#8f4000',
             \ '32'   : '#b7b24d',
-            \ 3      : '#C67228',
+            \ 3      : '#C96A34',
             \ 11     : '#B89D0C',
+            \ '113'  : '#F8AD3C',
             \ '111'  : '#D89D3C',
             \ 4      : '#5B90B7',
             \ 12     : '#5D4FFA',
             \ '121'  : '#7950C3',
-            \ '51'   : '#F22EF2',
+            \ '51'   : '#C22E52',
             \ '52'   : '#C000C0',
             \ '54'   : '#9000D0',
             \ 5      : '#2F5A94',
-            \ 13     : '#E44DFF',
-            \ '61'   : '#05C88A',
+            \ 13     : '#90C5E3',
+            \ 131    : '#C0D5E3',
+            \ '61'   : '#05C89A',
             \ '62'   : '#00FFFF',
             \ 6      : '#04F5C0',
-            \ 14     : '#0ABF5F',
-            \ '71'   : '#BBA14F',
-            \ '72'   : '#9A9A75',
+            \ 14     : '#0ADF7F',
+            \ 141    : '#80D5C3',
+            \ '71'   : '#52ada2',
+            \ '72'   : '#ada252',
+            \ '73'   : '#a252ad',
+            \ '74'   : '#AD528B',
+            \ '75'   : '#AD525D',
             \ 7      : '#9A9687',
             \ 15     : '#E6E4D6',
-            \ 83     : '#83733E',
-            \ 831    : '#1F1A10',
+            \ 83     : '#5a5a6f',
+            \ 831    : '#2A2A2A',
             \ '150'  : '#fdfdf3',
             \ '151'  : '#ffffe5',
             \ 'none' : 'none',
             \ 'Operator' : '#38FFAF',
-            \ 'ParenChars' : '#6BF19F',
+            \ 'ParenChars' : '#aCaCaF',
             \ 'QuoteChars' : '#7777BB',
-            \ 'MatchParen' : '#FF00FF',
+            \ 'MatchParen' : '#FFFF00',
             \ 'Visual' : '#2F2F4F',
-            \ 'CC' : '#ffe0e0',
-            \ 'Search' : '#555500',
+            \ 'CC' : '#2A2020',
+            \ 'Search' : '#3a3a00',
             \ }
 
 " term bg color: #D9D7D5
@@ -105,13 +114,15 @@ let s:colorlist_light = {
             \ '91'   : '#cc2070',
             \ 9      : '#CD0D52',
             \ 2      : '#1A8B1A',
-            \ '101'  : '#6CC400',
+            \ 21     : '#4A8B1A',
+            \ '101'  : '#5CA400',
             \ 10     : '#1D883C',
             \ '30'   : '#8f4000',
             \ '32'   : '#b7b24d',
             \ 3      : '#917D12',
             \ 11     : '#917D12',
             \ '111'  : '#B87D1C',
+            \ '113'  : '#F8AD3C',
             \ 4      : '#4F9BB6',
             \ 12     : '#2F5A94',
             \ '121'  : '#7950C3',
@@ -126,6 +137,7 @@ let s:colorlist_light = {
             \ 14     : '#2D9960',
             \ '71'   : '#9B811F',
             \ '72'   : '#BAAA55',
+            \ '73'   : '#D9A14A',
             \ 7      : '#989089',
             \ 15     : '#FFFFF7',
             \ 83     : '#9A8AAA',
@@ -137,8 +149,8 @@ let s:colorlist_light = {
             \ 'ParenChars' : '#3B916F',
             \ 'QuoteChars' : '#7777BB',
             \ 'MatchParen' : '#FF00FF',
-            \ 'Visual' : '#EAEAEA',
-            \ 'CC' : '#DFDCDA',
+            \ 'Visual' : '#BABADA',
+            \ 'CC' : '#DFCCDF',
             \ 'Search' : '#d5df00',
             \ }
 
@@ -155,12 +167,13 @@ if &bg == "dark"
     let s:colorList['fg0'] = s:colorList['bg0']
     let s:colorList['bg'] = temp
     let s:colorList['bg0'] = temp0
-    let s:colorList[ 'CC' ] =  '#610030'
 else
 endif
 
 let g:accentColor = '71'
 let g:accentColorLight = '72'
+let g:accentColorDiff = '75'
+let g:accentColorTert = '73'
 let g:colors_name = "restraint"
 
 let s:colorList['GrepSearch']  = '#886800'
@@ -189,7 +202,7 @@ endfunc
 " Special:|{{{1
     call s:hy ( 'Search'       , 'none'       , 'Search'  , 'bold'           )
     " call s:hy ( 'SearchC'      , 'none'       , 'SearchC' , 'bold,underline' )
-    call s:hy ( 'MatchParen'   , 'MatchParen' , 'none'    , 'underline'      )
+    call s:hy ( 'MatchParen'   , 'MatchParen' , 'none'    , 'bold'           )
     call s:hy ( 'BraceChars'   , 'ParenChars' , 'none'    , 'bold'           )
     call s:hy ( 'BracketChars' , 'ParenChars' , 'none'    , 'bold'           )
     call s:hy ( 'ParenChars'   , 'ParenChars' , 'none'    , 'bold'           )
@@ -198,14 +211,13 @@ endfunc
 
     " I'm not sure why I used User4 for the tabline fill... but I did
     call s:hy ( 'User4'        , 'none'             , 'none'   , 'bold' )
-    call s:hy ( 'Folded'       , g:accentColor      , 'none'   , 'none' )
+    call s:hy ( 'Folded'       , g:accentColorDiff  , 'none'   , 'none' )
     call s:hy ( 'Whitespace'   , 1                  , 'none'   , 'none' )
     call s:hy ( 'Visual'       , 'none'             , 'Visual' , 'none' )
-    call s:hy ( 'CursorLineNr' , 'none'             , '831'    , 'bold' )
     call s:hy ( 'EndOfBuffer'  , g:accentColorLight , 'none'   , 'bold' )
-    call s:hy ( 'CursorLine'   , 'none'             , 'none'   , 'none' )
-    call s:hy ( 'Pmenu'        , "71"               , 'TermBG' , 'none' )
-    call s:hy ( 'PmenuSel'     , "none"             , '831'    , 'bold' )
+    call s:hy ( 'CursorLine'   , 'none'             , '831'   , 'none' )
+    call s:hy ( 'Pmenu'        , g:accentColor               , 'TermBG' , 'none' )
+    call s:hy ( 'PmenuSel'     , g:accentColorLight             , '831'    , 'bold' )
     call s:hy ( 'Comment'      , '83'               , 'none'   , 'none' )
 
     call s:hy ( 'InnerScope'    , 'none'             , 'none' , 'none'         )
@@ -239,10 +251,10 @@ endfunc
     call s:hy ( 'OtherMode2'    , 8                  , 'none' , 'bold'         )
     call s:hy ( 'ReplaceMode2'  , 1                  , 'none' , 'bold'         )
 
-    call s:hy ( 'GitGutterDelete'             , '01'  , '011' , 'bold' )
-    call s:hy ( 'GitGutterAdd'                , '02'  , '022' , 'bold' )
-    call s:hy ( 'GitGutterChangeDelete'       , '03'  , '033' , 'bold' )
-    call s:hy ( 'GitGutterChange'             , '04'  , '044' , 'bold' )
+    call s:hy ( 'GitGutterDelete'             , '01'  , '011' , 'bold,inverse' )
+    call s:hy ( 'GitGutterAdd'                , '02'  , '022' , 'bold,inverse' )
+    call s:hy ( 'GitGutterChangeDelete'       , '03'  , '033' , 'bold,inverse' )
+    call s:hy ( 'GitGutterChange'             , '04'  , '044' , 'bold,inverse' )
     call s:hy ( 'GitGutterDeleteLineNr'       , '011' , '01'  , 'bold' )
     call s:hy ( 'GitGutterAddLineNr'          , '022' , '02'  , 'bold' )
     call s:hy ( 'GitGutterChangeDeleteLineNr' , '033' , '03'  , 'bold' )
@@ -268,13 +280,15 @@ endfunc
     call s:hy ( 'Function'     , '91'   , 'none' , 'none' )
     call s:hy ( 'UserFunction' , '9'    , 'none' , 'none' )
     call s:hy ( 'Member'       , 1      , 'none' , 'none' )
-    call s:hy ( 'Number'       , '19'   , 'none' , 'none' )
+    call s:hy ( 'Number'       , '11'   , 'none' , 'none' )
     call s:hy ( 'CocInfoSign'  , 15     , 19     , 'none' )
-    call s:hy ( 'Float'        , 1      , 'none' , 'none' )
+    call s:hy ( 'Float'        , 113      , 'none' , 'none' )
 
 " 2      10{{{1
     call s:hy ( 'StorageClass' , 10     , 'none' , 'none' )
     call s:hy ( 'String'       , 2      , 'none' , 'none' )
+    call s:hy ( 'Char'         , '21'   , 'none' , 'none' )
+    call s:hy ( 'StringSpecial', '101'   , 'none' , 'none' )
     call s:hy ( 'DiffAdd'      , 'none' , '02'   , 'none' )
     call s:hy ( 'diffAdded'    , 'none' , '02'   , 'none' )
     call s:hy ( 'QShit'        , 2      , 'none' , 'none' )
@@ -282,16 +296,18 @@ endfunc
 
 " 3      11{{{1
     call s:hy ( 'Parameter'  , '111' , 'none' , 'none'      )
+    call s:hy ( 'OtherYellow', '11' , 'none' , 'none'      )
     call s:hy ( 'Directory'  , 3     , 'none' , 'none'      )
     call s:hy ( 'Title'      , 3     , 'fg0'  , 'bold'      )
     call s:hy ( 'Macro'      , 3     , 'none' , 'bold'      )
     call s:hy ( 'Todo'       , '0'   , 11     , 'bold'      )
-    call s:hy ( 'WarningMsg' , 15    , 11     , 'bold'      )
-    call s:hy ( 'Special'    , 11    , 'none' , 'none'      )
+    call s:hy ( 'WarningMsg' , 0     , 113    , 'bold'      )
+    call s:hy ( 'Special'    , 111   , 'none' , 'none'      )
     call s:hy ( 'IncSearch'  , 0     , 3      , 'underline' )
     call s:hy ( 'Ignore'     , 3     , 'none' , 'none'      )
-    call s:hy ( 'Delimeter'  , 3     , 'none' , 'none'      )
+    call s:hy ( 'Delimeter'  , 72   , 'none' , 'none'      )
     call s:hy ( 'Identifier' , 3     , 'none' , 'none'      )
+    call s:hy ( 'Yellow' , 11     , 'none' , 'none'      )
 " 4      12{{{1
     call s:hy ( 'NonText'   , 4      , 'none' , 'none' )
     call s:hy ( 'PreCondit' , 4      , 'none' , 'none' )
@@ -313,16 +329,17 @@ endfunc
     call s:hy ( 'WildMenu'    , 'none' , 'none' , 'bold,inverse' )
 
 " 6      14{{{1
-    call s:hy ( 'Class'      , 14   , 'none' , 'none' )
-    call s:hy ( 'Label'      , '14' , 'none' , 'none' )
+    call s:hy ( 'Class'      , '62'   , 'none' , 'none' )
+    call s:hy ( 'Label'      , '61' , 'none' , 'none' )
     call s:hy ( 'Type'       , '61' , 'none' , 'none' )
     call s:hy ( 'SpecialKey' , 6    , 'none' , 'none' )
-    call s:hy ( 'Keyword'    , '62' , 'none' , 'none' )
+    call s:hy ( 'Keyword'    , '14' , 'none' , 'none' )
+    call s:hy ( 'Frost'    , '141' , 'none' , 'none' )
     call s:hy ( 'Statement'  , 14   , 'none' , 'none' )
 
 " 7      15{{{1
     call s:hy ( 'Question'      , 7      , 0      , 'inverse'      )
-    call s:hy ( 'Property'      , '71'   , 'none' , 'none'         )
+    call s:hy ( 'Property'      , 3   , 'none' , 'none'         )
     call s:hy ( 'LogicalBuffer' , '15' , "0"   , 'inverse,bold' )
     call s:hy ( 'Logical7'      , '71'   , "TermBG"   , 'bold'         )
 
@@ -338,16 +355,17 @@ endfunc
 
 " 0       8{{{1
     call s:hy ( 'StatuslineNc' , g:accentColor , 'fg0'  , 'none' )
-    call s:hy ( 'VertSplit'    , g:accentColor , 'none' , 'bold' )
-    call s:hy ( 'LineNr'       , g:accentColor , 'TermBG' , 'none' )
+    call s:hy ( 'VertSplit'    , g:accentColor, 'none' , 'bold' )
+    call s:hy ( 'LineNr'       , g:accentColorLight , 'TermBG' , 'none' )
+    call s:hy ( 'CursorLineNr' , g:accentColor, '831'    , 'bold' )
 
 
 " Dynamic:x{{{1
-    call s:hy ( 'FoldColumn' , g:accentColorLight , 'none' , 'none'         )
-    call s:hy ( 'StatusLine' , g:accentColor      , 'none' , 'none'         )
+    call s:hy ( 'FoldColumn' , g:accentColorLight , 'none' , 'none'    )
+    call s:hy ( 'StatusLine' , g:accentColor      , 'none' , 'none'    )
     call s:hy ( 'ModeMsg'    , g:accentColor      , 'none' , 'inverse,bold' )
-    call s:hy ( 'PmenuSbar'  , g:accentColor      , 'none' , 'inverse'      )
-    call s:hy ( 'PMenuThumb' , g:accentColor      , 'none' , 'inverse'      )
+    call s:hy ( 'PmenuSbar'  , 'none'             , '0'    , 'none'    )
+    call s:hy ( 'PMenuThumb' , g:accentColorDiff  , 'none' , 'inverse' )
 
 
 " Relink: >{{{1
@@ -370,10 +388,10 @@ endfunc
 
     hi link gitCommitSummary Title
 
-    hi link cocSemClass     Class
-    hi link cocSemModifier  Modifier
-    hi link cocSemProperty  Property
-    hi link cocSemParameter Parameter
+    hi link CocSemClass     None
+    hi link CocSemModifier  Modifier
+    hi link CocSemProperty  Property
+    hi link CocSemParameter Parameter
 
     hi link csClass         Structure
     hi link csType          Member
@@ -402,8 +420,11 @@ endfunc
     hi link builtInLibrary    Macro
 
     hi link typescriptMember Member
-    hi link typescriptBraces BraceChars
+    hi link typescriptBraces None
     hi link typescriptVariable Keyword
+    hi link typescriptIdentifier Keyword
+    hi link typescriptTemplateSubstitution Char
+    hi link typescriptTemplateSB StringSpecial
 
     hi link TSAttribute        Macro
     hi link TSConstBuiltIn     Macro
@@ -415,10 +436,12 @@ endfunc
     hi link TSKeywordReturn    Statement
     hi link TSKeyword          Keyword
     hi link TSParameter        Parameter
-    hi link TSProperty         Identifier
+    hi link TSProperty         Property
     hi link TSPunctBracket     BracketChars
     hi link TSPunctSpecial     Special
     hi link TSVariableBuiltIn  TypeDef
+
+    hi link CocHighlightText cursorline
 
     hi link OperatorChars     Operator
 
@@ -433,6 +456,58 @@ endfunc
     hi link tapTestResultsNotOKRegion GitGutterDiff
 
     hi link tapTest Title
+    hi link CocFadeOut WarningMsg
+
+    hi link @text.literal      Comment
+    hi link @text.reference    PreCondit
+    hi link @text.title        Title
+    hi link @text.uri          Underlined
+    hi link @text.underline    Underlined
+    hi link @text.todo         Todo
+
+    hi link @comment           Comment
+    hi link @punctuation       ParenChars
+
+    hi link @constant          Constant
+    hi link @constant.builtin  Special
+    hi link @constant.macro    Define
+    hi link @define            TypeDef
+    hi link @macro             Macro
+    hi link @string            String
+    hi link @string.escape     SpecialChar
+    hi link @string.special    SpecialChar
+    hi link @character         Character
+    hi link @character.special SpecialChar
+    hi link @number            Number
+    hi link @boolean           Boolean
+    hi link @float             Float
+
+    hi link @function          Function
+    hi link @function.builtin  Special
+    hi link @function.macro    Macro
+    hi link @parameter         Parameter
+    hi link @method            UserFunction
+    hi link @field             OtherYellow
+    hi link @property          Property
+    hi link @constructor       Special
+
+    hi link @conditional       Conditional
+    hi link @repeat            Repeat
+    hi link @label             Label
+    hi link @operator          Operator
+    hi link @keyword           Keyword
+    hi link @exception         Exception
+
+    hi link @variable          Frost
+    hi link @type              Type
+    hi link @type.definition   Typedef
+    hi link @storageclass      StorageClass
+    hi link @structure         Structure
+    hi link @namespace         Parameter
+    hi link @include           Include
+    hi link @preproc           PreProc
+    hi link @debug             Debug
+    hi link @tag               Tag
 
 " }}}
 " Plugin: & {{{1
