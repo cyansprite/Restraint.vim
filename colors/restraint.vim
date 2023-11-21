@@ -26,58 +26,60 @@ let s:colorlist_dark = {
             \ "fg0"  : 'none',
             \ "bg"   : 'none',
             \ "bg0"  : 'none',
+            \ "bgHigh"  : '#222222',
             \ '000'  : '#4A4A4A',
             \ '00'   : '#2A2A2A',
-            \ '01'   : '#2A1111',
-            \ '02'   : '#112A11',
-            \ '03'   : '#2A2A11',
-            \ '04'   : '#11112A',
-            \ '05'   : '#2A112A',
-            \ '011'  : '#8A1111',
-            \ '022'  : '#118A11',
-            \ '033'  : '#8A8A11',
-            \ '044'  : '#44448A',
+            \ '01'   : '#2A1F1F',
+            \ '02'   : '#1F2A1F',
+            \ '03'   : '#2A2A1F',
+            \ '04'   : '#1F1F2A',
+            \ '05'   : '#2A1F2A',
+            \ '011'  : '#5A4141',
+            \ '022'  : '#415A41',
+            \ '033'  : '#5A5A41',
+            \ '044'  : '#44445A',
             \ '088'  : '#333333',
             \ 0      : '#121212',
             \ 8      : '#5F5959',
-            \ 1      : '#E16232',
-            \ '19'   : '#FF9F00',
-            \ '91'   : '#dc0070',
-            \ 9      : '#F9015A',
-            \ 2      : '#00BC00',
+            \ 1      : '#A13232',
+            \ '19'   : '#CF6F40',
+            \ '91'   : '#Cc5060',
+            \ 9      : '#F9416A',
+            \ 2      : '#43AC40',
             \ '21'   : '#55CC00',
             \ '101'  : '#5CF400',
-            \ 10     : '#00BF36',
-            \ '30'   : '#8f4000',
-            \ '32'   : '#b7b24d',
-            \ 3      : '#C96A34',
-            \ 11     : '#B89D0C',
-            \ '113'  : '#F8AD3C',
+            \ 10     : '#40BF76',
+            \ '30'   : '#8f8040',
+            \ '32'   : '#b7b27d',
+            \ 3      : '#C98A44',
+            \ 11     : '#B8AD6C',
+            \ '113'  : '#F8BD6C',
             \ '111'  : '#D89D3C',
             \ 4      : '#5B90B7',
-            \ 12     : '#5D4FFA',
-            \ '121'  : '#7950C3',
-            \ '51'   : '#C22E52',
-            \ '52'   : '#C000C0',
-            \ '54'   : '#9000D0',
+            \ 12     : '#698FDA',
+            \ '121'  : '#4060BA',
+            \ '51'   : '#528EC2',
+            \ '52'   : '#C040C0',
+            \ '54'   : '#A040D0',
             \ 5      : '#2F5A94',
             \ 13     : '#90C5E3',
             \ 131    : '#C0D5E3',
-            \ '61'   : '#05C89A',
-            \ '62'   : '#00FFFF',
-            \ 6      : '#04F5C0',
-            \ 14     : '#0ADF7F',
+            \ '61'   : '#45C89A',
+            \ '62'   : '#60CFCF',
+            \ 6      : '#44F5C0',
+            \ 14     : '#4ADF7F',
             \ 141    : '#80D5C3',
-            \ '71'   : '#52ada2',
-            \ '72'   : '#ada252',
-            \ '73'   : '#a252ad',
-            \ '74'   : '#AD528B',
-            \ '75'   : '#AD525D',
-            \ 7      : '#9A9687',
+            \ '71'   : '#62ada2',
+            \ '72'   : '#ada262',
+            \ '73'   : '#a262ad',
+            \ '74'   : '#AD628B',
+            \ '75'   : '#6D62AD',
+            \ '76'   : '#2D626D',
+            \ 7      : '#CACACD',
             \ 15     : '#E6E4D6',
-            \ 83     : '#5a5a6f',
+            \ 83     : '#706080',
             \ 831    : '#2A2A2A',
-            \ '150'  : '#fdfdf3',
+            \ '150'  : '#8dbd73',
             \ '151'  : '#ffffe5',
             \ 'none' : 'none',
             \ 'Operator' : '#38FFAF',
@@ -86,16 +88,17 @@ let s:colorlist_dark = {
             \ 'MatchParen' : '#FFFF00',
             \ 'Visual' : '#2F2F4F',
             \ 'CC' : '#2A2020',
-            \ 'Search' : '#3a3a00',
+            \ 'Search' : '#3f3f00',
             \ }
 
 " term bg color: #D9D7D5
 let s:colorlist_light = {
-            \ "TermBG": '#D9D7D5',
+            \ "TermBG": '#F5F3ED',
             \ "fg"   : 'none',
             \ "fg0"  : 'none',
             \ "bg"   : 'none',
             \ "bg0"  : 'none',
+            \ "bgHigh": '#FFFFFF',
             \ '00'   : '#DDDDDD',
             \ '01'   : '#FAEAEA',
             \ '02'   : '#EAFAEA',
@@ -135,9 +138,12 @@ let s:colorlist_light = {
             \ '62'   : '#009A9A',
             \ 6      : '#199E7F',
             \ 14     : '#2D9960',
+            \ 141    : '#305553',
             \ '71'   : '#9B811F',
             \ '72'   : '#BAAA55',
             \ '73'   : '#D9A14A',
+            \ '75'   : '#A941DA',
+            \ '76'   : '#29919A',
             \ 7      : '#989089',
             \ 15     : '#FFFFF7',
             \ 83     : '#9A8AAA',
@@ -149,8 +155,8 @@ let s:colorlist_light = {
             \ 'ParenChars' : '#3B916F',
             \ 'QuoteChars' : '#7777BB',
             \ 'MatchParen' : '#FF00FF',
-            \ 'Visual' : '#BABADA',
-            \ 'CC' : '#DFCCDF',
+            \ 'Visual' : '#FFFFFF',
+            \ 'CC' : '#ffcece',
             \ 'Search' : '#d5df00',
             \ }
 
@@ -159,8 +165,11 @@ if &bg == "dark"
 else
     let s:colorList = s:colorlist_light
 endif
-
+let msg = 15
+let msg2 = 8
 if &bg == "dark"
+    let msg = 0
+    let msg2 = 7
     let temp = s:colorList['fg']
     let temp0 = s:colorList['fg0']
     let s:colorList['fg'] = s:colorList['bg']
@@ -200,7 +209,7 @@ endfunc
 " EasyAlign*/,\|)/
 
 " Special:|{{{1
-    call s:hy ( 'Search'       , 'none'       , 'Search'  , 'bold'           )
+    call s:hy ( 'Search'       , 'none'       , 'Search'  , 'none'           )
     " call s:hy ( 'SearchC'      , 'none'       , 'SearchC' , 'bold,underline' )
     call s:hy ( 'MatchParen'   , 'MatchParen' , 'none'    , 'bold'           )
     call s:hy ( 'BraceChars'   , 'ParenChars' , 'none'    , 'bold'           )
@@ -216,8 +225,11 @@ endfunc
     call s:hy ( 'Visual'       , 'none'             , 'Visual' , 'none' )
     call s:hy ( 'EndOfBuffer'  , g:accentColorLight , 'none'   , 'bold' )
     call s:hy ( 'CursorLine'   , 'none'             , '831'   , 'none' )
-    call s:hy ( 'Pmenu'        , g:accentColor               , 'TermBG' , 'none' )
-    call s:hy ( 'PmenuSel'     , g:accentColorLight             , '831'    , 'bold' )
+    call s:hy ( 'Pmenu'        , g:accentColor      , 'TermBG' , 'none' )
+    call s:hy ( 'PmenuSel'     , 141                , '831'    , 'bold' )
+    call s:hy ( 'CocFloatActive'     , 141                , '831'    , 'bold' )
+    call s:hy ( 'CocHintFloat'     , 141                , '831'    , 'bold' )
+    call s:hy ( 'CocMenuSel'     , 141                , '831'    , 'bold' )
     call s:hy ( 'Comment'      , '83'               , 'none'   , 'none' )
 
     call s:hy ( 'InnerScope'    , 'none'             , 'none' , 'none'         )
@@ -268,25 +280,24 @@ endfunc
     call s:hy ( 'Cursor'       , 'none' , 'none' , 'inverse' )
     call s:hy ( 'QuickFixLine' , 'none' , 'none' , 'inverse' )
     call s:hy ( 'DiffChange'   , 'none' , '088'  , 'none'    )
-    call s:hy ( 'ColorColumn'  , 'none' , 'CC'   , 'none'    )
+    call s:hy ( 'ColorColumn'  , 'none' , 'TermBG'   , 'none'    )
     call s:hy ( 'Bold'         , 'none' , 'none' , 'bold'    )
 
 "1       9{{{1
     call s:hy ( 'Error'        , 1      , 'none' , 'none' )
     call s:hy ( 'DiffDelete'   , 'none' , '01'   , 'none' )
-    call s:hy ( 'SpellBad'     , 15     , 1      , 'none' )
-    call s:hy ( 'ErrorMsg'     , 15     , 1      , 'bold' )
+    call s:hy ( 'SpellBad'     , msg   , 1      , 'none' )
+    call s:hy ( 'ErrorMsg'     , msg   , 1      , 'bold' )
+    call s:hy ( 'ErrorMsgLite' , 'none'   , 'CC'      , 'bold' )
     call s:hy ( 'DiffRemoved'  , 'none' , '01'   , 'none' )
     call s:hy ( 'Function'     , '91'   , 'none' , 'none' )
-    call s:hy ( 'UserFunction' , '9'    , 'none' , 'none' )
-    call s:hy ( 'Member'       , 1      , 'none' , 'none' )
+    call s:hy ( 'UserFunction' , 9    , 'none' , 'none' )
     call s:hy ( 'Number'       , '11'   , 'none' , 'none' )
-    call s:hy ( 'CocInfoSign'  , 15     , 19     , 'none' )
+    call s:hy ( 'CocInfoSign'  , msg   , 19     , 'none' )
     call s:hy ( 'Float'        , 113      , 'none' , 'none' )
 
 " 2      10{{{1
     call s:hy ( 'StorageClass' , 10     , 'none' , 'none' )
-    call s:hy ( 'String'       , 2      , 'none' , 'none' )
     call s:hy ( 'Char'         , '21'   , 'none' , 'none' )
     call s:hy ( 'StringSpecial', '101'   , 'none' , 'none' )
     call s:hy ( 'DiffAdd'      , 'none' , '02'   , 'none' )
@@ -295,24 +306,26 @@ endfunc
 
 
 " 3      11{{{1
-    call s:hy ( 'Parameter'  , '111' , 'none' , 'none'      )
+    call s:hy ( 'Parameter'  , '2' , 'none' , 'none'      )
     call s:hy ( 'OtherYellow', '11' , 'none' , 'none'      )
     call s:hy ( 'Directory'  , 3     , 'none' , 'none'      )
     call s:hy ( 'Title'      , 3     , 'fg0'  , 'bold'      )
     call s:hy ( 'Macro'      , 3     , 'none' , 'bold'      )
-    call s:hy ( 'Todo'       , '0'   , 11     , 'bold'      )
-    call s:hy ( 'WarningMsg' , 0     , 113    , 'bold'      )
+    call s:hy ( 'Todo'       , msg   , 11     , 'bold'      )
+    call s:hy ( 'WarningMsg' , msg     , 113    , 'bold'      )
     call s:hy ( 'Special'    , 111   , 'none' , 'none'      )
-    call s:hy ( 'IncSearch'  , 0     , 3      , 'underline' )
+    call s:hy ( 'IncSearch'  , msg     , 3      , 'underline' )
     call s:hy ( 'Ignore'     , 3     , 'none' , 'none'      )
     call s:hy ( 'Delimeter'  , 72   , 'none' , 'none'      )
-    call s:hy ( 'Identifier' , 3     , 'none' , 'none'      )
+    call s:hy ( 'Identifier' , 11     , 'none' , 'none'      )
     call s:hy ( 'Yellow' , 11     , 'none' , 'none'      )
 " 4      12{{{1
     call s:hy ( 'NonText'   , 4      , 'none' , 'none' )
     call s:hy ( 'PreCondit' , 4      , 'none' , 'none' )
     call s:hy ( 'Constant'  , 12     , 'none' , 'none' )
     call s:hy ( 'Modifier'  , 12     , 'none' , 'bold' )
+    call s:hy ( 'Member'    , 12      , 'none' , 'none' )
+    call s:hy ( 'Property'  , '76'   , 'none' , 'none'         )
     call s:hy ( 'DiffText'  , 'none' , '04'   , 'none' )
 
 " 5      13{{{1
@@ -323,25 +336,26 @@ endfunc
     call s:hy ( 'SpecialChar' , 5      , 'none' , 'none'         )
     call s:hy ( 'diffSubname' , 5      , '05'   , 'none'         )
     call s:hy ( 'PreProc'     , 5      , 'none' , 'none'         )
-    call s:hy ( 'MoreMsg'     , 15     , 5      , 'bold'         )
+    call s:hy ( 'MoreMsg'     , 5     , 'none'      , 'bold'         )
     call s:hy ( 'Repeat'      , 13     , 'none' , 'none'         )
     call s:hy ( 'SignColumn'  , 5      , 'none' , 'none'         )
     call s:hy ( 'WildMenu'    , 'none' , 'none' , 'bold,inverse' )
 
 " 6      14{{{1
-    call s:hy ( 'Class'      , '62'   , 'none' , 'none' )
+    call s:hy ( 'Class'      , '121' , 'none' , 'none' )
     call s:hy ( 'Label'      , '61' , 'none' , 'none' )
     call s:hy ( 'Type'       , '61' , 'none' , 'none' )
     call s:hy ( 'SpecialKey' , 6    , 'none' , 'none' )
     call s:hy ( 'Keyword'    , '14' , 'none' , 'none' )
-    call s:hy ( 'Frost'    , '141' , 'none' , 'none' )
+    call s:hy ( 'Frost'      , '141' , 'none' , 'none' )
+    call s:hy ( 'variable'   , '141' , 'none' , 'none' )
     call s:hy ( 'Statement'  , 14   , 'none' , 'none' )
 
 " 7      15{{{1
-    call s:hy ( 'Question'      , 7      , 0      , 'inverse'      )
-    call s:hy ( 'Property'      , 3   , 'none' , 'none'         )
+    call s:hy ( 'Question'      , 7      , msg      , 'inverse'      )
     call s:hy ( 'LogicalBuffer' , '15' , "0"   , 'inverse,bold' )
     call s:hy ( 'Logical7'      , '71'   , "TermBG"   , 'bold'         )
+    call s:hy ( 'String'       , 10      , 'none' , 'none' )
 
     for x in range(9, 15)
         call s:hy ("Logical".string(x-9), x, 'TermBG', 'bold')
@@ -350,8 +364,9 @@ endfunc
         call s:hy ("Logical".string(x+7), x, 'TermBG', 'bold')
     endfor
 
-    call s:hy ( 'CocCodeLens'  , 7 , 'none' , 'none' )
-    call s:hy ( 'LspCodeLens'  , 7 , 'none' , 'none' )
+    call s:hy ( 'CocCodeLens'  , msg2, 'TermBG' , 'none' )
+    call s:hy ( 'LspCodeLens'  , msg2, 'TermBG' , 'none' )
+    call s:hy ( 'CocInfoLine'  , 11, 'TermBG' , 'none' )
 
 " 0       8{{{1
     call s:hy ( 'StatuslineNc' , g:accentColor , 'fg0'  , 'none' )
@@ -366,6 +381,8 @@ endfunc
     call s:hy ( 'ModeMsg'    , g:accentColor      , 'none' , 'inverse,bold' )
     call s:hy ( 'PmenuSbar'  , 'none'             , '0'    , 'none'    )
     call s:hy ( 'PMenuThumb' , g:accentColorDiff  , 'none' , 'inverse' )
+    call s:hy ( 'CocFloatSbar'  , 'none'             , '0'    , 'none'    )
+    call s:hy ( 'CocFloatThumb' , g:accentColorDiff  , 'none' , 'inverse' )
 
 
 " Relink: >{{{1
@@ -388,7 +405,7 @@ endfunc
 
     hi link gitCommitSummary Title
 
-    hi link CocSemClass     None
+    hi link CocSemClass     Class
     hi link CocSemModifier  Modifier
     hi link CocSemProperty  Property
     hi link CocSemParameter Parameter
@@ -419,10 +436,27 @@ endfunc
 
     hi link builtInLibrary    Macro
 
+    hi link htmlTag Keyword
+    hi link htmlArg Property
+    hi link htmlTagName Function
+
+    hi link typescriptTernary Property
+    hi link typescriptProp Property
+    hi link typescriptES6SetMethod method
+    " hi link typescriptBlock Property
+    hi link typescriptArray Identifier
+    hi link typescriptTypeReference class
+    hi link typescriptObjectLabel property
+    hi link typescriptTypeReference Class
+    hi link typescriptStatementKeyword Keyword
+    hi link typescriptIdentifier Special
+    " hi link typescriptDecorator type
+    hi link typescriptCall parameter
+    hi link typescriptCase Identifier
     hi link typescriptMember Member
     hi link typescriptBraces None
     hi link typescriptVariable Keyword
-    hi link typescriptIdentifier Keyword
+    hi link typescriptIdentifierName Identifier
     hi link typescriptTemplateSubstitution Char
     hi link typescriptTemplateSB StringSpecial
 
@@ -449,6 +483,7 @@ endfunc
     hi link LspDiagnosticsDefaultWarning WarningMsg
     hi link LspDiagnosticsDefaultInformation MoreMsg
     hi link LspDiagnosticsDefaultHint Question
+    hi link CocCodeLens MoresMsg
     hi link FgCocInfoFloatBgNormal None
     hi link FgCocWarningFloatBgNormal Ignore
 
@@ -457,6 +492,14 @@ endfunc
 
     hi link tapTest Title
     hi link CocFadeOut WarningMsg
+    hi link CocSelectedText PmenuSel
+    hi link CocHighlightText PmenuSel
+    hi link CocFloating PmenuSel
+    hi link CocErrorFloat PmenuSel
+    hi link CocMenueSel PmenuSel
+    hi link CocErrorSign ErrorMsgLite
+    hi link CocErrorHighlight ErrorMsgLite
+    hi link CocErrorLine ErrorMsgLite
 
     hi link @text.literal      Comment
     hi link @text.reference    PreCondit
@@ -508,9 +551,28 @@ endfunc
     hi link @preproc           PreProc
     hi link @debug             Debug
     hi link @tag               Tag
+    hi link ansinone normal
+    hi link DiagnosticVirtualTextHint Question
+
+    hi link CocInfoVirtualText Question
+    hi link CocHintHighlight Question
+    hi link CocHintSign Question
+    hi link CocHintVirtualText Question
+    hi link CocInlayHint Question
+    hi link CocInlayHintParameter Question
+    hi link CocSymbolUnit Parameter
+    hi link CocSymbolFolder Yellow
+    hi link CocSymbolText String
+    hi link CocSymbolObject Class
+    hi link NotifyINFOIcon MoreMsg
+    hi link NotifyINFO MoreMsg
+    hi link NotifyINFOTitle MoreMsg
+    hi link NotifyINFOBody MoreMsg
 
 " }}}
 " Plugin: & {{{1
 
 call s:hy('GrepperCurrent', 0, 'GrepSearchC', 'none')
 call s:hy('GrepperMatch'  , 0, 'GrepSearch' , 'none')
+
+call s:hy('TreesitterContext', 0, 'bgHigh' , 'none')
